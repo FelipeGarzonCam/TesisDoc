@@ -1,0 +1,245 @@
+%Plantilla realizada por Felipe Garzon, basado en la platilla de WORD creada
+%por el ing. Oscar Gelvez para el documento entregable en proyecto de grado II
+
+
+\documentclass[12pt, letterpaper]{report}
+
+% --- PAQUETES ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{csquotes}
+\usepackage[top=3cm, left=3cm, bottom=2cm, right=2cm]{geometry}
+
+% ======== FUENTE: Times New Roman ========
+\usepackage{mathptmx}
+
+\usepackage{graphicx}
+\graphicspath{{imagenes/}}
+\usepackage{setspace}
+\onehalfspacing 
+\usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=blue,    
+    urlcolor=blue
+}
+\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+\addbibresource{Bibliography.bib}
+
+
+% Colores USTA
+\definecolor{ustaAzul}{RGB}{0,39,77}
+\definecolor{ustaAmarillo}{RGB}{255,205,0}
+
+% ============ INFORMACIÓN DEL PROYECTO (Editar aquí) ============
+\newcommand{\proyectoTitulo}{DESARROLLO DE UNA APLICACIÓN WEB PARA LA GESTIÓN DE COMANDAS EN RESTAURANTES PYME CON ENCRIPTACIÓN Y AUTENTICACIÓN DE BAJO COSTO}%(RELACIÓN CON EL OBJETIVO GENERAL)
+\newcommand{\estudianteUno}{LUIS FELIPE GARZÓN CAMACHO}
+\newcommand{\estudianteDos}{NOMBRE DE ESTUDIANTE 2}
+\newcommand{\proyectoModalidad}{Modalidad de Proyecto de Grado\\(Proyecto de Investigación)}
+\newcommand{\grupoInvestigacion}{GRUPO DE INVESTIGACIÓN MEM} %MEM, GED
+\newcommand{\lineaInvestigacion}{Modelado-Electrónica-Monitoreo}
+
+% Directores y asesores
+\newcommand{\director}{JAIME VITOLA OYAGA}
+\newcommand{\directorTitulo}{Ph.D.} %(ACRÓNIMO CON MÁXIMO NIVEL DE FORMACIÓN)
+\newcommand{\codirector}{JOHN MONZAIDE ALVAREZ CELY}
+\newcommand{\codirectorTitulo}{MSc.} %(ACRÓNIMO CON MÁXIMO NIVEL DE FORMACIÓN)
+\newcommand{\asesor}{JESÚS RENATO DE LA ROSA MARTÍNEZ}
+\newcommand{\asesorTitulo}{Ing.} %(ACRÓNIMO CON MÁXIMO NIVEL DE FORMACIÓN)
+
+% ======== FECHAS COMPLETAMENTE AUTOMÁTICAS ========
+% Nombres de meses en español
+\newcommand{\nombremes}[1]{%
+  \ifcase#1\or enero\or febrero\or marzo\or abril\or mayo\or junio\or%
+  julio\or agosto\or septiembre\or octubre\or noviembre\or diciembre\fi%
+}
+
+% Comandos de fecha automática (toma la fecha del sistema)
+\newcommand{\proyectoAnio}{\the\year}
+\newcommand{\proyectoMes}{\the\month}
+\newcommand{\proyectoDia}{\the\day}
+\newcommand{\proyectoMesTexto}{\nombremes{\month}}
+\newcommand{\proyectoFecha}{\proyectoDia-\proyectoMes-\proyectoAnio}
+\newcommand{\proyectoFechaCompleta}{\proyectoMesTexto{} de \proyectoAnio}
+
+% ============ NOMBRES CORRECTOS ============
+\addto\captionsspanish{
+    \renewcommand{\contentsname}{CONTENIDO}
+    \renewcommand{\listfigurename}{LISTA DE FIGURAS}
+    \renewcommand{\listtablename}{LISTA DE TABLAS}
+    \renewcommand{\lstlistlistingname}{LISTA DE CÓDIGOS}
+}
+
+% ============ CONFIGURACIÓN DE TÍTULOS ============
+
+% Formato de capítulos
+\titleformat{\chapter}[hang]
+  {\normalfont\Large\bfseries\centering}
+  {\thechapter.}{10pt}{\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+
+% Formato de secciones
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection.}{10pt}{}
+
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection.}{10pt}{}
+
+% ============ CONFIGURACIÓN DE CÓDIGO ============
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    captionpos=b,
+    showstringspaces=false
+}
+
+% Configuración de páginas
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+
+% ==================== PRELIMINARES ====================
+\pagenumbering{gobble}
+
+\include{capitulos/0_portada}
+\include{capitulos/0_contraportada}
+\include{capitulos/0_nota_aceptacion}
+\include{capitulos/0_advertencia}
+\include{capitulos/0_resumen}
+% ==================== ÍNDICES Y LISTAS ====================
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% CONTENIDO
+\tableofcontents
+\newpage
+
+% ==================== LISTA DE FIGURAS ====================
+% Se agrega automáticamente. Cada figura insertada con \caption{...} aparecerá aquí.
+% Para insertar una figura:
+%   \begin{figure}[H]
+%       \centering
+%       \includegraphics[width=0.7\textwidth]{imagen.png}
+%       \caption{Descripción de la figura}
+%       \label{fig:etiqueta}
+%   \end{figure}
+% Nota: Mientras que la ilustración busca transmitir ideas y emociones, 
+% la figura representa objetos o conceptos específicos de manera clara y precisa.
+\listoffigures
+\addcontentsline{toc}{chapter}{Lista de Figuras}
+\newpage
+
+% ==================== LISTA DE TABLAS ====================
+% Se agrega automáticamente. Cada tabla insertada con \caption{...} aparecerá aquí.
+% Para insertar una tabla:
+%   \begin{table}[H]
+%       \centering
+%       \caption{Descripción de la tabla}
+%       \label{tab:etiqueta}
+%       \begin{tabular}{|c|c|c|}
+%           \hline
+%           Columna 1 & Columna 2 & Columna 3 \\
+%           \hline
+%           Dato 1 & Dato 2 & Dato 3 \\
+%           \hline
+%       \end{tabular}
+%   \end{table}
+\listoftables
+\addcontentsline{toc}{chapter}{Lista de Tablas}
+\newpage
+
+% ==================== LISTA DE GRÁFICAS (OPCIONAL) ====================
+% Una gráfica contiene ejes coordenados para expresar comportamiento de datos
+% de forma continua o discreta.
+% Las gráficas se insertan igual que figuras, pero especificando en el caption:
+%   \caption{Gráfica de temperatura vs tiempo}
+% Por defecto aparecen en la Lista de Figuras. Si quieres separarlas,
+% debes crear manualmente esta lista o usar el paquete 'newfloat'.
+% Descomenta las siguientes líneas si necesitas una lista separada:
+%
+% \chapter*{LISTA DE GRÁFICAS}
+% \addcontentsline{toc}{chapter}{Lista de Gráficas}
+% (Agregar manualmente cada gráfica aquí)
+% \newpage
+
+% ==================== LISTA DE ILUSTRACIONES (OPCIONAL) ====================
+% Una ilustración es una representación gráfica creada por un artista o diseñador.
+% A diferencia de una imagen, una ilustración no se basa necesariamente en la 
+% realidad y puede incluir elementos imaginativos o abstractos.
+% Las ilustraciones se insertan igual que figuras:
+%   \caption{Ilustración del concepto del sistema}
+% Por defecto aparecen en la Lista de Figuras.
+% Descomenta si necesitas una lista separada:
+%
+% \chapter*{LISTA DE ILUSTRACIONES}
+% \addcontentsline{toc}{chapter}{Lista de Ilustraciones}
+% (Agregar manualmente cada ilustración aquí)
+% \newpage
+
+% ==================== LISTA DE IMÁGENES (OPCIONAL) ====================
+% Una imagen se refiere a una representación visual que captura o reproduce
+% la apariencia de un objeto, persona o escena. Generalmente, se trata de 
+% una fotografía o un renderizado digital.
+% Las imágenes se insertan igual que figuras:
+%   \caption{Imagen del prototipo final}
+% Por defecto aparecen en la Lista de Figuras.
+% Descomenta si necesitas una lista separada:
+%
+% \chapter*{LISTA DE IMÁGENES}
+% \addcontentsline{toc}{chapter}{Lista de Imágenes}
+% (Agregar manualmente cada imagen aquí)
+% \newpage
+
+% ==================== LISTA DE CÓDIGOS (OPCIONAL) ====================
+% Se agrega automáticamente. Cada código con caption=... aparecerá aquí.
+% Para insertar código:
+%   \begin{lstlisting}[language=Python, caption={Descripción}, label={lst:etiqueta}]
+%   def funcion():
+%       print("Hola")
+%   \end{lstlisting}
+% Descomenta si usas código en tu proyecto:
+%
+% \lstlistoflistings
+% \addcontentsline{toc}{chapter}{Lista de Códigos}
+% \newpage
+
+% ==================== CONTENIDO PRINCIPAL ====================
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{capitulos/1_introduccion}
+\include{capitulos/2_contextualizacion}
+\include{capitulos/3_marco_referencial}
+\include{capitulos/4_desarrollo}
+\include{capitulos/5_resultados}
+\include{capitulos/6_conclusiones}
+\include{capitulos/7_trabajo_futuro}
+
+% ==================== BIBLIOGRAFÍA ====================
+\printbibliography[title={REFERENCIAS BIBLIOGRÁFICAS}]
+\addcontentsline{toc}{chapter}{Referencias Bibliográficas}
+
+\end{document}

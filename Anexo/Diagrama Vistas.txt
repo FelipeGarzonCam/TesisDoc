@@ -1,0 +1,81 @@
+flowchart LR
+    A[Login] --> B{Validación<br/>de rol}
+
+    B --> M0[Mesero]
+    B --> K0[Cocina]
+    B --> C0[Caja]
+    B --> AD0[Administrador]
+    B --> T0[TI]
+
+    subgraph MES["Mesero"]
+        direction TB
+        M0 --> M1[Pedidos activos]
+        M1 --> M2[Nuevo pedido]
+        M1 --> M3[Editar pedido]
+    end
+
+    subgraph COC["Cocina"]
+        direction TB
+        K0 --> K1[Gestión de pedidos]
+    end
+
+    subgraph CAJ["Caja"]
+        direction TB
+        C0 --> C1[Pedidos activos]
+        C1 --> C2[Historial]
+        C1 --> C3[Finalizar pedido]
+        C3 --> C4[Factura]
+    end
+
+    subgraph ADM["Administrador"]
+        direction TB
+        AD0 --> AD1[Panel principal]
+
+        AD1 --> AD2[Modificar menú]
+        AD2 --> AD21[Crear plato]
+        AD2 --> AD22[Editar plato]
+        AD2 --> AD23[Eliminar plato]
+
+        AD1 --> AD3[Modificar empleados]
+        AD3 --> AD31[Crear empleado]
+        AD3 --> AD32[Editar empleado]
+
+        AD1 --> AD4[Registro sesiones]
+        AD1 --> AD5[Historial pedidos]
+    end
+
+    subgraph TI["TI"]
+        direction TB
+        T0 --> T1[Gestión tarjetas]
+        T1 --> T11[Crear admin]
+        T1 --> T12[Cambiar clave]
+        T1 --> T13[Regenerar tarjeta]
+        
+        T0 --> T2[Gestión backups]
+        T2 --> T21[Crear backup]        
+        T2 --> T23[Restaurar backup]
+        T2 --> T24[Eliminar backup]
+    end
+
+    M1 --> L[Cerrar sesión]
+    K1 --> L
+    C1 --> L
+    AD1 --> L
+    T0 --> L
+    L --> A
+
+    classDef login fill:#f5f7fa,stroke:#b8c2cc,color:#2f3e46,stroke-width:1.2px;
+    classDef mesero fill:#eaf7ee,stroke:#8fd19e,color:#1f5c2e,stroke-width:1.2px;
+    classDef cocina fill:#fff4df,stroke:#f5c37a,color:#8a5a00,stroke-width:1.2px;
+    classDef caja fill:#fff9db,stroke:#f2d36b,color:#7a6300,stroke-width:1.2px;
+    classDef admin fill:#eaf4fb,stroke:#8ec5e8,color:#1e5873,stroke-width:1.2px;
+    classDef ti fill:#f3ecfb,stroke:#bea6e6,color:#5b3d8a,stroke-width:1.2px;
+    classDef logout fill:#fdeeee,stroke:#e3a8a8,color:#8a3d3d,stroke-width:1.2px;
+
+    class A,B login;
+    class M0,M1,M2,M3 mesero;
+    class K0,K1 cocina;
+    class C0,C1,C2,C3,C4 caja;
+    class AD0,AD1,AD2,AD21,AD22,AD23,AD3,AD31,AD32,AD4,AD5 admin;
+    class T0,T1,T11,T12,T13,T2,T21,T23,T24 ti;
+    class L logout;

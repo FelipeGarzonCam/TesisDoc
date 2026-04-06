@@ -1,0 +1,35 @@
+sequenceDiagram
+    autonumber
+    
+    participant Web as Navegador Web (Admin)
+    participant API as Servidor .NET 8
+    participant DB as SQL Server
+    participant Raspi as Raspberry Pi (Hardware)
+
+    Note over Web, DB: FASE 1: Credenciales Primarias
+    Web->>API: POST /login (Usuario, Contraseña)
+    API->>DB: Consultar Hash de Contraseña
+    DB-->>API: Resultado de Validación
+    
+    Note over API, DB: FASE 2: Inicio de Flujo 2FA
+    API->>DB: Generar Código de Sesión Temporal (ej: 1234)
+    API-->>Web: Respuesta 200 OK + Código 1234
+    
+    Note over Web, API: FASE 3: Bucle de Espera (Polling Asíncrono)
+    loop Cada 3 Segundos
+        Web->>API: GET /check-2fa?codigo=1234
+        API-->>Web: 401 Pending (Aún no autorizado)
+    end
+    
+    Note over Raspi, DB: FASE 4: Interacción Física (NFC + Tkinter)
+    Note left of Raspi: Administrador digita '1234' en pantalla<br/>y acerca Tarjeta NFC al lector
+    Raspi->>API: POST /validate-nfc (Código=1234, UID=AB:CD:EF)
+    API->>DB: Comparar UID encriptado vs BD
+    DB-->>API: UID Coincide
+    API->>DB: Actualizar Estado Sesión -> Autorizado
+    API-->>Raspi: 200 OK (Mostrar 'Acceso Concedido')
+    
+    Note over Web, API: FASE 5: Concesión de Acceso
+    Web->>API: GET /check-2fa?codigo=1234
+    API-->>Web: 200 OK (Autorizado)
+    Web->>Web: Redirigir a Panel de Control /Admin

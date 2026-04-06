@@ -1,0 +1,118 @@
+@startuml
+title Diagrama de Casos de Uso 
+left to right direction
+
+skinparam backgroundColor #FEFEFE
+skinparam actorStyle awesome
+
+' Estilos globales
+skinparam usecase {
+    BackgroundColor #EAF4FF
+    BorderColor #2C7BE5
+    FontSize 12
+    FontStyle bold
+}
+
+skinparam actor {
+    BackgroundColor #D5E8D4
+    BorderColor #5A9E6F
+    FontSize 11
+    FontStyle bold
+}
+
+skinparam package {
+    BackgroundColor #FFFDE7
+    BorderColor #F0AD00
+    FontSize 11
+    FontStyle italic
+}
+
+' Definición de Actores
+actor Mesero
+actor Cocina
+actor Caja
+actor Administrador
+actor "TI" as TI
+actor "Raspberry Pi\n(Lector NFC)" as RPi <<device>>
+
+rectangle "QuickTable - Sistema de Gestión de Comandas" {
+
+    package "Autenticacion y Asistencia" {
+        usecase "Iniciar Sesion" as UC_Login
+        usecase "Autenticar via 2FA (NFC)" as UC_2FA
+        usecase "Marcar Salida de Jornada" as UC_Salida
+    }
+
+    package "Gestion de Comandas" {
+        usecase "Crear Comanda" as UC_CrearComanda
+        usecase "Modificar Pedido" as UC_ModificarPedido
+    }
+
+    package "Area de Cocina" {
+        usecase "Ver Pedidos Pendientes" as UC_VerCocina
+        usecase "Actualizar Estado de Pedido" as UC_EstadoCocina
+    }
+
+    package "Facturacion" {
+        usecase "Facturar Pedido" as UC_Facturar
+        usecase "Ver Historial de Facturacion" as UC_HistorialCaja
+    }
+
+    package "Administracion" {
+        usecase "Administrar Menu" as UC_Menu
+        usecase "Administrar Empleados" as UC_Empleados
+        usecase "Ver Registro de Sesiones" as UC_Sesiones
+        usecase "Ver Historial de Pedidos" as UC_HistorialAdmin
+    }
+
+    package "Administracion TI" {
+        usecase "Gestionar Backups" as UC_Backups
+        usecase "Gestionar Tarjetas NFC" as UC_TarjetasNFC
+        usecase "Crear Administrador" as UC_CrearAdmin
+    }
+}
+
+' Relaciones Coloreadas por Actor
+' Mesero: Azul (#2C7BE5)
+Mesero -[#2C7BE5]-> UC_Login
+Mesero -[#2C7BE5]-> UC_CrearComanda
+Mesero -[#2C7BE5]-> UC_ModificarPedido
+Mesero -[#2C7BE5]-> UC_Salida
+
+' Cocina: Verde (#5A9E6F)
+Cocina -[#5A9E6F]-> UC_Login
+Cocina -[#5A9E6F]-> UC_VerCocina
+Cocina -[#5A9E6F]-> UC_EstadoCocina
+Cocina -[#5A9E6F]-> UC_Salida
+
+' Caja: Dorado/Naranja (#F0AD00)
+Caja -[#F0AD00]-> UC_Login
+Caja -[#F0AD00]-> UC_Facturar
+Caja -[#F0AD00]-> UC_HistorialCaja
+Caja -[#F0AD00]-> UC_Salida
+
+' Administrador: Púrpura (#6B3E99)
+Administrador -[#6B3E99]-> UC_Login
+Administrador -[#6B3E99]-> UC_2FA
+Administrador -[#6B3E99]-> UC_Salida
+Administrador -[#6B3E99]-> UC_Menu
+Administrador -[#6B3E99]-> UC_Empleados
+Administrador -[#6B3E99]-> UC_Sesiones
+Administrador -[#6B3E99]-> UC_HistorialAdmin
+
+' TI: Rojo (#D32F2F)
+TI -[#D32F2F]-> UC_Login
+TI -[#D32F2F]-> UC_2FA
+TI -[#D32F2F]-> UC_Salida
+TI -[#D32F2F]-> UC_Backups
+TI -[#D32F2F]-> UC_TarjetasNFC
+TI -[#D32F2F]-> UC_CrearAdmin
+
+' RPi: Gris (#757575)
+RPi -[#757575]-> UC_2FA
+RPi -[#757575]-> UC_Salida
+
+' Extensiones y otros (Negro/Punteado)
+UC_2FA .[#black].> UC_Login : <<extend>>
+
+@enduml

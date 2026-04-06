@@ -1,0 +1,308 @@
+\chapter{MARCO REFERENCIAL}
+
+\section{Marco Conceptual}
+
+Este capítulo establece los fundamentos técnicos y los estándares normativos que rigen la arquitectura y la ingeniería de la solución de software propuesta. A continuación, se detallan los principios de diseño, los modelos de estructuración de información y los marcos regulatorios internacionales que garantizan la viabilidad, escalabilidad y seguridad del sistema.
+
+\subsection{Normativas IEEE Aplicables}
+El desarrollo del sistema se rige por estándares internacionales de ingeniería de software para garantizar la calidad, mantenibilidad y escalabilidad del producto final:
+\begin{itemize}
+	\item \textbf{ISO/IEC/IEEE 29148 (Ingeniería de Sistemas y Software - Requisitos):} Establece los lineamientos rigurosos para la especificación de requerimientos de software (ERS), garantizando que las necesidades operativas se traduzcan en características técnicas medibles \cite{BALSAM2025112186}.
+	\item \textbf{ISO/IEC/IEEE 23026:2023 (Ingeniería y Gestión de Sitios Web):} Define los requisitos de ingeniería, diseño, pruebas y mantenimiento para aplicaciones web en entornos de intranet, asegurando estándares de usabilidad, accesibilidad y seguridad de la información \cite{IEEE23026}.
+	\item \textbf{IEEE 1016 (Estándar para el Diseño de Software):} Proporciona un marco metodológico para documentar la arquitectura del sistema, la estructuración de la base de datos relacional y las interfaces entre los componentes \cite{IEEE1016}.
+\end{itemize}
+
+\subsection{Aplicación Web y Arquitectura Intranet}
+Una aplicación web es un sistema informático alojado en un servidor que procesa la lógica de negocio y entrega interfaces gráficas dinámicas al cliente a través de un navegador, independientemente de su sistema operativo. En este proyecto, la aplicación opera bajo una arquitectura de intranet local \cite{akyildiz2006survey}; esto significa que el servidor web y la red de acceso están confinados a la infraestructura física del restaurante, eliminando la dependencia a la conectividad externa a internet y reduciendo drásticamente la latencia de las peticiones.
+
+\subsection{Patrón Arquitectónico Modelo-Vista-Controlador (MVC)}
+El patrón MVC es un modelo de diseño de software que separa los datos de una aplicación, la interfaz de usuario y la lógica de control en tres componentes distintos. Esta separación de responsabilidades facilita el mantenimiento y el escalamiento del sistema:
+\begin{itemize}
+	\item \textbf{Modelo:} Representa la estructura de los datos y las reglas de negocio (entidades, validaciones y acceso a la persistencia).
+	\item \textbf{Vista:} Corresponde a la interfaz gráfica generada dinámicamente que interactúa con el usuario final (mesero, cocinero o cajero).
+	\item \textbf{Controlador:} Componente lógico que recibe las peticiones del cliente (HTTP), interactúa con el Modelo para obtener o mutar datos, y selecciona la Vista adecuada para retornar la respuesta.
+\end{itemize}
+
+\subsection{Almacenamiento de Datos}
+El almacenamiento de datos en la ingeniería del proyecto comprende la persistencia estructurada y segura de la información transaccional. Para garantizar la integridad referencial y el cumplimiento estricto de las propiedades ACID (Atomicidad, Consistencia, Aislamiento y Durabilidad), se emplean bases de datos relacionales. En este entorno, los datos de inventario, ventas y sesiones de usuarios se almacenan en tablas interconectadas mediante llaves foráneas, lo que soporta altos volúmenes de transacciones concurrentes sin corrupción de datos y permite la implementación de mecanismos de encriptación en reposo.
+
+\subsection{Procesamiento de Datos}
+El procesamiento de datos en el contexto de esta aplicación web abarca la captura, transformación, validación y distribución de la información en tiempo real. Este flujo de datos va desde la intercepción de una petición (ej. la confirmación de una orden), hasta la ejecución de la lógica del servidor que calcula los subtotales de la transacción y realiza un \textit{push} de notificación a la interfaz de cocina. El diseño de algoritmos de procesamiento eficientes es vital para minimizar cuellos de botella en horas pico de operación.
+
+\subsection{Ventajas de la Automatización de Procesos}
+La automatización de procesos mediante sistemas de información centralizados elimina la intervención manual repetitiva. A nivel ingenieril y operativo, sus ventajas directas incluyen:
+\begin{itemize}
+	\item \textbf{Trazabilidad Continua:} Generación de un registro inmutable (logs) de cada acción ejecutada en el sistema, permitiendo auditar qué usuario creó, modificó o facturó una orden.
+	\item \textbf{Reducción de Latencia Transaccional:} Comunicación instantánea y en tiempo real entre los nodos de la red local, eliminando los tiempos muertos de desplazamiento físico \cite{DEVRIES201859}.
+	\item \textbf{Consistencia de la Información:} Mitigación de errores inducidos por fallos de memoria humana, caligrafía ilegible o errores de cálculo aritmético en la caja.
+	\item \textbf{Inteligencia de Negocio:} Capacidad de procesar los grandes volúmenes de datos almacenados para extraer métricas precisas (platos más vendidos, horas pico, tiempos de preparación) de manera automática.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Marco Teórico}
+
+\subsection{Fundamentos}
+El proceso de transformación digital en las empresas del sector gastronómico representa un desafío sistémico que trasciende la simple adopción de equipos informáticos; exige una reingeniería profunda de los flujos de comunicación y la operatividad del negocio. Históricamente, la modernización de estos establecimientos ha enfrentado fuertes barreras de entrada debido a los altos costos de infraestructura, el pago de licencias corporativas y los contratos de mantenimiento forzosos \cite{marcelo2024desafios}. Los fundamentos teóricos de esta investigación se centran en el diseño de un paradigma de despliegue local (\textit{On-Premise}) de arquitectura ligera, en contraposición directa a los modelos de software como servicio (\textit{SaaS}) alojados en la nube. Este enfoque sustenta la viabilidad de un ecosistema digital robusto que otorga a los establecimientos plena propiedad sobre sus datos y garantiza una operación ininterrumpida, libre de la dependencia a redes de telecomunicaciones externas.
+
+
+\subsection{Antecedentes Comerciales en Colombia y Análisis de Costos}
+
+Para dimensionar la pertinencia de la solución propuesta, es indispensable
+analizar el estado actual del mercado de software de Punto de Venta (POS)
+orientado a restaurantes en Colombia. El ecosistema comercial está compuesto
+principalmente por plataformas bajo esquemas de suscripción mensual o anual,
+con estructuras de precios escalonadas según número de cajas, usuarios y
+mesas habilitadas. La Tabla~\ref{tab:pos_colombia} presenta un resumen de
+los planes base verificados a marzo de 2026.
+
+\begin{itemize}
+	
+\item \textbf{GastroPOS (desde \$29.900 COP/mes):}
+Desarrollada por la empresa colombiana del mismo nombre, GastroPOS
+estructura su oferta en dos categorías de planes \cite{gastropos}:
+
+\begin{itemize}
+	\item \textbf{Planes sin Facturación Electrónica:}
+	\begin{itemize}
+		\item \textbf{Restobar POS (\$29.900 COP/mes):} Plan de entrada
+		orientado a restaurantes y bares, sin módulo de facturación
+		electrónica DIAN.
+		\item \textbf{Tienda POS (\$39.900 COP/mes):} Variante orientada
+		a comercios de venta al detal, igualmente sin facturación
+		electrónica incluida.
+	\end{itemize}
+	\item \textbf{Planes con Facturación Electrónica DIAN:}
+	\begin{itemize}
+		\item \textbf{Plan Básico (\$41.900 COP/mes):} Hasta 200 facturas
+		electrónicas mensuales.
+		\item \textbf{Plan Plus (\$84.900 COP/mes):} Hasta 500 facturas
+		electrónicas mensuales.
+		\item \textbf{Plan Premium (\$149.900 COP/mes):} Hasta 1.000
+		facturas electrónicas mensuales.
+	\end{itemize}
+\end{itemize}
+
+Los planes con facturación electrónica establecen un límite mensual de
+documentos; cuando el volumen del establecimiento supera el techo del
+plan contratado, se requiere migrar al nivel inmediatamente superior
+\cite{gastropos}.
+	
+	\item \textbf{Loggro Restobar (\$120.990 / \$175.990 / \$219.990
+		COP/mes):}
+	Plataforma en la nube con tres niveles de plan comercializados
+	directamente en su sitio:
+	
+	\begin{itemize}
+		\item \textbf{Plan Básico (\$120.990/mes):} Habilita 1 caja,
+		3 usuarios, 15 mesas y 30 facturas electrónicas incluidas. Incluye
+		POS online ilimitado, inventario con recetas ilimitado, 1 zona de
+		comandas, toma de pedidos desde el móvil, menú digital con código
+		QR y gestión de gastos.
+		\item \textbf{Plan Estándar (\$175.990/mes):} Amplía la operación
+		a 2 cajas, 6 usuarios, 30 mesas y 3 zonas de comandas, manteniendo
+		las demás características del plan base.
+		\item \textbf{Plan Premium (\$219.990/mes):} Soporta hasta 5
+		cajas, usuarios ilimitados, 200 mesas y zonas de comandas
+		ilimitadas.
+	\end{itemize}
+	
+	Los tres planes incluyen las primeras 30 facturas electrónicas
+	mensuales; a partir de ese volumen, la facturación electrónica
+	ilimitada se contrata como complemento desde \$45.990 COP/mes según
+	el nivel de facturación del establecimiento. Otros
+	complementos disponibles son: caja adicional (\$43.990/mes), zona de
+	comanda adicional (\$18.990/mes), usuario adicional (\$18.990/mes),
+	mesa adicional (\$8.990/mes) y nómina electrónica (desde
+	\$18.990/mes) \cite{loggro_planes}.
+	
+	\item \textbf{Vendty (desde \$100.000 COP/mes en pago mensual):}
+	Con más de diez años en el mercado colombiano, Vendty estructura su
+	oferta en tres planes:
+	
+	\begin{itemize}
+		\item \textbf{Plan Emprendedor (\$100.000/mes o \$1.000.000/año):}
+		2 usuarios, 1 caja, 20 mesas, productos ilimitados, facturas POS
+		ilimitadas y hasta 1.000 facturas electrónicas mensuales.
+		\item \textbf{Plan Profesional (\$150.000/mes o \$1.500.000/año):}
+		5 usuarios, 2 cajas, 35 mesas y tienda virtual integrada.
+		\item \textbf{Plan Empresarial (\$200.000/mes o \$2.000.000/año):}
+		10 usuarios, 5 cajas, 50 mesas, tienda virtual avanzada, acceso
+		a API e integración con versión de escritorio.
+	\end{itemize}
+	
+	Todos los planes incluyen capacitación, actualizaciones y soporte, y
+	son compatibles con hardware genérico: tablet Android, PC, Mac,
+	impresoras de tiquete, lectores de código de barras y cajones de dinero. Vendty también comercializa una versión de escritorio con
+	estructura de precios diferente: el plan anual desde \$85.000 COP/mes
+	(pago único anual de \$1.020.000), orientada a operaciones sin
+	dependencia de navegador \cite{vendty_escritorio}. El sitio oficial
+	indica adicionalmente que para establecimientos tipo restaurante puede
+	aplicar un valor diferenciado al de comercios retail \cite{vendty}.
+	
+	\item \textbf{Toteat (desde \$139.900 COP/mes + 0,7\% sobre venta neta):}
+	Plataforma de origen chileno con operación activa en Colombia, Toteat
+	aplica un modelo de precios compuesto por una tarifa base mensual más
+	un porcentaje variable calculado sobre la venta neta mensual del
+	establecimiento, más impuestos. Sus planes son:
+	
+	\begin{itemize}
+		\item \textbf{Plan Básico (\$139.900 COP/mes + 0,7\% sobre venta
+			neta):} Incluye POS en la nube, usuarios y mesas ilimitados,
+		impresión de comandas, integración con hasta 3 aplicaciones de
+		\textit{delivery}, boleta y factura electrónica ilimitada, menú QR
+		digital, modo \textit{offline}, integración con medios de pago
+		digitales y reportes estratégicos \cite{toteat_planes}.
+		\item \textbf{Plan Corporativo (\$459.900 COP/mes + 0,35\% sobre
+			venta neta):} Reduce el porcentaje variable a la mitad e incorpora
+		funcionalidades para operaciones multi-sede, acceso a APIs de
+		inventario, compras y ventas, módulo de reservas y un gestor de
+		cuenta dedicado \cite{toteat_corp}.
+	\end{itemize}
+	
+	La plataforma registra una calificación de 4,5/5 en Capterra Colombia
+	al cierre de 2025, con soporte personalizado 24/7 incluido en todos sus
+	planes \cite{capterra_toteat}.
+	
+	\item \textbf{Poster POS (precio en USD, variable según tasa de
+		cambio):}
+	Plataforma de origen ucraniano disponible en Colombia, Poster estructura
+	sus planes en tres niveles (Mini, Business y Pro), diferenciados por la
+	cantidad máxima de platillos y artículos registrables: 100, 300 y 1.500
+	respectivamente para el módulo restaurante.
+	Los precios se publican en dólares estadounidenses en su sitio oficial,
+	por lo que el costo mensual en pesos colombianos está sujeto a la
+	variación de la tasa de cambio \cite{comparasoftware_poster}. La
+	integración con la DIAN para facturación electrónica en Colombia se
+	gestiona mediante una aplicación complementaria de terceros
+	denominada ``Facturación Electrónica Colombia'', disponible en el
+	directorio de integraciones de Poster \cite{poster_dian}.
+	
+\end{itemize}
+
+\begin{table}[h!]
+	\centering
+	\caption{Comparativa técnica y comercial de software POS para restaurantes en Colombia (Marzo 2026)}
+	\label{tab:pos_colombia}
+	\small
+	% Definimos columnas: l (Software), X (Plan), r (Costo), c (Cajas), c (Usuarios), l (FE DIAN)
+	\begin{tabularx}{\textwidth}{l X r c c l}
+		\toprule
+		\textbf{Software} & \textbf{Plan} & \textbf{Costo (COP/mes)} & \textbf{Cajas} & \textbf{Usu.} & \textbf{FE DIAN} \\
+		\midrule
+		\multirow{2}{*}{GastroPOS} 
+		& Restobar & \$29.900 & NA & NA & Complemento \\
+		& Básico con FE & \$41.900 & NA & NA & Incluida (200) \\
+		\midrule
+		\multirow{3}{*}{Vendty} 
+		& Emprendedor & \$100.000 & 1 & 2 & Incluida (1.000) \\
+		& Profesional & \$150.000 & 2 & 5 & Incluida (1.000) \\
+		& Empresarial & \$200.000 & 5 & 10 & Incluida (1.000) \\
+		\midrule
+		\multirow{3}{*}{Loggro} 
+		& Básico & \$120.990 & 1 & 3 & Parcial (30) \\
+		& Estándar & \$175.990 & 2 & 6 & Parcial (30) \\
+		& Premium & \$219.990 & 5 & Ilimit. & Parcial (30) \\
+		\midrule
+		\multirow{2}{*}{Toteat} 
+		& Básico & \$139.900 + 0,7\%\textsuperscript{*} & NA & Ilimit. & Incluida \\
+		& Corporativo & \$459.900 + 0,35\%\textsuperscript{*} & NA & Ilimit. & Incluida \\
+		\midrule
+		Poster & Mini / Biz / Pro & Variable (USD) & NA & NA & Terceros \\
+		\bottomrule
+	\end{tabularx}
+	\begin{flushleft}
+		\footnotesize
+		\textbf{FE}: Facturación Electrónica (documentos/mes). \textbf{NA}: No especificado por el proveedor. \textbf{Ilimit.}: Ilimitados. \\
+		\textsuperscript{*} Porcentaje calculado sobre la venta neta mensual. \\
+		\textbf{Fuentes}: \cite{gastropos}, \cite{vendty}, \cite{loggro_planes}, \cite{toteat_planes}, \cite{comparasoftware_poster}.
+	\end{flushleft}
+\end{table}
+
+
+\subsection{Tecnologías Implementadas y su Relación Costo-Beneficio}
+El desarrollo técnico del sistema se estructuró a partir de una selección rigurosa de herramientas que garantizan un rendimiento de nivel empresarial y altos estándares de seguridad, minimizando a su vez los costos de licenciamiento de software.
+
+\subsubsection{Framework .NET 8 (Razor Pages)}
+El núcleo de la aplicación se fundamenta en .NET 8, un entorno de ejecución de alto rendimiento. La elección del modelo de desarrollo \textit{Razor Pages} permite procesar y acoplar la interfaz de usuario junto con la lógica de negocio directamente en el lado del servidor de forma cohesiva. Esta arquitectura acelera los tiempos de desarrollo y facilita el despliegue del software en equipos con recursos de hardware limitados, evitando la sobrecarga inherente a arquitecturas fragmentadas.
+
+\subsubsection{Entity Framework 6 y SQL Server}
+Para la persistencia de datos se emplea \textbf{Entity Framework 6} (EF6),
+un Mapeador Objeto-Relacional (ORM) de Microsoft que abstrae las operaciones
+de acceso a datos mediante un modelo de entidades en C\#, eliminando la
+escritura directa de sentencias SQL para las operaciones estándar
+\cite{ef6_docs}. Como motor de base de datos se utiliza \textbf{SQL Server},
+disponible en las ediciones Express y Developer sin costo de licenciamiento
+para desarrollo y despliegue en entornos de producción no comerciales de
+pequeña escala \cite{sqlserver_editions}. La combinación de EF6 con SQL
+Server es compatible de forma nativa con .NET 8 mediante el paquete
+\texttt{EntityFramework} 6.5.x disponible en NuGet \cite{ef6_nuget}.
+
+\subsubsection{Diseño Frontend y Estructuración de Interfaz}
+La capa de presentación del sistema se implementó utilizando como base estructural el panel de control de código abierto \textit{AdminLTE}, el cual opera sobre el framework CSS Bootstrap. El uso de este recurso proporcionó un sistema de grillas predefinido y componentes visuales estándar (como tablas, formularios y modales) que aseguran la responsividad de la aplicación en diferentes tamaños de pantalla (computadoras, tabletas y teléfonos móviles). 
+
+A partir de esta base técnica, el código del \textit{frontend} fue depurado y adaptado para construir interfaces segregadas según el sistema de control de acceso basado en roles. De este modo, se desarrollaron vistas independientes que exponen únicamente las funcionalidades permitidas para cada perfil de usuario: un módulo simplificado para la toma de comandas por parte de los meseros, un panel de gestión de colas de preparación para la cocina, y una interfaz administrativa orientada a la gestión de inventarios y facturación.
+
+\subsubsection{Módulo de Seguridad Físico}
+En soluciones comerciales de alta gama, la implementación de controles de acceso de doble factor o autenticación por hardware supone la adquisición de periféricos costosos. Para democratizar este nivel de protección, el proyecto integra una \textbf{Raspberry Pi} que actúa como unidad de procesamiento para un módulo lector \textbf{RFID-RC522}. Este conjunto gestiona la lectura de etiquetas físicas NFC, habilitando la creación de llaves de acceso encriptadas indispensables para ingresar a la administración del sistema.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Marco Legal}
+El despliegue de soluciones tecnológicas en el sector comercial colombiano debe enmarcarse dentro de la legislación vigente respecto al tratamiento de la información, el uso de medios electrónicos y la infraestructura tecnológica. Al tratarse de un sistema \textit{On-Premise} (alojado localmente en las instalaciones del restaurante), aplican consideraciones jurídicas específicas.
+
+\subsection{Regulación sobre Protección de Datos Personales}
+En Colombia, la Ley 1581 de 2012 y sus decretos reglamentarios establecen el Régimen General de Protección de Datos Personales (Habeas Data) \cite{ley1581}. Esta normativa obliga a las entidades que recolectan, almacenan o procesan información personal a implementar políticas estrictas de privacidad y solicitar autorización expresa a los titulares. 
+
+En el contexto de la presente investigación, la arquitectura del sistema ha sido diseñada bajo el principio de \textit{minimización de datos}. La aplicación gestiona exclusivamente información de carácter transaccional y operativo como lo son comandas, flujo de caja y roles de empleados internos; sin requerir, capturar ni almacenar datos personales sensibles de los clientes comensales (como nombres, documentos de identidad, teléfonos o correos electrónicos). En consecuencia, el sistema mitiga el riesgo jurídico asociado al manejo de datos de terceros y exime al establecimiento de obligaciones complejas frente a la Superintendencia de Industria y Comercio (SIC) en materia de bases de datos de clientes.
+
+\subsection{Normativas TIC sobre Almacenamiento y Medios Electrónicos}
+La legislación colombiana, a través de la Ley 527 de 1999, reconoce la validez jurídica y la fuerza probatoria de los mensajes de datos y registros electrónicos, equiparándolos a los documentos físicos \cite{ley527}. Esto otorga pleno respaldo legal a las comandas y auditorías generadas digitalmente por el sistema. 
+
+Respecto al almacenamiento de la información, el sistema adopta un modelo local en lugar de la tercerización en la nube. Mantener la base de datos de forma local a través de SQL Server centraliza la custodia de los activos de información bajo el control absoluto del restaurante. Esto facilita la implementación de políticas de almacenamiento estructurado (información de acceso inmediato para la operación diaria, e información en copias de seguridad encriptadas) sin exponer los registros financieros a vulnerabilidades inherentes a servidores públicos de internet.
+
+\subsection{Legislación sobre Delitos Informáticos}
+La Ley 1273 de 2009 modificó el Código Penal colombiano para crear un nuevo
+bien jurídico tutelado denominado ``de la protección de la información y de
+los datos'', e introdujo tipos penales específicos para conductas que afecten
+sistemas informáticos. Entre los artículos de mayor relevancia
+para el presente proyecto se encuentran:
+
+\begin{itemize}
+	\item \textbf{Artículo 269A -- Acceso abusivo a un sistema informático:}
+	Tipifica el acceso no autorizado, total o parcial, a un sistema
+	informático protegido o no con medida de seguridad, con penas de 48 a
+	96 meses de prisión y multas de 100 a 1.000 salarios mínimos legales
+	mensuales vigentes.
+	\item \textbf{Artículo 269C -- Interceptación de datos informáticos:}
+	Penaliza la interceptación de datos en su origen, destino o en el
+	interior de un sistema informático sin autorización judicial previa.
+	\item \textbf{Artículo 269F -- Violación de datos personales:}
+	Sanciona la obtención, compilación, sustracción, venta o envío de datos
+	personales contenidos en ficheros, archivos o bases de datos sin
+	consentimiento del titular.
+\end{itemize}
+
+El mecanismo de autenticación de doble factor implementado en el sistema,
+basado en tarjetas NFC con identificadores encriptados, opera como una
+medida de seguridad en los términos del Artículo 269A, dado que condiciona
+el acceso administrativo a la posesión física de un elemento hardware y al
+conocimiento de credenciales. Adicionalmente, el cifrado de la base de datos
+restringe la legibilidad de los registros almacenados ante cualquier acceso
+no autorizado al servidor, en concordancia con el espíritu protector del
+Artículo 269F \cite{ley1273}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Marco Ambiental}
+La transición de procesos análogos a digitales conlleva implicaciones directas sobre el medio ambiente. El análisis de estas implicaciones requiere evaluar tanto los beneficios derivados de la desmaterialización de los procesos, como el impacto energético de la infraestructura tecnológica requerida.
+
+\subsection{Legislación y Estrategias de Cero Papel}
+El Estado colombiano ha promovido activamente la reducción del consumo de recursos físicos en entornos administrativos y comerciales. Directrices como el Decreto Ley 2106 de 2019 impulsan la iniciativa \textit{Cero Papel}, orientada a sustituir flujos de trabajo físicos por medios electrónicos para lograr una gestión más eficiente y sostenible \cite{dec2106}. 
+
+La digitalización del ciclo de comandas mediante el sistema propuesto elimina la dependencia del papel convencional utilizado en las comandas manuscritas de los restaurantes. Esta supresión de insumos de un solo uso no solo disminuye los costos operativos fijos del establecimiento, sino que reduce directamente la generación de residuos sólidos, alineando la operación del negocio con las políticas nacionales de sostenibilidad y economía circular \cite{UNSDS}.
+
+\subsection{Impacto Energético de la Infraestructura de Servidores}
+A nivel global, la proliferación de la computación en la nube ha generado preocupación medioambiental. Las granjas de servidores (\textit{Data Centers}) requeridas para soportar los modelos comerciales de \textit{Software as a Service (SaaS)} consumen cantidades masivas de energía eléctrica y agua dulce para el enfriamiento de sus procesadores. Regulaciones internacionales recientes exigen monitorear métricas críticas como la Eficiencia en el Uso de la Energía (PUE) y el Carbono (CUE), evidenciando el alto impacto ecológico del almacenamiento en la nube a gran escala.
+
+En contraposición, la solución tecnológica abordada en este proyecto minimiza significativamente la huella de carbono asociada al hardware. El sistema evita la dependencia de macro-servidores externos, ejecutando toda la lógica de negocio y base de datos sobre la infraestructura computacional de bajo consumo existente en el local (computadores convencionales) y microcontroladores de arquitectura ARM (como la \textit{Raspberry Pi} empleada para el módulo de seguridad). Estos dispositivos operan con voltajes reducidos, lo que garantiza un consumo eléctrico mínimo y nulo requerimiento de refrigeración industrial, demostrando que la automatización de procesos locales puede lograrse con un impacto ambiental marginal en términos de consumo energético.
