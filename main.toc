@@ -1,64 +1,91 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Lista de Figuras}{\es@scroman {iii}}{chapter*.2}%
-\contentsline {chapter}{Lista de Tablas}{\es@scroman {iv}}{chapter*.3}%
+\contentsline {chapter}{Resumen}{}{chapter*.1}%
+\contentsline {chapter}{Abstract}{}{chapter*.2}%
+\contentsline {chapter}{Lista de Figuras}{\es@scroman {v}}{chapter*.4}%
+\contentsline {chapter}{Lista de Tablas}{\es@scroman {vi}}{chapter*.5}%
 \contentsline {chapter}{\numberline {1}INTRODUCCIÓN}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}CONTEXTUALIZACIÓN}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Planteamiento del problema}{2}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Pregunta problema}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Objetivos}{5}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Objetivo General}{5}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Objetivos Específicos}{5}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Justificación}{6}{section.2.4}%
-\contentsline {chapter}{\numberline {3}MARCO REFERENCIAL}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Marco Conceptual}{10}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Normativas IEEE Aplicables}{10}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Aplicación Web y Arquitectura Intranet}{10}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Patrón Arquitectónico Modelo-Vista-Controlador (MVC)}{10}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Almacenamiento de Datos}{11}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Procesamiento de Datos}{11}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6}Ventajas de la Automatización de Procesos}{11}{subsection.3.1.6}%
-\contentsline {section}{\numberline {3.2}Marco Teórico}{12}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Fundamentos}{12}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Antecedentes Comerciales en Colombia y Análisis de Costos}{12}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Tecnologías Implementadas y su Relación Costo-Beneficio}{15}{subsection.3.2.3}%
-\contentsline {subsubsection}{Framework .NET 8 (Razor Pages)}{15}{subsubsection*.5}%
-\contentsline {subsubsection}{Entity Framework 6 y SQL Server}{15}{subsubsection*.6}%
-\contentsline {subsubsection}{Diseño Frontend y Estructuración de Interfaz}{16}{subsubsection*.7}%
-\contentsline {subsubsection}{Módulo de Seguridad Físico}{16}{subsubsection*.8}%
-\contentsline {section}{\numberline {3.3}Marco Legal}{16}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Regulación sobre Protección de Datos Personales}{16}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Normativas TIC sobre Almacenamiento y Medios Electrónicos}{17}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Legislación sobre Delitos Informáticos}{17}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Marco Ambiental}{18}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Legislación y Estrategias de Cero Papel}{18}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Impacto Energético de la Infraestructura de Servidores}{18}{subsection.3.4.2}%
-\contentsline {chapter}{\numberline {4}DESARROLLO}{20}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Levantamiento y Especificación de Requerimientos}{20}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Casos de Uso y Roles del Sistema}{20}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Requerimientos Funcionales (Criterios Given-When-Then)}{24}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Requerimientos de Seguridad (2FA y Encriptación)}{27}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Requerimientos No Funcionales}{29}{subsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.1.5}Arquitectura General del Sistema}{30}{subsection.4.1.5}%
-\contentsline {section}{\numberline {4.2}Diseño e Implementación de la Base de Datos}{32}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Modelo Entidad-Relación}{32}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Implementación con Entity Framework 6}{34}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Implementación de la Solución Web}{35}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Interfaz de Usuario (Frontend y Personalización visual)}{35}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Lógica de Negocio y Módulos .NET 8 (Razor Pages)}{36}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Análisis Visual de la Interfaz Implementada}{36}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Implementación del Módulo de Seguridad por Hardware (2FA Local)}{37}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Arquitectura y Configuración del Hardware}{38}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Desarrollo del Cliente Python e Interfaz Gráfica (Tkinter)}{38}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Sincronización y Criptografía con el Backend (.NET 8)}{39}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Diagrama de Secuencia UML: Flujo de Autenticación 2FA}{40}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Diseño e Integración Física del Módulo (Impresión 3D)}{41}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Pruebas de Validación y Verificación}{43}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Infraestructura y Entorno de Laboratorio}{43}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Verificación Manual de Funcionalidades}{43}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Pruebas Unitarias y de Seguridad Lógica}{44}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Pruebas Automatizadas de Concurrencia}{44}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Evaluación del Tiempo de Respuesta Operativa}{45}{subsection.4.5.5}%
-\contentsline {chapter}{\numberline {5}RESULTADOS}{46}{chapter.5}%
-\contentsline {chapter}{\numberline {6}CONCLUSIONES}{47}{chapter.6}%
-\contentsline {chapter}{\numberline {7}TRABAJO FUTURO}{48}{chapter.7}%
-\contentsline {chapter}{Referencias Bibliográficas}{53}{chapter*.19}%
+\contentsline {chapter}{\numberline {2}CONTEXTUALIZACIÓN}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Planteamiento del problema}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Pregunta problema}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Objetivos}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Objetivo General}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Objetivos Específicos}{8}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Justificación}{9}{section.2.4}%
+\contentsline {chapter}{\numberline {3}MARCO REFERENCIAL}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Marco Conceptual}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Normativas IEEE Aplicables}{13}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Aplicación Web y Arquitectura Intranet}{13}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Patrón Arquitectónico Modelo-Vista-Controlador (MVC)}{13}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Almacenamiento de Datos}{14}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Procesamiento de Datos}{14}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Ventajas de la Automatización de Procesos}{14}{subsection.3.1.6}%
+\contentsline {section}{\numberline {3.2}Marco Teórico}{15}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Fundamentos}{15}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Antecedentes Comerciales en Colombia y Análisis de Costos}{15}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Tecnologías Implementadas y su Relación Costo-Beneficio}{18}{subsection.3.2.3}%
+\contentsline {subsubsection}{Framework .NET 8 (Razor Pages)}{18}{subsubsection*.7}%
+\contentsline {subsubsection}{Entity Framework 6 y SQL Server}{18}{subsubsection*.8}%
+\contentsline {subsubsection}{Diseño Frontend y Estructuración de Interfaz}{19}{subsubsection*.9}%
+\contentsline {subsubsection}{Módulo de Seguridad Físico}{19}{subsubsection*.10}%
+\contentsline {section}{\numberline {3.3}Marco Legal}{19}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Regulación sobre Protección de Datos Personales}{19}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Normativas TIC sobre Almacenamiento y Medios Electrónicos}{20}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Legislación sobre Delitos Informáticos}{20}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Marco Ambiental}{21}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Legislación y Estrategias de Cero Papel}{21}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Impacto Energético de la Infraestructura de Servidores}{21}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}DESARROLLO}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Levantamiento y Especificación de Requerimientos}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Casos de Uso y Roles del Sistema}{23}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Requerimientos Funcionales (Criterios Given-When-Then)}{27}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Requerimientos de Seguridad (2FA y Encriptación)}{30}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Requerimientos No Funcionales}{32}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Arquitectura General del Sistema}{33}{subsection.4.1.5}%
+\contentsline {section}{\numberline {4.2}Diseño e Implementación de la Base de Datos}{35}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Modelo Entidad-Relación}{35}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Implementación con Entity Framework 6}{37}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Implementación de la Solución Web}{38}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Interfaz de Usuario (Frontend y Personalización visual)}{38}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Lógica de Negocio y Módulos .NET 8 (Razor Pages)}{39}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Análisis Visual de la Interfaz Implementada}{39}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Implementación del Módulo de Seguridad por Hardware (2FA Local)}{40}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Arquitectura y Configuración del Hardware}{41}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Desarrollo del Cliente Python e Interfaz Gráfica (Tkinter)}{41}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Sincronización y Criptografía con el Backend (.NET 8)}{42}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Diagrama de Secuencia UML: Flujo de Autenticación 2FA}{43}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}Diseño e Integración Física del Módulo (Impresión 3D)}{44}{subsection.4.4.5}%
+\contentsline {section}{\numberline {4.5}Pruebas de Validación y Verificación}{46}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Infraestructura y Entorno de Laboratorio}{46}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Verificación Manual de Funcionalidades}{47}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Pruebas Unitarias y de Seguridad Lógica}{48}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Pruebas de API con Postman}{48}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Evaluación del Tiempo de Respuesta Operativa}{49}{subsection.4.5.5}%
+\contentsline {subsection}{\numberline {4.5.6}Pruebas Automatizadas de Concurrencia}{50}{subsection.4.5.6}%
+\contentsline {paragraph}{Etapa 1 — Carga y normalización.}{54}{paragraph*.22}%
+\contentsline {paragraph}{Etapa 2 — Cálculo de métricas.}{55}{paragraph*.23}%
+\contentsline {paragraph}{Etapa 3 — Generación de visualizaciones.}{55}{paragraph*.24}%
+\contentsline {paragraph}{Etapa 4 — Exportación de datos y reporte de consola.}{56}{paragraph*.25}%
+\contentsline {subsection}{\numberline {4.5.7}Análisis de Vulnerabilidades de Superficie con OWASP ZAP}{56}{subsection.4.5.7}%
+\contentsline {subsection}{\numberline {4.5.8}Implementación Piloto en Entorno Real}{56}{subsection.4.5.8}%
+\contentsline {chapter}{\numberline {5}RESULTADOS}{58}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Resultados de la Verificación Manual de Funcionalidades}{58}{section.5.1}%
+\contentsline {section}{\numberline {5.2} Resultados de las Pruebas Unitarias}{59}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Resultados de las Pruebas de API con Postman}{61}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Creación de Copia de Seguridad}{61}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Consulta de Espacio de Almacenamiento Disponible}{62}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Listado del Historial de Respaldos}{62}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Registro de Salida de Personal mediante Tarjeta NFC}{64}{subsection.5.3.4}%
+\contentsline {section}{\numberline {5.4}Resultados de la Evaluación del Tiempo de Respuesta Operativa}{64}{section.5.4}%
+\contentsline {subsubsection}{Condición con acceso a Internet}{65}{subsubsection*.37}%
+\contentsline {subsubsection}{Condición sin acceso a Internet}{69}{subsubsection*.44}%
+\contentsline {section}{\numberline {5.5}Resultados de las Pruebas de Concurrencia}{73}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Comportamiento Transaccional y Tasa de Éxito}{73}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Estabilidad del Servidor frente a Picos de Demanda}{75}{subsection.5.5.2}%
+\contentsline {section}{\numberline {5.6}Análisis de Seguridad (OWASP ZAP)}{77}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Resultados del Análisis de Seguridad (OWASP ZAP)}{77}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Resultados de la Implementación Piloto en Entorno Real}{78}{section.5.8}%
+\contentsline {paragraph}{Presupuesto de Adaptación.}{79}{paragraph*.58}%
+\contentsline {paragraph}{Presupuesto de Implementación Inicial.}{79}{paragraph*.60}%
+\contentsline {chapter}{\numberline {6}CONCLUSIONES}{81}{chapter.6}%
+\contentsline {chapter}{\numberline {7}TRABAJO FUTURO}{82}{chapter.7}%
+\contentsline {chapter}{Referencias Bibliográficas}{87}{chapter*.62}%

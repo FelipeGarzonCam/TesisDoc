@@ -541,18 +541,59 @@ La materialización se realizó mediante impresión 3D por deposición de hilo f
 \end{figure}
 
 %%%%%%%%%%%
-
 \section{Pruebas de Validación y Verificación}
-En estricto cumplimiento con el diseño metodológico trazado en la fase de formulación del proyecto, la etapa de pruebas de validación y verificación se estructuró con el propósito de evaluar la funcionalidad, el rendimiento y la seguridad del sistema en un entorno que simulara fielmente las limitaciones tecnológicas reales de un restaurante PYME. 
 
-Para abarcar integralmente el comportamiento del software, el plan de pruebas se dividió en cuatro frentes de evaluación: validación manual de usabilidad, pruebas unitarias de seguridad y lógica de negocio, pruebas automatizadas de estrés, y medición de latencia operativa.
+En estricto cumplimiento con el diseño metodológico trazado en la fase de formulación del proyecto, la etapa de pruebas de validación y verificación se estructuró con el propósito de evaluar la funcionalidad, el rendimiento y la seguridad del sistema en un entorno que simulara fielmente las limitaciones tecnológicas reales de un restaurante PYME.
+
+Para abarcar integralmente el comportamiento del software, el plan de pruebas se dividió en siete frentes de evaluación: validación manual de usabilidad, pruebas unitarias de seguridad y lógica de negocio, pruebas de API con Postman, pruebas automatizadas de estrés, medición de latencia operativa, análisis de vulnerabilidades de superficie y validación complementaria en entorno real mediante implementación piloto.
 
 \subsection{Infraestructura y Entorno de Laboratorio}
-Para garantizar que el desempeño de la aplicación corresponda a la realidad económica de los establecimientos objetivo, la infraestructura del servidor principal —encargada de procesar la lógica de negocio en .NET 8 y gestionar la persistencia en la base de datos SQL Server— se desplegó de manera deliberada en un equipo con recursos heredados. Se utilizó un computador portátil DELL (año de fabricación 2008), equipado con un procesador Intel Core 2 Duo (T8000), 8 GB de memoria RAM DDR2 y un disco duro mecánico (HDD). Para maximizar la asignación de recursos hacia el sistema web, este equipo operó bajo el sistema operativo Windows 10 LTSC (Long-Term Servicing Channel).
+
+Para garantizar que el desempeño de la aplicación corresponda a la realidad económica de los establecimientos objetivo, la infraestructura del servidor principal, encargada de procesar la lógica de negocio en .NET 8 y gestionar la persistencia en la base de datos SQL Server, se desplegó de manera deliberada en un equipo con recursos heredados. Se utilizó un computador portátil DELL (año de fabricación 2008), equipado con un procesador Intel Core 2 Duo (T8000), 8 GB de memoria RAM DDR2 y un disco duro mecánico (HDD). Para maximizar la asignación de recursos hacia el sistema web, este equipo operó bajo el sistema operativo Windows 10 LTSC (Long-Term Servicing Channel).
 
 La red de intranet fue gestionada mediante un router doméstico ZTE ZXV10 W300, operando estrictamente en modo local sin salida a internet. Para replicar la topología de red de un restaurante y evaluar el impacto de las conexiones mixtas, los clientes que simularon los módulos fijos (Cocina y Caja) fueron conectados mediante cableado a los puertos LAN. En contraste, el equipo encargado de simular al Mesero se enlazó exclusivamente a través de la interfaz inalámbrica en la banda Wi-Fi de 2.4 GHz. Esta distinción física resultó fundamental para introducir latencia real, susceptibilidad a interferencias y fluctuaciones de red, emulando el comportamiento de un dispositivo móvil operado en constante movimiento. Debido a requerimientos de compatibilidad del entorno de automatización, los clientes de prueba operaron bajo el sistema operativo Ubuntu.
 
+\begin{figure}[H] % El [H] obliga a que el diagrama se quede exactamente AQUÍ
+	\centering
+	\begin{tikzpicture}[
+		node distance=1.5cm and 2.2cm,
+		device/.style={rectangle, draw, rounded corners, fill=blue!10, text centered, text width=2.4cm, minimum height=1.2cm, font=\small, drop shadow},
+		server/.style={cylinder, draw, shape border rotate=90, aspect=0.25, fill=gray!20, text centered, text width=2.2cm, minimum height=1.8cm, font=\small, drop shadow},
+		hub/.style={ellipse, draw, fill=green!10, text centered, text width=2.8cm, font=\small\bfseries, drop shadow},
+		line/.style={draw, thick, -{Latex[length=2.5mm, width=1.5mm]}},
+		wireless/.style={draw, thick, dashed, -{Latex[length=2.5mm, width=1.5mm]}}
+		]
+		
+		% Nodo Central
+		\node[hub] (router) {Router WiFi / Switch\\(Red Local Intranet)};
+		
+		% Fila Superior: El corazón del sistema
+		\node[server, above=of router] (server) {Servidor Local\\QuickTable};
+		
+		% Fila Lateral: Terminales fijas
+		\node[device, left=of router] (caja) {PC Caja\\(Facturación)};
+		\node[device, right=of router] (cocina) {Pantalla Cocina\\(Pedidos)};
+		
+		% Fila Inferior: Hardware específico y Clientes Móviles
+		\node[device, below left=of router] (rpi) {Modulo\\Raspberry Pi};
+		\node[device, below right=of router] (meseros) {Smartphones\\Meseros (Clientes)};
+		
+		% Conexiones (Cableadas vs Inalámbricas)
+		\draw[line] (server) -- (router);
+		\draw[line] (router) -- (caja);
+		\draw[line] (router) -- (cocina);
+		\draw[line] (router) -- (rpi) node[midway, left, font=\scriptsize] {Ethernet};
+		
+		% Conexión inalámbrica
+		\draw[wireless] (router) -- (meseros) node[midway, right, font=\scriptsize] {Wi-Fi};
+		
+	\end{tikzpicture}
+	\caption{Topología de red simplificada con Router WiFi central para el entorno de laboratorio.}
+	\label{fig:topologia_simplificada}
+\end{figure}
+
 \subsection{Verificación Manual de Funcionalidades}
+
 Esta etapa consistió en una auditoría de completitud del software mediante pruebas manuales controladas. El propósito fue confirmar que la arquitectura final del sistema no omitiera ninguna de las herramientas operativas requeridas por los diferentes roles de usuario, garantizando la usabilidad de las interfaces gráficas.
 
 Mediante una lista de verificación (\textit{Checklist}) trazada desde la matriz de requerimientos, se inspeccionaron los módulos de la plataforma:
@@ -564,26 +605,150 @@ Mediante una lista de verificación (\textit{Checklist}) trazada desde la matriz
 \end{itemize}
 
 \subsection{Pruebas Unitarias y de Seguridad Lógica}
-Para certificar la robustez interna de la aplicación, especialmente en el manejo de datos sensibles y control de accesos, se incorporó una batería de pruebas a nivel de código utilizando el marco de pruebas \textit{MSTest} para .NET 8. 
+
+Para certificar la robustez interna de la aplicación, especialmente en el manejo de datos sensibles y en los mecanismos criptográficos implementados en el sistema, se incorporó una batería de pruebas a nivel de código utilizando el marco de pruebas \textit{MSTest} para .NET 8.
 
 A diferencia de las pruebas de interfaz, estas evaluaciones se enfocaron en validar de forma aislada la lógica de negocio y los componentes de seguridad implementados en el \textit{backend}. Los escenarios evaluados incluyeron:
 \begin{itemize}
-	\item \textbf{Cifrado e Integridad:} Validación de los algoritmos de encriptación de credenciales en la base de datos, asegurando que no existan vulnerabilidades de almacenamiento en texto plano.
-	\item \textbf{Control de Autorización:} Verificación de los filtros de sesión, garantizando que un usuario con un rol inferior (ej. Mesero) no pueda ejecutar métodos HTTP restringidos a roles superiores (ej. Administrador).
-	\item \textbf{Autenticación de Doble Factor (2FA):} Pruebas de integración sobre los servicios que procesan los identificadores criptográficos generados por las tarjetas NFC, validando su correcta asociación con los usuarios registrados en SQL Server a través de Entity Framework 6.
+	\item \textbf{Cifrado y Descifrado de Identificadores NFC:} Validación del servicio criptográfico encargado de proteger los identificadores únicos de las tarjetas NFC utilizadas en el segundo factor de autenticación, comprobando que el proceso de cifrado no altere la posibilidad de recuperación íntegra del valor original.
+	\item \textbf{Manejo de Entradas Inválidas:} Verificación del comportamiento del servicio criptográfico frente a valores nulos, vacíos o estructuralmente inválidos, garantizando que el sistema responda de forma segura sin comprometer la estabilidad del \textit{backend}.
+	\item \textbf{Hashing y Verificación de Contraseñas:} Validación del servicio responsable de generar y comprobar contraseñas cifradas, asegurando que las credenciales no se almacenen en texto plano y que la verificación funcione correctamente tanto para credenciales válidas como incorrectas.
 \end{itemize}
 
-\subsection{Pruebas Automatizadas de Concurrencia}
-Para superar las limitaciones de una prueba manual esporádica y garantizar la estabilidad del sistema ante cargas de trabajo prolongadas, la validación operativa se llevó a cabo utilizando scripts automatizados desarrollados en \textit{Playwright} con Node.js. 
+\subsection{Pruebas de API con Postman}
 
-Se estructuró un entorno de estrés donde agentes virtuales autónomos interactuaron de manera simultánea durante una jornada operativa simulada de 9 horas ininterrumpidas. El agente \textit{Mesero} generó ráfagas constantes de pedidos, mientras que los agentes de \textit{Cocina} y \textit{Caja} interceptaron y despacharon estas solicitudes. Los resultados de esta ejecución masiva fueron recolectados en registros tabulares (archivos CSV) para documentar la tasa de éxito transaccional. Este enfoque validó la capacidad de Entity Framework 6 para procesar múltiples peticiones simultáneas sin generar interbloqueos (\textit{deadlocks}) ni corrupción de información referencial.
+Con el fin de complementar las pruebas unitarias y verificar el comportamiento de los servicios HTTP expuestos por la aplicación, se realizaron pruebas manuales de API mediante la herramienta \textit{Postman}. Esta fase permitió validar directamente la estructura de las respuestas del \textit{backend}, sin depender de la interfaz gráfica del sistema.
+
+Las pruebas realizadas se concentraron principalmente en los servicios administrativos y operativos ya implementados en la solución. Entre los endpoints validados se incluyeron la creación de copias de seguridad, la consulta del historial de respaldos, la verificación del espacio disponible para almacenamiento y el registro de salida de personal. Esta etapa permitió comprobar que los controladores respondieran con objetos JSON válidos, con los campos esperados y con semántica coherente frente a operaciones exitosas o fallidas.
+
+Desde el punto de vista metodológico, el uso de Postman resultó especialmente útil para confirmar el contrato de comunicación entre cliente y servidor, verificar parámetros de entrada, revisar estructuras de respuesta y documentar evidencia visual de los resultados obtenidos. De esta manera, las pruebas de API constituyen un nivel intermedio de validación entre las pruebas unitarias del código y las pruebas funcionales completas sobre la interfaz del sistema.
 
 \subsection{Evaluación del Tiempo de Respuesta Operativa}
-En estricta correspondencia con el objetivo de erradicar los retrasos del modelo manual de toma de pedidos, se ejecutó la medición empírica de la latencia del sistema. El registro de tiempos se focalizó en las operaciones transaccionales más demandantes utilizando herramientas de diagnóstico (\textit{DevTools - Network}) y cronometría física:
+
+En estricta correspondencia con el objetivo de erradicar los retrasos asociados al modelo manual de toma de pedidos, se diseñó una etapa de medición empírica de la latencia del sistema. Para garantizar que la evaluación reflejara fielmente las condiciones reales de implementación en un restaurante PYME, el registro de tiempos se estructuró en dos escenarios de red diferenciados: una ejecución en un entorno de intranet aislada operando exclusivamente sobre la red de área local inalámbrica (WLAN) y cableada (LAN), y una ejecución conectada a internet, con el fin de verificar si el tráfico externo introduce algún grado de interferencia o sobrecarga en la latencia de los componentes locales.
+
+El registro de tiempos se focalizó en las operaciones transaccionales más demandantes, utilizando tanto herramientas de diagnóstico integradas en el navegador (\textit{DevTools - Network}) como cronometría física. Las variables críticas objeto de medición fueron:
+
 \begin{itemize}
-	\item El tiempo neto desde que el Mesero confirma una comanda hasta que es persistida en la base de datos y renderizada en la pantalla de Cocina.
-	\item La latencia en la resolución de consultas financieras y de inventario complejas.
-	\item El tiempo de procesamiento del hardware 2FA, abarcando desde el contacto de la tarjeta física con el lector RFID-RC522 en la Raspberry Pi, hasta que el cliente Python valida el identificador con la API .NET y el sistema web autoriza el inicio de sesión.
+	\item \textbf{Latencia de propagación de comandas:} el tiempo neto transcurrido desde que el agente Mesero (conectado por Wi-Fi) confirma el envío de un pedido, hasta que los datos son persistidos en SQL Server y la nueva orden es renderizada correctamente en la pantalla de la estación de Cocina (conectada por cable).
+	\item \textbf{Rendimiento de consultas complejas:} la latencia experimentada en la resolución de operaciones financieras pesadas, tales como la generación de historiales de pedidos y reportes de facturación consolidados en el módulo del Administrador.
+	\item \textbf{Latencia del flujo de Autenticación de Doble Factor (2FA):} el tiempo de procesamiento integral del hardware de seguridad, abarcando desde el instante físico en que la tarjeta NFC hace contacto con el lector RFID-RC522 conectado a la Raspberry Pi, pasando por la validación criptográfica del cliente Python contra la API .NET, hasta que el sistema web autoriza finalmente el inicio de sesión del usuario en pantalla.
 \end{itemize}
 
-El criterio de aceptación ineludible dicta que, incluso operando sobre el hardware heredado evaluado, el tiempo de respuesta total para cualquiera de estas operaciones críticas no debe exceder el umbral máximo de \textbf{2.0 segundos}.
+El criterio de aceptación ineludible para esta fase de pruebas dicta que, incluso operando sobre los equipos de hardware heredado descritos en la arquitectura del sistema e independientemente del escenario de red (con o sin salida a internet), el tiempo de respuesta total para cualquiera de estas operaciones críticas no debe exceder el umbral máximo de \textbf{2,0 segundos}.
+
+\subsection{Pruebas Automatizadas de Concurrencia}
+
+Para superar las limitaciones de una validación manual y esporádica, y garantizar la estabilidad del sistema ante cargas de trabajo sostenidas durante una jornada operativa completa, se diseñó un entorno de estrés basado en agentes virtuales autónomos desarrollados con \textit{Playwright} sobre Node.js. A diferencia de las herramientas de prueba de carga convencionales, Playwright instancia navegadores Chromium reales que interactúan con la interfaz gráfica exactamente como lo haría un usuario humano: navegan, hacen clic, llenan formularios y procesan respuestas del servidor, lo cual permite detectar no solo errores de \textit{backend} sino también fallos de renderizado, condiciones de carrera en el \textit{frontend} y regresiones visuales.
+
+\subsubsection*{Arquitectura del entorno de automatización}
+
+El sistema se estructuró en dos proyectos independientes de Playwright escritos en TypeScript, desplegados sobre tres equipos físicos disponibles. Dado que la configuración ideal contempla un agente por equipo, la limitación de hardware obligó a distribuir los cuatro agentes de Mesero y los dos agentes de rol fijo entre las máquinas disponibles de la siguiente manera:
+
+\begin{itemize}
+	\item \textbf{Equipo 1 (conexión LAN por cable):} ejecutó los agentes de Cocina y Caja de forma paralela.
+	\item \textbf{Equipo 2 (conexión Wi-Fi 2.4\,GHz):} ejecutó dos instancias del agente Mesero de forma simultánea, cada una autenticada con credenciales de usuario distintas, replicando la operación de dos meseros atendiendo mesas en movimiento constante a través de la red inalámbrica.
+	\item \textbf{Equipo 3 (conexión Wi-Fi 2.4\,GHz):} ejecutó las dos instancias restantes del agente Mesero, también con credenciales independientes, completando el total de cuatro agentes Mesero activos durante la jornada.
+\end{itemize}
+
+El agente Mesero se configura con un único trabajador activo por instancia, un tiempo de espera máximo global de 10 horas y un perfil de dispositivo móvil que instruye a Chromium para emular la resolución de pantalla, la densidad de píxeles, la cadena de agente de usuario y el modo táctil propios de un teléfono iPhone 12. Esta elección no es arbitraria: replica fielmente el escenario real donde el mesero opera desde un dispositivo móvil en movimiento constante. En todos los proyectos, cada interacción individual (clic, llenado de campo o navegación de página) dispone de un tiempo de espera máximo de 30 segundos antes de ser catalogada como fallo transaccional. Las trazas de ejecución se conservan únicamente ante fallos, y las capturas de pantalla se generan de forma automática al detectar errores, lo que facilita el diagnóstico posterior sin incrementar la carga de escritura en disco durante la operación normal.
+
+\subsubsection*{Mecanismo de tiempo emulado y ritmo operativo}
+
+Un aspecto central del diseño es la distinción entre el \textit{tiempo de ejecución real} y el \textit{tiempo de jornada simulada}. Los scripts no comprimen el tiempo: la prueba se ejecuta durante 8 horas de reloj real ininterrumpidas. La duración se controla mediante una constante de 8 horas expresada en milisegundos que se evalúa de forma continua contra el tiempo transcurrido desde el inicio, de modo que el ciclo principal termina únicamente cuando han transcurrido exactamente 8 horas de tiempo de pared (\textit{wall-clock time}).
+
+Dentro de ese marco temporal, cada agente modela el comportamiento humano mediante pausas activas que suspenden la corrutina sin bloquear el hilo de ejecución de Node.js:
+
+\begin{itemize}
+	\item \textbf{Agente Mesero:} el intervalo entre pedidos se calcula en función de la hora del día simulada, la cual avanza una hora por cada 60 minutos reales transcurridos partiendo de las 11:00 h, de modo que la prueba recorre una jornada operativa completa en tiempo real. En los periodos de alta demanda (mediodía entre las 12:00 y las 14:00 h, y servicio nocturno entre las 19:00 y las 21:00 h) la pausa entre pedidos oscila aleatoriamente entre 2 y 4 minutos, simulando el ritmo acelerado de un restaurante lleno. Fuera de esas franjas, la espera se extiende entre 2 y 5 minutos, representando los periodos de menor afluencia de clientes.
+	\item \textbf{Agente Cocina:} revisa la bandeja de pedidos pendientes con una frecuencia aleatoria de entre 1 y 5 minutos, modelando el comportamiento de un cocinero que consulta la pantalla periódicamente entre preparaciones.
+	\item \textbf{Agente Caja:} opera con ciclos de revisión de entre 5 y 15 minutos, reflejando la cadencia más espaciada del cajero, quien factura lotes de pedidos una vez que la cocina los ha despachado.
+\end{itemize}
+
+Con este diseño, la prueba de 8 horas genera aproximadamente entre 100 y 130 pedidos distribuidos orgánicamente a lo largo de la jornada, con concentraciones visibles en los picos horarios, produciendo una carga asimétrica y realista sobre el servidor en lugar de una tasa de peticiones constante.
+
+\subsubsection*{Flujo de interacción del agente Mesero}
+
+El agente Mesero estructura su operación en tres funciones asíncronas que se suceden en bucle durante las 8 horas. En primer lugar, al inicio de la sesión, el agente navega a la pantalla de autenticación, completa los campos de nombre y contraseña y aguarda la confirmación HTTP del servidor antes de continuar, garantizando que la sesión esté plenamente establecida antes de cualquier operación posterior.
+
+En segundo lugar, antes de generar cada nuevo pedido, el agente inspecciona el objeto JavaScript que la vista del Index del Mesero mantiene en memoria con los pedidos que la cocina ya marcó como listos. Una vez identificados los pedidos pendientes de confirmación, el agente invoca el endpoint correspondiente del \textit{backend} directamente a través de la API de red de Playwright, sin intentar hacer clic sobre los elementos del DOM. Esta decisión de diseño fue necesaria porque la vista del Mesero ejecuta un refresco automático del contenedor de pedidos cada 5 segundos, lo que reconstruye completamente el árbol de elementos de la página. Cualquier referencia a un botón capturada antes del refresco queda huérfana e inutilizable, por lo que la llamada directa al \textit{backend} resultó ser la única estrategia robusta para garantizar la confirmación de entregas sin fallos intermitentes.
+
+En tercer lugar, el agente navega al formulario de nuevo pedido, selecciona aleatoriamente entre 1 y 7 ítems del menú e incrementa las cantidades de cada uno. Adicionalmente, incorpora comentarios escogidos al azar de un conjunto predefinido en el script (por ejemplo, \textit{``Sin cebolla''}, \textit{``Término medio''} o \textit{``Poco picante''}), sin que exista ninguna relación de congruencia entre el comentario seleccionado y el alimento al que se asocia, dado que el propósito es únicamente estresar el campo de texto y verificar su correcta persistencia en la base de datos. Con una probabilidad del 12,5\% por ciclo (equivalente a aproximadamente 1 de cada 8 pedidos),
+el agente también ejecuta la función de edición, que selecciona un pedido activo al azar y modifica su contenido, modelando el escenario real en el que un cliente rectifica su orden después de haberla enviado a cocina y validando el flujo de actualización de comandas en caliente.
+
+\subsubsection*{Flujo de interacción del agente Cocina}
+
+El agente de Cocina opera en un ciclo continuo de revisión y despacho de pedidos durante las 8 horas de prueba. Al inicio de cada iteración, el agente espera a que el contenedor principal de pedidos esté presente en la vista antes de intentar cualquier interacción, con un margen de tolerancia de 5 segundos. Si transcurrido ese tiempo el contenedor no responde, el ciclo registra el evento como error y reintenta en el siguiente intervalo.
+
+Una vez confirmada la disponibilidad de la vista, el agente recupera la lista completa de pedidos pendientes y para cada uno extrae dos datos clave directamente desde el texto de los elementos de la interfaz: el número de mesa, obtenido del encabezado principal de la tarjeta, y el identificador numérico del pedido, obtenido del subencabezado. Con esos datos en mano, el agente no intenta localizar ni hacer clic sobre el botón de la interfaz gráfica. En su lugar, ejecuta directamente la llamada AJAX al endpoint del \textit{backend} que marca el pedido como listo, desde el contexto del navegador autenticado, replicando con exactitud la operación que realizaría el cocinero al presionar el botón físicamente.
+
+Esta decisión fue motivada por el mismo problema estructural identificado en el agente Mesero: la vista de Cocina también ejecuta un refresco periódico automático del contenedor de pedidos, lo que reconstruye completamente el DOM a intervalos regulares. Cualquier referencia a un botón capturada antes del refresco queda huérfana e inutilizable, produciendo el error de elemento no adjunto al documento. La invocación directa al \textit{backend} elimina esta fragilidad por completo, ya que no depende en ningún momento del estado del árbol de elementos de la página. Entre el procesamiento de cada pedido, el agente introduce una pausa breve para evitar saturar el servidor con solicitudes en ráfaga consecutiva.
+
+\subsubsection*{Flujo de interacción del agente Caja}
+
+El agente de Caja opera en un ciclo continuo de revisión y facturación de pedidos durante las 8 horas de prueba. Al inicio de cada iteración, el agente navega a su vista de trabajo y espera a que el contenedor principal de pedidos listos esté disponible antes de intentar cualquier interacción. Si no se detectan pedidos listos para cobrar, el ciclo registra el estado y retoma la espera hasta el siguiente intervalo.
+
+Una vez identificados los pedidos disponibles, el agente enfrenta el mismo problema estructural descrito en los agentes de Mesero y Cocina: la vista de Caja también refresca periódicamente su contenedor de tarjetas, reconstruyendo el DOM por completo a intervalos regulares. Por esta razón, el agente no intenta localizar ni hacer clic sobre los botones de la interfaz gráfica para ejecutar la facturación. En su lugar, invoca directamente la función JavaScript de confirmación desde el contexto del navegador autenticado, comunicándose con el \textit{backend} sin depender del estado del árbol de elementos de la página.
+
+Para cada pedido, el agente extrae de la tarjeta correspondiente los datos relevantes de la transacción: el número de mesa, el identificador del pedido y el total a cobrar. A continuación abre el modal de finalización y procede a completar los campos requeridos. El método de pago se selecciona aleatoriamente entre Efectivo, Tarjeta y QR, y el porcentaje de propina se genera como un valor entero aleatorio entre el 0\% y el 15\%, cubriendo así el espectro habitual de comportamiento del consumidor en un restaurante. Para garantizar que el campo de selección del método de pago procese correctamente el cambio de valor, el agente dispara manualmente el evento de modificación sobre el elemento, ya que la interfaz depende de ese evento para actualizar los cálculos del total en pantalla antes de confirmar.
+
+Una vez completados los campos, el agente confirma la operación. La arquitectura de la vista de Caja está diseñada para abrir automáticamente una nueva pestaña del navegador con la factura generada en formato de impresión. Para gestionar este comportamiento sin intervención manual, el agente utiliza un mecanismo de escucha simultánea de eventos que captura la apertura de la nueva pestaña en el mismo instante en que se lanza la confirmación. Tras aguardar la carga completa del documento de factura, el agente cierra la pestaña de forma programática, garantizando que el ciclo de facturación concluya en su totalidad sin dejar instancias de navegador huérfanas que acumulen memoria durante las 8 horas de ejecución. Si por algún motivo el modal no se cierra tras la confirmación (lo que indica un fallo en el procesamiento del \textit{backend}), el agente lo detecta, registra el error con su traza completa en el CSV y fuerza el cierre del modal mediante JavaScript antes de continuar con el siguiente pedido, evitando que un fallo aislado detenga la ejecución de la prueba.
+
+\subsubsection*{Sistema de trazabilidad mediante registros CSV}
+
+Cada agente mantiene y actualiza de forma incremental un archivo de registro en formato CSV durante toda la ejecución. Cada evento se almacena con una marca de tiempo en formato ISO 8601 expresada en UTC, lo que garantiza la correlación precisa entre los registros de los tres agentes incluso ante diferencias de zona horaria entre los equipos cliente. Las acciones registradas se clasifican en tres categorías semánticas:
+
+\begin{itemize}
+	\item \textbf{Eventos de sistema:} inicio de jornada, fin de jornada e inicio de sesión exitoso, que delimitan el ciclo de vida de la prueba.
+	\item \textbf{Operaciones transaccionales:} creación de pedido, edición de pedido, confirmación de entrega, marcado como listo y facturación, que representan actividad funcional del sistema.
+	\item \textbf{Errores:} cualquier evento clasificado como fallo, que registra adicionalmente la traza de la excepción en el campo de detalle para facilitar el diagnóstico posterior.
+\end{itemize}
+
+Los esquemas de columnas difieren por rol: el registro del Mesero captura identificador, mesa y detalle del pedido; el de Cocina registra el identificador del pedido y la mesa atendida; y el de Caja extiende el esquema con el método de pago, el porcentaje de propina y el total facturado, almacenando la información financiera de cada transacción para su posterior análisis.
+
+\subsubsection*{Script de consolidación y análisis de resultados}
+
+Una vez concluida la ejecución de los agentes, los cuatro archivos de registro generados son procesados por un script desarrollado en Python con las bibliotecas \textit{pandas} y \textit{matplotlib}. El script sigue un flujo de análisis estructurado en cuatro etapas.
+
+\paragraph{Etapa 1 — Carga y normalización.} El script infiere el tipo de agente a partir del nombre de cada archivo y aplica el esquema de columnas correspondiente. Para gestionar las celdas que contienen comas dentro del campo de detalle (habitual en la lista de ítems del pedido) une con un separador las particiones que excedan el número de columnas fijas esperadas. A continuación, convierte la columna de marca de tiempo al tipo fecha-hora con zona horaria UTC, descarta filas con marcas inválidas y clasifica cada registro en tres categorías booleanas: error, evento de sistema u operación transaccional. Finalmente, concatena todos los conjuntos de datos en un único registro maestro ordenado cronológicamente.
+
+\paragraph{Etapa 2 — Cálculo de métricas.} Para cada agente se calculan el total de registros, la cantidad de operaciones exitosas, la cantidad de errores y la tasa de éxito porcentual, definida como el cociente entre las operaciones exitosas y la suma de operaciones exitosas más errores, expresado en porcentaje. Adicionalmente, se desagrega la actividad por franjas horarias, se clasifican los errores por tipo y rol, y se extraen estadísticas específicas por función: pedidos creados, editados y entregas confirmadas para el Mesero; pedidos marcados como listos para Cocina; y para Caja, el total de transacciones facturadas, el monto total recaudado, la propina promedio y la distribución de métodos de pago.
+
+\paragraph{Etapa 3 — Generación de visualizaciones.} El script produce seis gráficas en formato PNG dentro de la carpeta de resultados, cada una enfocada en una dimensión del análisis:
+
+\begin{itemize}
+	\item \textbf{Operaciones por hora:} gráfica de líneas con marcadores que muestra la distribución horaria de operaciones exitosas por agente, revelando los picos de carga durante el servicio del mediodía y la noche.
+	\item \textbf{Tasa de éxito por rol:} gráfica de barras con etiquetas de porcentaje que compara la fiabilidad operativa de cada agente durante las 8 horas.
+	\item \textbf{Operaciones versus errores:} gráfica de barras agrupadas que contrasta el volumen de transacciones exitosas frente a los errores registrados por cada rol.
+	\item \textbf{Errores por tipo:} gráfica de barras horizontales que desglosa los fallos por categoría y agente; se omite automáticamente si no se registraron errores durante la prueba.
+	\item \textbf{Métodos de pago:} gráfica de torta con la distribución porcentual de los métodos de pago procesados por el agente Caja.
+	\item \textbf{Línea de tiempo de actividad:} serie temporal con áreas sombreadas que muestra la actividad agregada en ventanas de 15 minutos, permitiendo identificar visualmente la evolución de la carga a lo largo de la jornada completa.
+\end{itemize}
+
+\paragraph{Etapa 4 — Exportación de datos y reporte de consola.} El script serializa cuatro archivos CSV derivados: el registro maestro consolidado con todos los eventos unificados, el resumen estadístico por agente, la actividad horaria desagregada y el catálogo detallado de fallos. Paralelamente, imprime en consola un reporte tabular estructurado que resume el periodo de ejecución, la duración aproximada, las métricas por rol y las estadísticas financieras de Caja, proporcionando una lectura inmediata de los resultados sin necesidad de abrir archivos adicionales.
+
+\subsection{Análisis de Vulnerabilidades de Superficie con OWASP ZAP}
+
+Como complemento a las pruebas unitarias de seguridad lógica, se integró un análisis dinámico de seguridad empleando la herramienta \textit{OWASP ZAP} (Zed Attack Proxy). El propósito de esta fase de evaluación es inspeccionar la superficie de ataque de la aplicación web expuesta en la red local, focalizándose en las debilidades a nivel de infraestructura HTTP y en la configuración de las defensas perimetrales.
+
+Dado el diseño del sistema, donde el acceso a los módulos operativos requiere autenticación estricta y un segundo factor de hardware, el escaneo automatizado se concentra en el perímetro público inicial. Esto abarca la vista de inicio de sesión y los recursos estáticos disponibles sin credenciales previas, permitiendo auditar la robustez del servidor frente a peticiones anónimas. Las dimensiones de seguridad evaluadas mediante esta herramienta incluyen:
+
+\begin{itemize}
+	\item \textbf{Políticas de Seguridad de Contenido (CSP):} auditoría de las directivas en las respuestas HTTP (como las fuentes permitidas para la ejecución de \textit{scripts} y estilos), con el fin de evaluar el nivel de protección ante posibles ataques de inyección de código y secuencias de comandos entre sitios (XSS).
+	\item \textbf{Cabeceras de Seguridad Complementarias:} verificación de la correcta implementación de defensas pasivas recomendadas, tales como la mitigación de ataques de superposición de interfaz visual (\textit{clickjacking}) y la prevención de vulnerabilidades por inferencia de tipos MIME.
+	\item \textbf{Gestión de Sesión y Tokens Antifalsificación:} inspección de las propiedades de seguridad en las \textit{cookies} emitidas por el servidor (garantizando atributos de aislamiento estricto) y validación de la correcta emisión de los tokens criptográficos gestionados por ASP.NET Core para prevenir la falsificación de solicitudes entre sitios (CSRF).
+\end{itemize}
+
+\subsection{Implementación Piloto en Entorno Real}
+
+Aunque no se contempló dentro de los objetivos iniciales del proyecto, se llevó a cabo un despliegue operativo en un escenario comercial real: el establecimiento Gastro Uno 58 Bar. El propósito de esta fase adicional fue validar el comportamiento del software fuera del entorno de laboratorio y recolectar datos cualitativos sobre su nivel de adopción por parte de usuarios sin formación técnica previa.
+
+La prueba piloto abarcó un periodo de un mes de operación continua. El despliegue comenzó con una jornada exclusiva de capacitación (día uno), durante la cual se instruyó al personal en el uso de las interfaces, el flujo de procesamiento de comandas y la autenticación de doble factor mediante tarjetas NFC. La plantilla del restaurante estuvo conformada por cuatro usuarios operativos: un administrador (quien asumió simultáneamente las funciones del módulo de Caja), dos meseras y una cocinera. Debido a que el establecimiento contaba con un servicio activo de internet, el sistema operó bajo las condiciones habituales de tráfico de una red comercial abierta, permitiendo contrastar su estabilidad frente a las pruebas de intranet aislada.
+
+Para evaluar el impacto de la herramienta, la metodología definió la recolección de resultados a través de cuestionarios de satisfacción aplicados al personal al finalizar el mes de uso. Estos instrumentos buscan documentar la percepción cualitativa sobre la facilidad de uso, la agilidad en el servicio y la reducción de errores respecto al modelo de papel y lápiz previo.
+
+Adicionalmente, esta implementación en producción se utilizó como modelo base para estructurar un análisis de viabilidad económica fundamentado en datos empíricos. A partir de este caso de estudio, se proyectó la generación de dos modelos de costos:
+\begin{itemize}
+	\item \textbf{Presupuesto de adaptación:} el cálculo de los equipos y componentes de hardware (lector RFID y microordenador) que fue estrictamente necesario proveer para poner en marcha el sistema en este restaurante en particular, aprovechando la infraestructura tecnológica que el local ya poseía.
+	\item \textbf{Presupuesto de implementación inicial:} una proyección financiera integral calculada desde cero, simulando el escenario de un restaurante nuevo que requiere la adquisición total de los equipos informáticos y de red necesarios para cumplir con los requerimientos técnicos de la plataforma.
+\end{itemize}

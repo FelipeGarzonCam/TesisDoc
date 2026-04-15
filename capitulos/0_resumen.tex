@@ -1,4 +1,60 @@
 \newpage
+\chapter*{RESUMEN}
+\addcontentsline{toc}{chapter}{Resumen}
+
+La gestión manual de comandas en restaurantes de pequeña y mediana empresa (PYME) en 
+Colombia genera pérdidas operativas, riesgos sanitarios y vulnerabilidades de seguridad 
+informática que comprometen su viabilidad. Este trabajo presenta el diseño, implementación 
+y evaluación de \textbf{QuickTable}, una aplicación web de bajo costo para la gestión 
+integral de comandas en restaurantes PYME, que incorpora encriptación de base de datos y 
+autenticación de doble factor (2FA) mediante hardware NFC local, operando íntegramente 
+sobre una red de intranet sin dependencia de conectividad externa. El sistema fue 
+desarrollado con .NET~8 (Razor Pages), Entity Framework~6, Microsoft SQL Server y 
+AdminLTE como plantilla de interfaz, mientras que el módulo de seguridad física fue 
+implementado sobre una Raspberry Pi~3 con lector RFID-RC522 a 13,56\,MHz (ISO/IEC~14443), 
+controlado por un cliente Python con interfaz gráfica Tkinter. La validación se realizó 
+mediante pruebas de concurrencia automatizadas, pruebas unitarias con MSTest, análisis de 
+vulnerabilidades con OWASP ZAP 2.17.0, evaluación de rendimiento con Lighthouse y una 
+implementación piloto en entorno real. Los resultados demuestran tasas de éxito 
+transaccional superiores al 98\,\% bajo carga concurrente, tiempos de respuesta inferiores 
+a 2 segundos, aprobación del conjunto completo de pruebas unitarias y un perfil de riesgo 
+bajo según OWASP ZAP, confirmando la viabilidad técnica y económica de la solución como 
+alternativa accesible a los sistemas POS comerciales disponibles en el mercado colombiano.
+
+\bigskip
+\noindent\textbf{Palabras clave:} gestión de comandas, aplicación web, PYME, encriptación, 
+autenticación de doble factor, NFC, intranet, seguridad informática.
+
+
+\chapter*{ABSTRACT}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Manual order management in small and medium-sized restaurant enterprises (SMEs) in Colombia 
+generates operational losses, sanitary risks, and information security vulnerabilities that 
+threaten business viability. This paper presents the design, implementation, and evaluation 
+of \textbf{QuickTable}, a low-cost web application for comprehensive order management in 
+restaurant SMEs, incorporating database encryption and local NFC hardware-based two-factor 
+authentication (2FA), operating entirely over an intranet without external internet 
+dependency. The system was developed using .NET~8 (Razor Pages), Entity Framework~6, 
+Microsoft SQL Server, and the AdminLTE interface template, while the physical security 
+module was implemented on a Raspberry Pi~3 with an RFID-RC522 reader at 13.56\,MHz 
+(ISO/IEC~14443), controlled by a Python client with a Tkinter graphical interface. 
+Validation was conducted through automated concurrency testing, MSTest unit testing, 
+OWASP ZAP 2.17.0 vulnerability analysis, Lighthouse performance evaluation, and a pilot 
+deployment in a real operating environment. Results demonstrate transactional success rates 
+above 98\,\% under concurrent load, response times below 2 seconds, full passage of the 
+unit test suite, and a low-risk security profile per OWASP ZAP, confirming the technical 
+and economic feasibility of the solution as an accessible alternative to commercial POS 
+systems available in the Colombian market.
+
+\bigskip
+\noindent\textbf{Keywords:} order management, web application, SME, encryption, 
+two-factor authentication, NFC, intranet, information security.
+
+
+
+
+\newpage
 \thispagestyle{empty}
 
 \begin{center}
@@ -8,13 +64,28 @@
 \vspace{1cm}
 
 \noindent
+\textbf{AES (\textit{Advanced Encryption Standard}):} Algoritmo de cifrado simétrico por bloques adoptado como estándar por el NIST, utilizado en este proyecto para cifrar los identificadores únicos (UID) de las tarjetas NFC asociadas a los administradores del sistema.
+
+\noindent
+\textbf{AJAX (\textit{Asynchronous JavaScript and XML}):} Técnica de desarrollo web que permite actualizar partes de una página de forma asíncrona sin necesidad de recargar el DOM completo, empleada en los módulos de Cocina y Caja para reflejar cambios de estado en tiempo real.
+
+\noindent
 \textbf{Autenticación:} Proceso de verificación de la identidad de un usuario, proceso o dispositivo, normalmente como requisito previo para conceder acceso a los recursos de un sistema.
 
 \noindent
 \textbf{Backend:} Capa de acceso a datos y lógica de negocio de una aplicación que no es visible para el usuario final, encargada del procesamiento y almacenamiento de la información.
 
 \noindent
+\textbf{BCrypt:} Función de hashing criptográfico adaptativa diseñada para el almacenamiento seguro de contraseñas. En este proyecto se aplica con factor de trabajo 12 para proteger las credenciales de acceso de los empleados almacenadas en la base de datos.
+
+\noindent
+\textbf{Bootstrap:} Framework CSS de código abierto que provee un sistema de grillas y componentes visuales responsivos. Se utiliza como base estructural del panel AdminLTE para garantizar la adaptabilidad de las vistas en dispositivos de distintas resoluciones.
+
+\noindent
 \textbf{Comanda:} Documento o registro donde se anotan las peticiones de los clientes en un establecimiento de hostelería para su transmisión a cocina y posterior facturación.
+
+\noindent
+\textbf{CRUD (\textit{Create, Read, Update, Delete}):} Conjunto de las cuatro operaciones básicas de persistencia de datos en una base de datos relacional: creación, lectura, actualización y eliminación de registros.
 
 \noindent
 \textbf{Encriptación:} Técnica de seguridad que consiste en transformar la información mediante algoritmos para asegurar su confidencialidad y evitar el acceso no autorizado.
@@ -26,10 +97,38 @@
 \textbf{Frontend:} Interfaz de usuario de una aplicación con la que el operador interactúa directamente para realizar tareas de gestión o visualización.
 
 \noindent
+\textbf{GPIO (\textit{General Purpose Input/Output}):} Conjunto de pines de propósito general presentes en plataformas de computación embebida como la Raspberry Pi, utilizados para establecer la comunicación física con periféricos externos mediante protocolos como SPI.
+
+\noindent
+\textbf{Hashing:} Proceso de transformar un dato de longitud arbitraria en una cadena de longitud fija mediante una función matemática unidireccional. A diferencia del cifrado, no es reversible, lo que lo hace idóneo para el almacenamiento seguro de contraseñas.
+
+\noindent
 \textbf{Inocuidad Alimentaria:} Garantía de que los alimentos no causarán daño al consumidor cuando se preparen o consuman de acuerdo con el uso al que se destinan.
 
 \noindent
+\textbf{Intranet:} Red de comunicaciones privada y confinada a la infraestructura física de una organización, que opera con los mismos protocolos que internet pero sin exposición a conectividad externa. En este proyecto, es el medio exclusivo de operación del sistema QuickTable.
+
+\noindent
+\textbf{LINQ (\textit{Language Integrated Query}):} Componente del ecosistema Microsoft .NET que permite expresar consultas sobre fuentes de datos (colecciones en memoria, bases de datos relacionales) usando sintaxis nativa de C\#, eliminando la escritura directa de sentencias SQL y mitigando por diseño vulnerabilidades de inyección.
+
+\noindent
+\textbf{ORM (\textit{Object-Relational Mapping}):} Técnica de programación que permite interactuar con una base de datos relacional mediante objetos del lenguaje de programación anfitrión, abstrayendo las operaciones de acceso a datos. En este proyecto se emplea Entity Framework 6 como ORM.
+
+\noindent
 \textbf{PYME:} Acrónimo de Pequeña y Mediana Empresa, empresas que cuentan con un número reducido de trabajadores y un volumen de facturación moderado.
+
+\noindent
+\textbf{Razor Pages:} Modelo de programación web incluido en el ecosistema .NET que estructura la aplicación orientada a páginas, acoplando la lógica del controlador y la vista en un mismo archivo \texttt{.cshtml} y su \textit{PageModel} asociado, simplificando el desarrollo frente al patrón MVC tradicional.
+
+\noindent
+\textbf{SPI (\textit{Serial Peripheral Interface}):} Protocolo de comunicación síncrona de bus serie utilizado para conectar la Raspberry Pi con el módulo lector RFID-RC522, mediante los pines físicos MOSI, MISO, SCK, SDA y RST.
+
+\noindent
+\textbf{UID (\textit{Unique Identifier}):} Identificador único grabado en fábrica en cada tarjeta o etiqueta NFC/RFID, empleado en este proyecto como credencial física de autenticación del administrador del sistema.
+
+\noindent
+\textbf{XSS (\textit{Cross-Site Scripting}):} Tipo de vulnerabilidad de seguridad web en la que un atacante inyecta código malicioso en páginas vistas por otros usuarios. Su mitigación se evalúa mediante el análisis de cabeceras de Política de Seguridad de Contenido (CSP) con OWASP ZAP.
+
 
 \newpage
 \thispagestyle{empty}
@@ -43,14 +142,29 @@
 \begin{description}
 	\item[2FA] \textit{Two-Factor Authentication} (Autenticación de Dos Factores).
 	\item[ACODRES] Asociación Colombiana de la Industria Gastronómica.
+	\item[ACID] Atomicidad, Consistencia, Aislamiento y Durabilidad (propiedades transaccionales de bases de datos relacionales).
+	\item[AES] \textit{Advanced Encryption Standard} (Estándar de Cifrado Avanzado).
+	\item[AJAX] \textit{Asynchronous JavaScript and XML} (JavaScript y XML Asíncronos).
 	\item[ANDI] Asociación Nacional de Empresarios de Colombia.
 	\item[API] \textit{Application Programming Interface} (Interfaz de Programación de Aplicaciones).
+	\item[BDD] \textit{Behavior-Driven Development} (Desarrollo Guiado por Comportamiento).
+	\item[CSP] \textit{Content Security Policy} (Política de Seguridad de Contenido).
+	\item[CRUD] \textit{Create, Read, Update, Delete} (Crear, Leer, Actualizar, Eliminar).
 	\item[DANE] Departamento Administrativo Nacional de Estadística.
+	\item[GPIO] \textit{General Purpose Input/Output} (Entrada/Salida de Propósito General).
+	\item[JSON] \textit{JavaScript Object Notation} (Notación de Objetos JavaScript).
+	\item[LINQ] \textit{Language Integrated Query} (Consulta Integrada al Lenguaje).
 	\item[MVC] Modelo-Vista-Controlador (Patrón de arquitectura de software).
 	\item[NFC] \textit{Near Field Communication} (Comunicación de Campo Cercano).
+	\item[ORM] \textit{Object-Relational Mapping} (Mapeo Objeto-Relacional).
 	\item[PIB] Producto Interno Bruto.
 	\item[POS] \textit{Point of Sale} (Punto de Venta).
 	\item[RFID] \textit{Radio Frequency Identification} (Identificación por Radiofrecuencia).
+	\item[SPI] \textit{Serial Peripheral Interface} (Interfaz Periférica Serie).
+	\item[TI] Tecnología de la Información (rol operativo del sistema con privilegios de gestión de seguridad).
 	\item[TIC] Tecnologías de la Información y las Comunicaciones.
+	\item[UID] \textit{Unique Identifier} (Identificador Único).
 	\item[UML] \textit{Unified Modeling Language} (Lenguaje Unificado de Modelado).
+	\item[XSS] \textit{Cross-Site Scripting} (Secuencias de Comandos entre Sitios).
+	\item[ZAP] \textit{Zed Attack Proxy} (herramienta de análisis dinámico de seguridad de OWASP).
 \end{description}

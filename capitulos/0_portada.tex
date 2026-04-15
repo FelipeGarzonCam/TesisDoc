@@ -21,14 +21,14 @@
     \fill[black] ([yshift=-7.5cm]current page.north west) rectangle ([xshift=19.5cm, yshift=-12.5cm]current page.north west);
     
     % 2. Título ajustado
-    \node[
-    text=white, 
-    font=\fontsize{20}{24}\selectfont\bfseries, % Añadí negrita (\bfseries) para que se vea mejor
-    anchor=center,       % Anclado al centro
-    text width=18cm,     % ESTO ES CLAVE: Fuerza al texto a romperse en líneas
-    align=center         % Centra el texto dentro del bloque
-    ] at ([xshift=9.75cm, yshift=-10cm]current page.north west) % Coordenada: Mitad de ancho (19.5/2) y Mitad de altura (entre -7 y -13)
-    {DESARROLLO DE UNA APLICACIÓN WEB PARA LA GESTIÓN DE COMANDAS EN RESTAURANTES PYME CON ENCRIPTACIÓN Y AUTENTICACIÓN DE BAJO COSTO};
+   \node[
+   text=white, 
+   font=\fontsize{22}{24}\selectfont\bfseries,
+   anchor=center,       
+   text width=18cm, % Reducir un poco el ancho ayuda a que el algoritmo encuentre mejores saltos
+   align=flush center % Evita la justificación forzada que causa guiones
+   ] at ([xshift=9.5cm, yshift=-10cm]current page.north west) 
+   {DESARROLLO DE UNA APLICACIÓN WEB PARA LA GESTIÓN DE COMANDAS EN RESTAURANTES PYME CON ENCRIPTACIÓN Y AUTENTICACIÓN DE BAJO COSTO};
     
     % Imagen  
      \node[anchor=west] at ([xshift=8.39cm, yshift=-4cm]current page.west) {

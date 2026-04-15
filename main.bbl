@@ -19,31 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{rae2024}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b397d66b02476457c3703cb2d7051bea}{%
-           family={{Real Academia Española}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{b397d66b02476457c3703cb2d7051bea}
-      \strng{fullhash}{b397d66b02476457c3703cb2d7051bea}
-      \strng{bibnamehash}{b397d66b02476457c3703cb2d7051bea}
-      \strng{authorbibnamehash}{b397d66b02476457c3703cb2d7051bea}
-      \strng{authornamehash}{b397d66b02476457c3703cb2d7051bea}
-      \strng{authorfullhash}{b397d66b02476457c3703cb2d7051bea}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Diccionario de la lengua española}
-      \field{year}{2024}
-      \verb{urlraw}
-      \verb https://dle.rae.es/comanda
-      \endverb
-      \verb{url}
-      \verb https://dle.rae.es/comanda
-      \endverb
-    \endentry
     \entry{acodres_estadisticas_2021}{misc}{}
       \name{author}{1}{}{%
         {{hash=9235a17a6c9e6106117e3e49ffcb7bf1}{%
@@ -56,8 +31,8 @@
       \strng{authorbibnamehash}{9235a17a6c9e6106117e3e49ffcb7bf1}
       \strng{authornamehash}{9235a17a6c9e6106117e3e49ffcb7bf1}
       \strng{authorfullhash}{9235a17a6c9e6106117e3e49ffcb7bf1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.revistapym.com.co/articulos/mercadeo/40465/asi-va-la-digitalizacion-de-los-restaurantes-en-colombia-y-latam}}
@@ -78,36 +53,14 @@
       \strng{authornamehash}{286118353748ca6d7a3a4f44e4fa03fb}
       \strng{authorfullhash}{286118353748ca6d7a3a4f44e4fa03fb}
       \field{extraname}{1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.colombiaencifras.com/la-andi-y-la-apuesta-al-sector-gastronomico/}}
       \field{note}{Consultado el 10 de octubre de 2025}
       \field{title}{La ANDI y la apuesta al sector gastronómico}
       \field{year}{2024}
-    \endentry
-    \entry{andi_gastronomia_2023}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=286118353748ca6d7a3a4f44e4fa03fb}{%
-           family={{Asociación Nacional de Empresarios de Colombia (ANDI)}},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{286118353748ca6d7a3a4f44e4fa03fb}
-      \strng{fullhash}{286118353748ca6d7a3a4f44e4fa03fb}
-      \strng{bibnamehash}{286118353748ca6d7a3a4f44e4fa03fb}
-      \strng{authorbibnamehash}{286118353748ca6d7a3a4f44e4fa03fb}
-      \strng{authornamehash}{286118353748ca6d7a3a4f44e4fa03fb}
-      \strng{authorfullhash}{286118353748ca6d7a3a4f44e4fa03fb}
-      \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.andi.com.co/Home/Noticia/17428-la-camara-del-sector-gastronomico-de-la}}
-      \field{note}{Consultado el 10 de octubre de 2025}
-      \field{title}{La Cámara del Sector Gastronómico de la ANDI agrupa a más de 2.038 restaurantes a nivel nacional}
-      \field{year}{2023}
     \endentry
     \entry{Daniel2024}{article}{}
       \name{author}{2}{}{%
@@ -126,8 +79,8 @@
       \strng{authorbibnamehash}{242af0f8e6764cd7af5059831f279700}
       \strng{authornamehash}{242af0f8e6764cd7af5059831f279700}
       \strng{authorfullhash}{242af0f8e6764cd7af5059831f279700}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Research Publication and Reviews}
@@ -150,8 +103,8 @@
       \strng{authorbibnamehash}{3fecf5c9bb14e3d57e40684c2957880d}
       \strng{authornamehash}{3fecf5c9bb14e3d57e40684c2957880d}
       \strng{authorfullhash}{3fecf5c9bb14e3d57e40684c2957880d}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.lsretail.com/resources/how-to-minimize-the-risk-of-wrong-orders-in-your-restaurants}}
@@ -173,8 +126,8 @@
       \strng{authorbibnamehash}{8af0d81969b73e88f1863d39f946ce0c}
       \strng{authornamehash}{8af0d81969b73e88f1863d39f946ce0c}
       \strng{authorfullhash}{8af0d81969b73e88f1863d39f946ce0c}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.linkedin.com/pulse/serving-success-how-overcome-order-failures-revenue-loss-faisal-khan}}
@@ -194,14 +147,60 @@
       \strng{authorbibnamehash}{bc59d184c683390faa2b35820b21a075}
       \strng{authornamehash}{bc59d184c683390faa2b35820b21a075}
       \strng{authorfullhash}{bc59d184c683390faa2b35820b21a075}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.itsacheckmate.com/blog/reducing-order-errors-in-restaurants---a-complete-guide}}
       \field{note}{Consultado el 6 de octubre de 2025}
       \field{title}{Reducing Order Errors In Restaurants – A Complete Guide}
       \field{year}{2025}
+    \endentry
+    \entry{Ser2024Estrategia}{article}{}
+      \name{author}{5}{}{%
+        {{hash=6dcebf7a6f46d6fe7d71955e6e498c47}{%
+           family={Campos},
+           familyi={C\bibinitperiod},
+           given={Patricia},
+           giveni={P\bibinitperiod}}}%
+        {{hash=648ca9ccafd299df43d34e6eed95c115}{%
+           family={Andrés},
+           familyi={A\bibinitperiod},
+           given={Jhonar},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c8355f7aeb0e196a551fe3851c53ea06}{%
+           family={Felipe},
+           familyi={F\bibinitperiod},
+           given={Jose},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3203e2fa7dbc34444c84342288cd5213}{%
+           family={Fidel},
+           familyi={F\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e8ac6dd929de8d959c920c0e8555bd35}{%
+           family={Castañeda},
+           familyi={C\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{913e8c6533fc387ddfbf3666e3d0fbe2}
+      \strng{fullhash}{87229de68b10f5bf35484fef16da5d11}
+      \strng{bibnamehash}{87229de68b10f5bf35484fef16da5d11}
+      \strng{authorbibnamehash}{87229de68b10f5bf35484fef16da5d11}
+      \strng{authornamehash}{913e8c6533fc387ddfbf3666e3d0fbe2}
+      \strng{authorfullhash}{87229de68b10f5bf35484fef16da5d11}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sciencevolution}
+      \field{month}{11}
+      \field{title}{Estrategia digital para la mejora de pedidos en el sector gastronómico: Propuesta de un aplicativo móvil}
+      \field{volume}{4}
+      \field{year}{2024}
+      \field{pages}{75\bibrangedash 84}
+      \range{pages}{10}
     \endentry
     \entry{marcelo2024desafios}{article}{}
       \name{author}{1}{}{%
@@ -217,8 +216,8 @@
       \strng{authorbibnamehash}{35e2eb45c3142c21bd4cf707da303023}
       \strng{authornamehash}{35e2eb45c3142c21bd4cf707da303023}
       \strng{authorfullhash}{35e2eb45c3142c21bd4cf707da303023}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{ICT-UNPA}
@@ -268,8 +267,8 @@
       \strng{authorbibnamehash}{36225f70cee600dfbf3f1a4216ed9bfe}
       \strng{authornamehash}{6ab1a5798fd41c2be47b2deafad9f768}
       \strng{authorfullhash}{36225f70cee600dfbf3f1a4216ed9bfe}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Current Pollution Reports}
@@ -422,51 +421,76 @@
       \field{title}{Resolución 2674 de 2013}
       \field{year}{2013}
     \endentry
-    \entry{Ser2024Estrategia}{article}{}
-      \name{author}{5}{}{%
-        {{hash=6dcebf7a6f46d6fe7d71955e6e498c47}{%
-           family={Campos},
-           familyi={C\bibinitperiod},
-           given={Patricia},
-           giveni={P\bibinitperiod}}}%
-        {{hash=648ca9ccafd299df43d34e6eed95c115}{%
-           family={Andrés},
-           familyi={A\bibinitperiod},
-           given={Jhonar},
-           giveni={J\bibinitperiod}}}%
-        {{hash=c8355f7aeb0e196a551fe3851c53ea06}{%
-           family={Felipe},
-           familyi={F\bibinitperiod},
-           given={Jose},
-           giveni={J\bibinitperiod}}}%
-        {{hash=3203e2fa7dbc34444c84342288cd5213}{%
-           family={Fidel},
-           familyi={F\bibinitperiod},
-           given={Juan},
-           giveni={J\bibinitperiod}}}%
-        {{hash=e8ac6dd929de8d959c920c0e8555bd35}{%
-           family={Castañeda},
-           familyi={C\bibinitperiod},
-           given={Carlos},
-           giveni={C\bibinitperiod}}}%
+    \entry{gastropos}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bc1e633fb2122fd92516108953580d25}{%
+           family={{GastroPOS}},
+           familyi={G\bibinitperiod}}}%
       }
-      \strng{namehash}{913e8c6533fc387ddfbf3666e3d0fbe2}
-      \strng{fullhash}{87229de68b10f5bf35484fef16da5d11}
-      \strng{bibnamehash}{87229de68b10f5bf35484fef16da5d11}
-      \strng{authorbibnamehash}{87229de68b10f5bf35484fef16da5d11}
-      \strng{authornamehash}{913e8c6533fc387ddfbf3666e3d0fbe2}
-      \strng{authorfullhash}{87229de68b10f5bf35484fef16da5d11}
+      \strng{namehash}{bc1e633fb2122fd92516108953580d25}
+      \strng{fullhash}{bc1e633fb2122fd92516108953580d25}
+      \strng{bibnamehash}{bc1e633fb2122fd92516108953580d25}
+      \strng{authorbibnamehash}{bc1e633fb2122fd92516108953580d25}
+      \strng{authornamehash}{bc1e633fb2122fd92516108953580d25}
+      \strng{authorfullhash}{bc1e633fb2122fd92516108953580d25}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Sciencevolution}
-      \field{month}{11}
-      \field{title}{Estrategia digital para la mejora de pedidos en el sector gastronómico: Propuesta de un aplicativo móvil}
-      \field{volume}{4}
-      \field{year}{2024}
-      \field{pages}{75\bibrangedash 84}
-      \range{pages}{10}
+      \field{howpublished}{\url{https://www.gastropos.com.co/precios/}}
+      \field{note}{Consultado: marzo de 2026}
+      \field{title}{{Planes y Precios | GastroPOS}}
+      \field{year}{2026}
+    \endentry
+    \entry{loggro_planes}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bc8f3d9863fb5ee78f22706afe9fb18f}{%
+           family={{Loggro}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{bc8f3d9863fb5ee78f22706afe9fb18f}
+      \strng{fullhash}{bc8f3d9863fb5ee78f22706afe9fb18f}
+      \strng{bibnamehash}{bc8f3d9863fb5ee78f22706afe9fb18f}
+      \strng{authorbibnamehash}{bc8f3d9863fb5ee78f22706afe9fb18f}
+      \strng{authornamehash}{bc8f3d9863fb5ee78f22706afe9fb18f}
+      \strng{authorfullhash}{bc8f3d9863fb5ee78f22706afe9fb18f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://loggro.com/restobar/planes/}}
+      \field{note}{Consultado: marzo de 2026}
+      \field{title}{{Planes y Precios Software para Restaurantes | Loggro Restobar}}
+      \field{year}{2026}
+    \endentry
+    \entry{vendty}{online}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{title}{Vendty | Software Punto de Venta para Restaurantes y Comercios}
+      \field{year}{2025}
+    \endentry
+    \entry{toteat_planes}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ab10afa40511abcc1f8f8fe4c8d1f89f}{%
+           family={{Toteat}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
+      \strng{fullhash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
+      \strng{bibnamehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
+      \strng{authorbibnamehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
+      \strng{authornamehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
+      \strng{authorfullhash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://toteat.com/es-co/precios}}
+      \field{note}{Consultado: marzo de 2026}
+      \field{title}{{Planes y precios para Restaurantes, Bares y Cadenas}}
+      \field{year}{2025}
     \endentry
     \entry{DANE2024}{misc}{}
       \name{author}{1}{}{%
@@ -488,6 +512,172 @@
       \field{note}{Boletín Técnico, Colombia. Consultado el 10 de octubre de 2025}
       \field{title}{Encuesta de Micronegocios (EMICRON) - Primer Trimestre 2024}
       \field{year}{2024}
+    \endentry
+    \entry{Documento2022}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=97a80b38c2cbc68681b1e967661558e9}{%
+           family={Siratá},
+           familyi={S\bibinitperiod},
+           given={Leydi\bibnamedelimb Bibiana\bibnamedelima Corredor},
+           giveni={L\bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{97a80b38c2cbc68681b1e967661558e9}
+      \strng{fullhash}{97a80b38c2cbc68681b1e967661558e9}
+      \strng{bibnamehash}{97a80b38c2cbc68681b1e967661558e9}
+      \strng{authorbibnamehash}{97a80b38c2cbc68681b1e967661558e9}
+      \strng{authornamehash}{97a80b38c2cbc68681b1e967661558e9}
+      \strng{authorfullhash}{97a80b38c2cbc68681b1e967661558e9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Trabajo de Grado}
+      \field{title}{Sistema POS en la WEB para la gestión de pedidos}
+      \field{year}{2022}
+    \endentry
+    \entry{Curieses2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=752949e82029a48972d27a02bf53985b}{%
+           family={Fernández},
+           familyi={F\bibinitperiod},
+           given={David\bibnamedelima Curieses},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{752949e82029a48972d27a02bf53985b}
+      \strng{fullhash}{752949e82029a48972d27a02bf53985b}
+      \strng{bibnamehash}{752949e82029a48972d27a02bf53985b}
+      \strng{authorbibnamehash}{752949e82029a48972d27a02bf53985b}
+      \strng{authornamehash}{752949e82029a48972d27a02bf53985b}
+      \strng{authorfullhash}{752949e82029a48972d27a02bf53985b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Trabajo Fin de Grado}
+      \field{title}{Sistema de gestión de ocupación y comandas en bares y restaurantes mediante una webapp para clientes proactivos}
+      \field{year}{2023}
+    \endentry
+    \entry{Bernat2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=07bf4d3ac84f63b1329d64565bef11b0}{%
+           family={Elorza},
+           familyi={E\bibinitperiod},
+           given={David\bibnamedelima Bernat},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{07bf4d3ac84f63b1329d64565bef11b0}
+      \strng{fullhash}{07bf4d3ac84f63b1329d64565bef11b0}
+      \strng{bibnamehash}{07bf4d3ac84f63b1329d64565bef11b0}
+      \strng{authorbibnamehash}{07bf4d3ac84f63b1329d64565bef11b0}
+      \strng{authornamehash}{07bf4d3ac84f63b1329d64565bef11b0}
+      \strng{authorfullhash}{07bf4d3ac84f63b1329d64565bef11b0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Trabajo Fin de Grado}
+      \field{title}{Gestión de comandas en un restaurante mediante dispositivos móviles}
+      \field{year}{2023}
+    \endentry
+    \entry{Escobar2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=55df5ab2833c0e5bc620c7f4b1f632bb}{%
+           family={Vallejos},
+           familyi={V\bibinitperiod},
+           given={Jonathan\bibnamedelimb Eduardo\bibnamedelima Escobar},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{55df5ab2833c0e5bc620c7f4b1f632bb}
+      \strng{fullhash}{55df5ab2833c0e5bc620c7f4b1f632bb}
+      \strng{bibnamehash}{55df5ab2833c0e5bc620c7f4b1f632bb}
+      \strng{authorbibnamehash}{55df5ab2833c0e5bc620c7f4b1f632bb}
+      \strng{authornamehash}{55df5ab2833c0e5bc620c7f4b1f632bb}
+      \strng{authorfullhash}{55df5ab2833c0e5bc620c7f4b1f632bb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Trabajo de Titulación}
+      \field{title}{Prototipo de una aplicación web móvil para la gestión de comandas en el restaurante del Laboratorio de Aprendizaje Vivencial 180°}
+      \field{year}{2023}
+    \endentry
+    \entry{Allain2020}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a7a00ba4d1b7a35916df3e7dc84de93f}{%
+           family={Manrique},
+           familyi={M\bibinitperiod},
+           given={Yimmy\bibnamedelimb Jhesus\bibnamedelima Allain},
+           giveni={Y\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7a00ba4d1b7a35916df3e7dc84de93f}
+      \strng{fullhash}{a7a00ba4d1b7a35916df3e7dc84de93f}
+      \strng{bibnamehash}{a7a00ba4d1b7a35916df3e7dc84de93f}
+      \strng{authorbibnamehash}{a7a00ba4d1b7a35916df3e7dc84de93f}
+      \strng{authornamehash}{a7a00ba4d1b7a35916df3e7dc84de93f}
+      \strng{authorfullhash}{a7a00ba4d1b7a35916df3e7dc84de93f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Tesis de Grado}
+      \field{title}{Diseño y desarrollo de una aplicación informática para la gestión eficiente de comandas del restaurante Gaitano Resto Bar de Ica}
+      \field{year}{2020}
+    \endentry
+    \entry{deArgila2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=222dcb019859834cf0c3f170b7901127}{%
+           family={Argila\bibnamedelima Lorente},
+           familyi={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Carlos\bibnamedelima Martín},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{222dcb019859834cf0c3f170b7901127}
+      \strng{fullhash}{222dcb019859834cf0c3f170b7901127}
+      \strng{bibnamehash}{222dcb019859834cf0c3f170b7901127}
+      \strng{authorbibnamehash}{222dcb019859834cf0c3f170b7901127}
+      \strng{authornamehash}{222dcb019859834cf0c3f170b7901127}
+      \strng{authorfullhash}{222dcb019859834cf0c3f170b7901127}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Trabajo Fin de Grado}
+      \field{title}{Transformación digital en la restauración: de los códigos QR con plataforma de pago, a la gestión de comandas en tiempo real}
+      \field{year}{2024}
+    \endentry
+    \entry{Katagri2025}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ab86248c6cb712d8b0898e0e4b3c3fe2}{%
+           family={Katagri},
+           familyi={K\bibinitperiod},
+           given={A.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=fddb6503e7294c41fc54bba6e13987e0}{%
+           family={Balavalad},
+           familyi={B\bibinitperiod},
+           given={K.\bibnamedelimi B.},
+           giveni={K\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{500513bef348bb9f1322ee09e02fd72b}
+      \strng{fullhash}{500513bef348bb9f1322ee09e02fd72b}
+      \strng{bibnamehash}{500513bef348bb9f1322ee09e02fd72b}
+      \strng{authorbibnamehash}{500513bef348bb9f1322ee09e02fd72b}
+      \strng{authornamehash}{500513bef348bb9f1322ee09e02fd72b}
+      \strng{authorfullhash}{500513bef348bb9f1322ee09e02fd72b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Computer Applications}
+      \field{month}{03}
+      \field{number}{72}
+      \field{title}{Smart Restaurant Ordering: A Digital Transformation to Enhance Dining Experiences}
+      \field{volume}{186}
+      \field{year}{2025}
+      \field{pages}{58\bibrangedash 67}
+      \range{pages}{10}
     \endentry
     \entry{Sultana2024}{article}{}
       \name{author}{6}{}{%
@@ -528,8 +718,8 @@
       \strng{authorbibnamehash}{35623695f3cb82184f5d979cae901eee}
       \strng{authornamehash}{c285911c13d702c35d029b32bdb87718}
       \strng{authorfullhash}{35623695f3cb82184f5d979cae901eee}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Computing and Applied Informatics}
@@ -539,38 +729,6 @@
       \field{year}{2024}
       \field{pages}{1123\bibrangedash 1141}
       \range{pages}{19}
-    \endentry
-    \entry{Katagri2025}{article}{}
-      \name{author}{2}{}{%
-        {{hash=ab86248c6cb712d8b0898e0e4b3c3fe2}{%
-           family={Katagri},
-           familyi={K\bibinitperiod},
-           given={A.\bibnamedelimi C.},
-           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=fddb6503e7294c41fc54bba6e13987e0}{%
-           family={Balavalad},
-           familyi={B\bibinitperiod},
-           given={K.\bibnamedelimi B.},
-           giveni={K\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
-      }
-      \strng{namehash}{500513bef348bb9f1322ee09e02fd72b}
-      \strng{fullhash}{500513bef348bb9f1322ee09e02fd72b}
-      \strng{bibnamehash}{500513bef348bb9f1322ee09e02fd72b}
-      \strng{authorbibnamehash}{500513bef348bb9f1322ee09e02fd72b}
-      \strng{authornamehash}{500513bef348bb9f1322ee09e02fd72b}
-      \strng{authorfullhash}{500513bef348bb9f1322ee09e02fd72b}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{International Journal of Computer Applications}
-      \field{month}{03}
-      \field{number}{72}
-      \field{title}{Smart Restaurant Ordering: A Digital Transformation to Enhance Dining Experiences}
-      \field{volume}{186}
-      \field{year}{2025}
-      \field{pages}{58\bibrangedash 67}
-      \range{pages}{10}
     \endentry
     \entry{EmilyHummel}{article}{}
       \name{author}{2}{}{%
@@ -638,78 +796,6 @@
       \field{pages}{59\bibrangedash 78}
       \range{pages}{20}
     \endentry
-    \entry{alsallaiy2015}{article}{}
-      \name{author}{4}{}{%
-        {{hash=8aa74da0ae487a88b4888bba80744f1a}{%
-           family={Alsallaiy},
-           familyi={A\bibinitperiod},
-           given={Ibtehal},
-           giveni={I\bibinitperiod}}}%
-        {{hash=cad5ce9de8e3f889d309f0a3e03baec5}{%
-           family={Dawson},
-           familyi={D\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod}}}%
-        {{hash=f338d1ee27b90c5808ed5a2dfa5ba2f0}{%
-           family={Han},
-           familyi={H\bibinitperiod},
-           given={Inyee},
-           giveni={I\bibinitperiod}}}%
-        {{hash=0728244647ac3b5849a13f88e2e21064}{%
-           family={Martinez-Dawson},
-           familyi={M\bibinithyphendelim D\bibinitperiod},
-           given={Rose},
-           giveni={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{e518cc3d1db6694032f107f7603c4429}
-      \strng{fullhash}{91d0c82b2b7ffe1188a0d682125209e2}
-      \strng{bibnamehash}{91d0c82b2b7ffe1188a0d682125209e2}
-      \strng{authorbibnamehash}{91d0c82b2b7ffe1188a0d682125209e2}
-      \strng{authornamehash}{e518cc3d1db6694032f107f7603c4429}
-      \strng{authorfullhash}{91d0c82b2b7ffe1188a0d682125209e2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Food Safety}
-      \field{title}{Recovery, Survival and Transfer of Bacteria on Restaurant Menus}
-      \field{volume}{36}
-      \field{year}{2016}
-      \field{pages}{52\bibrangedash 61}
-      \range{pages}{10}
-    \endentry
-    \entry{choi2025}{report}{}
-      \name{author}{3}{}{%
-        {{hash=5a6b13e2f6912f0e4cc73b60e0ea3036}{%
-           family={Choi},
-           familyi={C\bibinitperiod},
-           given={Jinkyung},
-           giveni={J\bibinitperiod}}}%
-        {{hash=a7e87437155026bcdf5fbbb45595bb5d}{%
-           family={Almanza},
-           familyi={A\bibinitperiod},
-           given={Barbara},
-           giveni={B\bibinitperiod}}}%
-        {{hash=6419aa60563140cd5730c3b66bfd0100}{%
-           family={Nelson},
-           familyi={N\bibinitperiod},
-           given={Douglas},
-           giveni={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{ee3cb9cd2f248ea9cd0a63ce8db68c2e}
-      \strng{fullhash}{795ddf66e3b4cb9dbc610e8f6fb32155}
-      \strng{bibnamehash}{795ddf66e3b4cb9dbc610e8f6fb32155}
-      \strng{authorbibnamehash}{795ddf66e3b4cb9dbc610e8f6fb32155}
-      \strng{authornamehash}{ee3cb9cd2f248ea9cd0a63ce8db68c2e}
-      \strng{authorfullhash}{795ddf66e3b4cb9dbc610e8f6fb32155}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Accedido el 1 de abril de 2025}
-      \field{title}{A Microbiological Assessment of Restaurant Menu Contamination}
-      \field{year}{2025}
-    \endentry
     \entry{Liyanage2018}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=b005db98931c766a97bef17ab9725910}{%
@@ -750,6 +836,177 @@
       \verb 10.1109/ICIAFS.2018.8629835
       \endverb
     \endentry
+    \entry{ef6_docs}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=140864078aeca1c7c35b4beb33c53c34}{%
+           family={{Microsoft}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{bibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorbibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://learn.microsoft.com/es-es/ef/ef6/}}
+      \field{note}{Consultado: marzo de 2026}
+      \field{title}{{Entity Framework 6 -- Documentación oficial}}
+      \field{year}{2024}
+    \endentry
+    \entry{BALSAM2025112186}{article}{}
+      \name{author}{2}{}{%
+        {{hash=847be895614035b964360f56a258c8be}{%
+           family={Balsam},
+           familyi={B\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c2792eeb632cac0b203d774187c7b931}{%
+           family={Mishra},
+           familyi={M\bibinitperiod},
+           given={Deepti},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{787a497b82b144de237178edd7773abf}
+      \strng{fullhash}{787a497b82b144de237178edd7773abf}
+      \strng{bibnamehash}{787a497b82b144de237178edd7773abf}
+      \strng{authorbibnamehash}{787a497b82b144de237178edd7773abf}
+      \strng{authornamehash}{787a497b82b144de237178edd7773abf}
+      \strng{authorfullhash}{787a497b82b144de237178edd7773abf}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Systems and Software}
+      \field{title}{Web application testing—Challenges and opportunities}
+      \field{volume}{219}
+      \field{year}{2025}
+      \field{pages}{112186}
+      \range{pages}{1}
+    \endentry
+    \entry{rae2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b397d66b02476457c3703cb2d7051bea}{%
+           family={{Real Academia Española}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{b397d66b02476457c3703cb2d7051bea}
+      \strng{fullhash}{b397d66b02476457c3703cb2d7051bea}
+      \strng{bibnamehash}{b397d66b02476457c3703cb2d7051bea}
+      \strng{authorbibnamehash}{b397d66b02476457c3703cb2d7051bea}
+      \strng{authornamehash}{b397d66b02476457c3703cb2d7051bea}
+      \strng{authorfullhash}{b397d66b02476457c3703cb2d7051bea}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Diccionario de la lengua española}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://dle.rae.es/comanda
+      \endverb
+      \verb{url}
+      \verb https://dle.rae.es/comanda
+      \endverb
+    \endentry
+    \entry{andi_gastronomia_2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=286118353748ca6d7a3a4f44e4fa03fb}{%
+           family={{Asociación Nacional de Empresarios de Colombia (ANDI)}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{286118353748ca6d7a3a4f44e4fa03fb}
+      \strng{fullhash}{286118353748ca6d7a3a4f44e4fa03fb}
+      \strng{bibnamehash}{286118353748ca6d7a3a4f44e4fa03fb}
+      \strng{authorbibnamehash}{286118353748ca6d7a3a4f44e4fa03fb}
+      \strng{authornamehash}{286118353748ca6d7a3a4f44e4fa03fb}
+      \strng{authorfullhash}{286118353748ca6d7a3a4f44e4fa03fb}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.andi.com.co/Home/Noticia/17428-la-camara-del-sector-gastronomico-de-la}}
+      \field{note}{Consultado el 10 de octubre de 2025}
+      \field{title}{La Cámara del Sector Gastronómico de la ANDI agrupa a más de 2.038 restaurantes a nivel nacional}
+      \field{year}{2023}
+    \endentry
+    \entry{alsallaiy2015}{article}{}
+      \name{author}{4}{}{%
+        {{hash=8aa74da0ae487a88b4888bba80744f1a}{%
+           family={Alsallaiy},
+           familyi={A\bibinitperiod},
+           given={Ibtehal},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cad5ce9de8e3f889d309f0a3e03baec5}{%
+           family={Dawson},
+           familyi={D\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f338d1ee27b90c5808ed5a2dfa5ba2f0}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Inyee},
+           giveni={I\bibinitperiod}}}%
+        {{hash=0728244647ac3b5849a13f88e2e21064}{%
+           family={Martinez-Dawson},
+           familyi={M\bibinithyphendelim D\bibinitperiod},
+           given={Rose},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{e518cc3d1db6694032f107f7603c4429}
+      \strng{fullhash}{91d0c82b2b7ffe1188a0d682125209e2}
+      \strng{bibnamehash}{91d0c82b2b7ffe1188a0d682125209e2}
+      \strng{authorbibnamehash}{91d0c82b2b7ffe1188a0d682125209e2}
+      \strng{authornamehash}{e518cc3d1db6694032f107f7603c4429}
+      \strng{authorfullhash}{91d0c82b2b7ffe1188a0d682125209e2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Food Safety}
+      \field{title}{Recovery, Survival and Transfer of Bacteria on Restaurant Menus}
+      \field{volume}{36}
+      \field{year}{2016}
+      \field{pages}{52\bibrangedash 61}
+      \range{pages}{10}
+    \endentry
+    \entry{choi2025}{report}{}
+      \name{author}{3}{}{%
+        {{hash=5a6b13e2f6912f0e4cc73b60e0ea3036}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Jinkyung},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a7e87437155026bcdf5fbbb45595bb5d}{%
+           family={Almanza},
+           familyi={A\bibinitperiod},
+           given={Barbara},
+           giveni={B\bibinitperiod}}}%
+        {{hash=6419aa60563140cd5730c3b66bfd0100}{%
+           family={Nelson},
+           familyi={N\bibinitperiod},
+           given={Douglas},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee3cb9cd2f248ea9cd0a63ce8db68c2e}
+      \strng{fullhash}{795ddf66e3b4cb9dbc610e8f6fb32155}
+      \strng{bibnamehash}{795ddf66e3b4cb9dbc610e8f6fb32155}
+      \strng{authorbibnamehash}{795ddf66e3b4cb9dbc610e8f6fb32155}
+      \strng{authornamehash}{ee3cb9cd2f248ea9cd0a63ce8db68c2e}
+      \strng{authorfullhash}{795ddf66e3b4cb9dbc610e8f6fb32155}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accedido el 1 de abril de 2025}
+      \field{title}{A Microbiological Assessment of Restaurant Menu Contamination}
+      \field{year}{2025}
+    \endentry
     \entry{Automatedattendance}{article}{}
       \name{author}{5}{}{%
         {{hash=354479e3225a200b19373771efea2934}{%
@@ -784,8 +1041,8 @@
       \strng{authorbibnamehash}{781775618dc5b046e51e519a183ed9be}
       \strng{authornamehash}{b7d4f59202a9c2e4692eb5e3f02a4604}
       \strng{authorfullhash}{781775618dc5b046e51e519a183ed9be}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Technology Enhanced Learning}
@@ -794,36 +1051,6 @@
       \field{volume}{14}
       \field{year}{2022}
       \field{pages}{37}
-      \range{pages}{1}
-    \endentry
-    \entry{BALSAM2025112186}{article}{}
-      \name{author}{2}{}{%
-        {{hash=847be895614035b964360f56a258c8be}{%
-           family={Balsam},
-           familyi={B\bibinitperiod},
-           given={Sebastian},
-           giveni={S\bibinitperiod}}}%
-        {{hash=c2792eeb632cac0b203d774187c7b931}{%
-           family={Mishra},
-           familyi={M\bibinitperiod},
-           given={Deepti},
-           giveni={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{787a497b82b144de237178edd7773abf}
-      \strng{fullhash}{787a497b82b144de237178edd7773abf}
-      \strng{bibnamehash}{787a497b82b144de237178edd7773abf}
-      \strng{authorbibnamehash}{787a497b82b144de237178edd7773abf}
-      \strng{authornamehash}{787a497b82b144de237178edd7773abf}
-      \strng{authorfullhash}{787a497b82b144de237178edd7773abf}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Systems and Software}
-      \field{title}{Web application testing—Challenges and opportunities}
-      \field{volume}{219}
-      \field{year}{2025}
-      \field{pages}{112186}
       \range{pages}{1}
     \endentry
     \entry{akyildiz2006survey}{inproceedings}{}
@@ -855,8 +1082,8 @@
       \strng{authorbibnamehash}{ed7fe815f89f5e7cd8daf908cbd41825}
       \strng{authornamehash}{0f1c9f1adaf6cbaafd3e034e9940284d}
       \strng{authorfullhash}{ed7fe815f89f5e7cd8daf908cbd41825}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2006 3rd Annual IEEE Communications Society on Sensor and Ad Hoc Communications and Networks (SECON '06)}
@@ -878,8 +1105,8 @@
       \strng{authornamehash}{9487aee3b3fbd99c83193a8fafb1f2f9}
       \strng{authorfullhash}{9487aee3b3fbd99c83193a8fafb1f2f9}
       \field{extraname}{1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{ISO/IEC/IEEE 23026:2023 - Systems and software engineering - Engineering and management of websites for systems, software, and services information}
@@ -908,8 +1135,8 @@
       \strng{authornamehash}{9487aee3b3fbd99c83193a8fafb1f2f9}
       \strng{authorfullhash}{9487aee3b3fbd99c83193a8fafb1f2f9}
       \field{extraname}{2}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{IEEE 1016-2009 - IEEE Standard for Information Technology--Systems Design--Software Design Descriptions}
@@ -925,48 +1152,6 @@
       \verb https://standards.ieee.org/ieee/1016/4502/
       \endverb
     \endentry
-    \entry{gastropos}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=bc1e633fb2122fd92516108953580d25}{%
-           family={{GastroPOS}},
-           familyi={G\bibinitperiod}}}%
-      }
-      \strng{namehash}{bc1e633fb2122fd92516108953580d25}
-      \strng{fullhash}{bc1e633fb2122fd92516108953580d25}
-      \strng{bibnamehash}{bc1e633fb2122fd92516108953580d25}
-      \strng{authorbibnamehash}{bc1e633fb2122fd92516108953580d25}
-      \strng{authornamehash}{bc1e633fb2122fd92516108953580d25}
-      \strng{authorfullhash}{bc1e633fb2122fd92516108953580d25}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.gastropos.com.co/precios/}}
-      \field{note}{Consultado: marzo de 2026}
-      \field{title}{{Planes y Precios | GastroPOS}}
-      \field{year}{2026}
-    \endentry
-    \entry{loggro_planes}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=bc8f3d9863fb5ee78f22706afe9fb18f}{%
-           family={{Loggro}},
-           familyi={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{bc8f3d9863fb5ee78f22706afe9fb18f}
-      \strng{fullhash}{bc8f3d9863fb5ee78f22706afe9fb18f}
-      \strng{bibnamehash}{bc8f3d9863fb5ee78f22706afe9fb18f}
-      \strng{authorbibnamehash}{bc8f3d9863fb5ee78f22706afe9fb18f}
-      \strng{authornamehash}{bc8f3d9863fb5ee78f22706afe9fb18f}
-      \strng{authorfullhash}{bc8f3d9863fb5ee78f22706afe9fb18f}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://loggro.com/restobar/planes/}}
-      \field{note}{Consultado: marzo de 2026}
-      \field{title}{{Planes y Precios Software para Restaurantes | Loggro Restobar}}
-      \field{year}{2026}
-    \endentry
     \entry{vendty_escritorio}{misc}{}
       \name{author}{1}{}{%
         {{hash=99b7ae95ebe35a8d859a129e966a7431}{%
@@ -979,42 +1164,13 @@
       \strng{authorbibnamehash}{99b7ae95ebe35a8d859a129e966a7431}
       \strng{authornamehash}{99b7ae95ebe35a8d859a129e966a7431}
       \strng{authorfullhash}{99b7ae95ebe35a8d859a129e966a7431}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.vendty.com/version-escritorio}}
       \field{note}{Consultado: marzo de 2026}
       \field{title}{{Versión Escritorio | Vendty}}
-      \field{year}{2025}
-    \endentry
-    \entry{vendty}{online}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labeltitlesource}{title}
-      \field{title}{Vendty | Software Punto de Venta para Restaurantes y Comercios}
-      \field{year}{2025}
-    \endentry
-    \entry{toteat_planes}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=ab10afa40511abcc1f8f8fe4c8d1f89f}{%
-           family={{Toteat}},
-           familyi={T\bibinitperiod}}}%
-      }
-      \strng{namehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
-      \strng{fullhash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
-      \strng{bibnamehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
-      \strng{authorbibnamehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
-      \strng{authornamehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
-      \strng{authorfullhash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
-      \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://toteat.com/es-co/precios}}
-      \field{note}{Consultado: marzo de 2026}
-      \field{title}{{Planes y precios para Restaurantes, Bares y Cadenas}}
       \field{year}{2025}
     \endentry
     \entry{toteat_corp}{misc}{}
@@ -1030,8 +1186,8 @@
       \strng{authornamehash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
       \strng{authorfullhash}{ab10afa40511abcc1f8f8fe4c8d1f89f}
       \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://toteat.com/es-co/precios/plan-corporativo}}
@@ -1051,8 +1207,8 @@
       \strng{authorbibnamehash}{9775557697323dea677182f414211807}
       \strng{authornamehash}{9775557697323dea677182f414211807}
       \strng{authorfullhash}{9775557697323dea677182f414211807}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.capterra.co/software/1030238/toteat}}
@@ -1072,8 +1228,8 @@
       \strng{authorbibnamehash}{05ac41c0bc9b1d56ef71eeb4583e8cf7}
       \strng{authornamehash}{05ac41c0bc9b1d56ef71eeb4583e8cf7}
       \strng{authorfullhash}{05ac41c0bc9b1d56ef71eeb4583e8cf7}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.comparasoftware.co/poster}}
@@ -1093,36 +1249,14 @@
       \strng{authorbibnamehash}{9157994442d3884a185e82b5df0931bd}
       \strng{authornamehash}{9157994442d3884a185e82b5df0931bd}
       \strng{authorfullhash}{9157994442d3884a185e82b5df0931bd}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://joinposter.mx/applications/facturacion-electronica-colombia}}
       \field{note}{Consultado: marzo de 2026}
       \field{title}{{Facturación Electrónica Colombia and Poster POS integration}}
       \field{year}{2026}
-    \endentry
-    \entry{ef6_docs}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=140864078aeca1c7c35b4beb33c53c34}{%
-           family={{Microsoft}},
-           familyi={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
-      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
-      \strng{bibnamehash}{140864078aeca1c7c35b4beb33c53c34}
-      \strng{authorbibnamehash}{140864078aeca1c7c35b4beb33c53c34}
-      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
-      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
-      \field{extraname}{1}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://learn.microsoft.com/es-es/ef/ef6/}}
-      \field{note}{Consultado: marzo de 2026}
-      \field{title}{{Entity Framework 6 -- Documentación oficial}}
-      \field{year}{2024}
     \endentry
     \entry{sqlserver_editions}{misc}{}
       \name{author}{1}{}{%
@@ -1137,8 +1271,8 @@
       \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
       \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
       \field{extraname}{2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.microsoft.com/es-co/sql-server/sql-server-downloads}}
@@ -1158,8 +1292,8 @@
       \strng{authorbibnamehash}{9a726714022f1abe42c666079ef19ebf}
       \strng{authornamehash}{9a726714022f1abe42c666079ef19ebf}
       \strng{authorfullhash}{9a726714022f1abe42c666079ef19ebf}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.nuget.org/packages/EntityFramework}}
@@ -1180,8 +1314,8 @@
       \strng{authornamehash}{a8e9c8918df2f6e7135ef51eb86f868f}
       \strng{authorfullhash}{a8e9c8918df2f6e7135ef51eb86f868f}
       \field{extraname}{1}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{10}
@@ -1202,8 +1336,8 @@
       \strng{authornamehash}{a8e9c8918df2f6e7135ef51eb86f868f}
       \strng{authorfullhash}{a8e9c8918df2f6e7135ef51eb86f868f}
       \field{extraname}{2}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{08}
@@ -1224,8 +1358,8 @@
       \strng{authornamehash}{a8e9c8918df2f6e7135ef51eb86f868f}
       \strng{authorfullhash}{a8e9c8918df2f6e7135ef51eb86f868f}
       \field{extraname}{3}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=34492}}
@@ -1245,8 +1379,8 @@
       \strng{authorbibnamehash}{41ceaadc909afa533d2138615c281bec}
       \strng{authornamehash}{41ceaadc909afa533d2138615c281bec}
       \strng{authorfullhash}{41ceaadc909afa533d2138615c281bec}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{11}
@@ -1266,8 +1400,8 @@
       \strng{authorbibnamehash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
       \strng{authornamehash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
       \strng{authorfullhash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Página web consultada el 1 de abril de 2025}
@@ -1275,8 +1409,8 @@
       \field{year}{n.d.}
     \endentry
     \entry{ISO29148:2018}{standard}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labeltitlesource}{title}
       \field{note}{Publication date: 2018-11; ISO Doc ID: 72089; 92 pages}
       \field{title}{ISO/IEC/IEEE 29148:2018 Systems and Software Engineering — Life Cycle Processes — Requirements Engineering}
@@ -1312,8 +1446,8 @@
       \strng{authorbibnamehash}{ef9ae243be1a4ae4285d640e7613f77e}
       \strng{authornamehash}{1383971e7698770d611f19383c8b9e9a}
       \strng{authorfullhash}{ef9ae243be1a4ae4285d640e7613f77e}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 2023 IEEE 16th International Conference on Software Testing, Verification and Validation Workshops (ICSTW 2023)}

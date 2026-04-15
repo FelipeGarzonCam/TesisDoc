@@ -1,3 +1,141 @@
 \chapter{INTRODUCCIÓN}
 
-Este apartado debe contener en un conjunto de párrafos de manera continua que incluya las referencias al planteamiento del problema, desarrollo de los antecedentes, propósito, y fundamentación. Por ello, cuando realice la introducción tenga presente incluir aquellos aspectos que hacen alusión a lo que investigó, la pregunta de investigación (formulación del problema), ¿Cuál fue el objeto de estudio o investigación (hipótesis) planteado en el anteproyecto?, se debe establecer de manera clara el objeto de estudio o investigación, es decir, el problema que se buscaba solucionar con este trabajo de grado, los argumentos que respaldan sus puntos de vista y permiten a la vez posicionar el problema, es decir, dejan entrever quiénes y cómo han abordado el mismo problema que usted se plantea.  La justificación, es decir, el impacto que genera su investigación tanto en el área en que se encuentra su estudio como en el campo social, a quiénes beneficia y cómo se benefician exactamente, debe describir el por qué y el para qué de la investigación ¿Por qué se desarrolló este proyecto?, la respuesta a esta pregunta debe demostrar la importancia de resolver el problema de investigación. Importancia que puede deberse a un aporte teórico, a la necesidad de solucionar o modificar la situación problemática, o a la forma de utilizar los aportes teóricos, metodológicos o prácticos que puedan darse como resultado de la investigación. Finalmente debe recordar agregar el enfoque que usted empleó para solucionar el problema.
+La industria gastronómica colombiana enfrenta una contradicción estructural: a pesar de 
+constituir uno de los sectores productivos más dinámicos del país, con aproximadamente 
+167.000 establecimientos registrados~\cite{acodres_estadisticas_2021} y un aporte del 
+3,9\% al Producto Interno Bruto nacional equivalente a 56,7 billones de pesos en 
+2022~\cite{andi_pib_2024}, la gran mayoría de sus operaciones cotidianas de gestión de 
+pedidos se sostienen sobre un procedimiento manual: el mesero anota la orden del cliente 
+en papel y la entrega físicamente a la cocina. Este método, históricamente aceptado por 
+su bajo costo operativo inmediato, genera tres categorías de problemas que comprometen la 
+viabilidad de los establecimientos de pequeña y mediana escala: ineficiencia operativa, 
+riesgo sanitario e inseguridad de la información, todos susceptibles de ser mitigados 
+mediante la adopción de tecnología digital adecuada a las condiciones reales del sector.
+
+La dimensión operativa del problema está respaldada por evidencia cuantitativa concreta. 
+Los sistemas basados en papel presentan tasas de error en pedidos de hasta el 8\%, frente al 2\% registrado en sistemas digitales, siendo la causa principal la mala 
+interpretación de la caligrafía y el uso de abreviaturas en entornos de trabajo 
+acelerado~\cite{Daniel2024, LSRetail2025}. La Asociación Nacional de Restaurantes de 
+los Estados Unidos estima que este tipo de fallos puede traducirse en pérdidas equivalentes 
+al 4\% de las ventas totales del establecimiento~\cite{Khan2023}, dado que 
+aproximadamente el 60\% de los errores resultan en reemplazos gratuitos que el negocio 
+debe asumir~\cite{Checkmate2025}. Esta presión económica adquiere una dimensión crítica 
+en el contexto colombiano, donde la Asociación Colombiana de la Industria Gastronómica 
+(ACODRES) estima que cuatro de cada diez restaurantes cierran durante sus primeros seis 
+meses de operación~\cite{acodres_estadisticas_2021}. La imposibilidad de actualizar 
+órdenes en tiempo real limita además la personalización del servicio y compromete la 
+fidelización del cliente~\cite{Ser2024Estrategia}. A pesar de que las mejoras tecnológicas 
+son conocidas, la implementación de sistemas digitales comerciales requiere una inversión 
+inicial elevada en hardware, software y capacitación, sumada a costos de mantenimiento 
+continuos que resultan poco accesibles para establecimientos con recursos 
+limitados~\cite{marcelo2024desafios}.
+
+La dimensión sanitaria, menos visible pero igualmente documentada, está asociada al papel 
+como vehículo de transmisión de microorganismos. Stephens et al.~\cite{Stephens2019} 
+demostraron en una revisión sistemática que los fómites constituyen un mecanismo de 
+transmisión relevante para numerosos agentes infecciosos, y que las características físicas 
+del soporte determinan directamente la tasa de supervivencia microbiana. Kirchner 
+et al.~\cite{Kirchner2021} confirmaron que las superficies atípicas en entornos de 
+servicio de alimentos, es decir, aquellas que quedan fuera de los protocolos de limpieza 
+convencionales, actúan como vectores activos de contaminación cruzada. La comanda de papel 
+recorre un circuito de múltiples manos (mesero, cocinero y cajero) sin protocolos de 
+desinfección intermedios, y Hübner et al.~\cite{Huebner2011} demostraron experimentalmente 
+que bacterias como \textit{Pseudomonas aeruginosa} y \textit{Enterococcus hirae} 
+sobreviven en papel estándar durante al menos siete días y son recuperables mediante el 
+ciclo de contacto mano--papel--mano. En el contexto colombiano, un análisis microbiológico 
+en restaurantes formales e informales de Cali confirmó contaminación cruzada con altos 
+porcentajes de bacterias mesófilas aerobias en superficies de contacto con 
+alimentos~\cite{caro-hernandez_analisis_2020}, situación que contraviene directamente la 
+Resolución 2674 de 2013 del Ministerio de Salud y Protección Social, que exige minimizar 
+cualquier foco de contaminación que ponga en riesgo la inocuidad 
+alimentaria~\cite{minsalud_resolucion2674_2013}.
+
+La tercera dimensión del problema radica en la seguridad de la información. Las soluciones 
+comerciales de gestión de comandas disponibles en el mercado colombiano (entre ellas 
+GastroPOS~\cite{gastropos}, Loggro~\cite{loggro_planes}, Vendty~\cite{vendty} y 
+Toteat~\cite{toteat_planes}) operan mayoritariamente bajo esquemas de suscripción mensual 
+en la nube, sin contemplar de forma explícita mecanismos robustos de encriptación ni 
+garantías sobre la custodia soberana de los datos del establecimiento. Esta estructura 
+genera desconfianza en el operador, pues el control de información sensible (historiales 
+de ventas, inventarios y preferencias de clientes) queda en manos de terceros. Para las 
+PYME gastronómicas, que según la Encuesta de Micronegocios del DANE (EMICRON, primer 
+trimestre de 2024) enfrentan limitaciones estructurales de inversión 
+tecnológica~\cite{DANE2024}, esta barrera económica e informática consolida la resistencia 
+a la digitalización y deja al sector en una situación de vulnerabilidad operativa y 
+sanitaria sostenida.
+
+Investigadores y desarrolladores de distintas latitudes han abordado problemas 
+parcialmente similares al planteado en este trabajo. En el ámbito académico colombiano, 
+Corredor Siratá~\cite{Documento2022} propuso un sistema POS web para la gestión de 
+pedidos, evidenciando la necesidad de digitalización en el sector pero sin incorporar 
+mecanismos de seguridad multicapa ni operación en entorno local. Desde España, Curieses 
+Fernández~\cite{Curieses2023} y Bernat Elorza~\cite{Bernat2023} desarrollaron sistemas 
+de gestión de comandas mediante aplicaciones web y dispositivos móviles, priorizando la 
+usabilidad pero sin abordar la restricción de conectividad ni la protección de datos 
+sensibles. En Latinoamérica, Escobar Vallejos~\cite{Escobar2023} y Allain 
+Manrique~\cite{Allain2020} construyeron prototipos funcionales para establecimientos 
+específicos, mientras que De Argila Lorente~\cite{deArgila2024} analizó la evolución 
+de la gestión de comandas en tiempo real como parte de la transformación digital de la 
+restauración española. En el plano técnico y operativo, Katagri y 
+Balavalad~\cite{Katagri2025} documentaron reducciones del 40\% en tiempos de 
+procesamiento de órdenes mediante automatización digital, y Sultana et 
+al.~\cite{Sultana2024} propusieron un modelo basado en IoT para mejorar las operaciones 
+de servicio de alimentos en países en desarrollo. Hummel y Murphy~\cite{EmilyHummel} 
+demostraron mediante la técnica de planos de servicio que la estandarización de los 
+canales de comunicación interna mejora directamente la eficiencia operativa, y De Vries 
+et al.~\cite{DEVRIES201859} confirmaron que los sistemas digitales de pedido y pago 
+impactan la retención de clientes y la frecuencia de visitas. Liyanage 
+et al.~\cite{Liyanage2018} abrieron el precedente técnico de integración de tecnología 
+NFC bajo el estándar ISO/IEC~14443 en sistemas de gestión de restaurantes. Sin embargo, 
+ninguno de estos antecedentes aborda de forma integrada la restricción económica del 
+hardware, la operación sin conectividad a internet, la encriptación de datos y la 
+autenticación física como unidad funcional orientada específicamente al segmento PYME 
+colombiano.
+
+La pregunta que orienta esta investigación es: \textit{¿cómo desarrollar una aplicación 
+	web de bajo costo para la gestión de comandas en restaurantes que garantice la seguridad 
+	y confidencialidad de la información mediante encriptación y llaves físicas de acceso?} 
+El objeto de estudio es el diseño, implementación y evaluación de \textbf{QuickTable}, 
+un sistema web de gestión integral de comandas que digitaliza el ciclo operativo completo 
+del restaurante (toma de pedidos, gestión en cocina y facturación en caja), incorporando 
+encriptación de base de datos y autenticación de doble factor (2FA) basada en hardware 
+NFC, operable sobre infraestructura de bajo costo en red de intranet local sin dependencia 
+de conectividad externa. La hipótesis central del proyecto, planteada en el anteproyecto, 
+sostiene que es posible construir una solución tecnológica accesible, segura y funcional 
+para el sector gastronómico colombiano sin recurrir a servicios en la nube ni a hardware 
+especializado de alto costo, siempre que se combinen adecuadamente tecnologías de software 
+maduras con componentes electrónicos de bajo costo orientados a la seguridad por hardware.
+
+El desarrollo de este proyecto se justifica por el impacto que genera en múltiples planos. 
+En el plano operativo y económico, los restaurantes PYME que adopten la solución reducirán 
+errores de pedido, acortarán tiempos de procesamiento de órdenes y obtendrán trazabilidad 
+histórica de sus ventas con un costo de implementación sustancialmente inferior al de las 
+alternativas comerciales existentes; los beneficiarios directos son los propietarios y 
+administradores de establecimientos gastronómicos de pequeña y mediana escala, así como su 
+personal operativo. En el plano sanitario, la eliminación del papel como medio de 
+comunicación interna rompe activamente la cadena de transmisión de microorganismos entre 
+áreas, constituyendo una medida preventiva que protege tanto al personal del 
+establecimiento como a los clientes~\cite{minsalud_resolucion2674_2013}. En el plano 
+informático, el modelo de despliegue local garantiza que el restaurante mantenga la 
+custodia absoluta de su información financiera y operativa, y la encriptación de la base de 
+datos junto con el módulo de autenticación física elevan el nivel de protección a un 
+estándar que las soluciones comerciales del mercado colombiano no contemplan de forma 
+integrada. Adicionalmente, el proyecto realiza un aporte metodológico al demostrar que los 
+principios de la Ingeniería Electrónica (comunicaciones inalámbricas, sistemas embebidos y 
+arquitecturas de seguridad) son aplicables a la solución de problemas reales del sector 
+productivo nacional, diferenciando esta propuesta de los desarrollos puramente 
+informáticos previos.
+
+Para resolver el problema planteado se adoptó un enfoque de ingeniería orientado a la 
+construcción e implementación real del sistema siguiendo una metodología en cascada. La 
+aplicación web fue desarrollada sobre el framework .NET~8 con el modelo de páginas Razor 
+Pages y Entity Framework~6~\cite{ef6_docs} como capa de acceso a datos sobre un motor 
+Microsoft SQL Server, con una interfaz de usuario estructurada sobre la plantilla 
+AdminLTE~\cite{BALSAM2025112186}. El módulo de seguridad por hardware se implementó 
+mediante una Raspberry Pi~3 equipada con un lector RFID-RC522 operando a 13,56\,MHz 
+conforme al estándar ISO/IEC~14443~\cite{Liyanage2018}, gestionada por un cliente Python 
+con interfaz gráfica desarrollada en Tkinter. La validación del sistema se realizó mediante 
+pruebas unitarias con MSTest, análisis de vulnerabilidades con OWASP~ZAP~2.17.0, pruebas 
+automatizadas de concurrencia y una implementación piloto en entorno real sobre 
+infraestructura deliberadamente limitada, con el fin de verificar la viabilidad del sistema 
+en las condiciones reales del segmento objetivo.

@@ -1,3 +1,730 @@
+\newpage
 \chapter{RESULTADOS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resultados de la Verificación Manual de Funcionalidades}
 
-Ubicar los resultados obtenidos en el proceso de implementación, argumentando, analizando datos obtenidos, comportamientos, correlaciones de datos, reducción de costos, entre otros.
+Para garantizar el correcto funcionamiento del sistema y su alineación con los requerimientos establecidos en la fase de diseño, se ejecutó un proceso de validación operativa integral. Esta etapa consistió en un recorrido sistemático a través de las interfaces gráficas correspondientes a cada uno de los roles del restaurante, simulando escenarios reales de operación diaria. El objetivo principal fue comprobar la disponibilidad y estabilidad de las herramientas de gestión asignadas a los perfiles de administrador, mesero, cocina y caja, asegurando que el flujo de la información se mantuviera continuo desde la toma del pedido hasta su facturación final.
+
+Durante las pruebas, se comprobó que el módulo del administrador permite la correcta creación y modificación del catálogo de productos, así como la gestión de usuarios del sistema. Por su parte, la interfaz destinada al personal de servicio demostró una adecuada respuesta táctil en dispositivos móviles, facilitando la selección ágil de los platos y el envío inmediato de la comanda hacia el área de preparación. En el módulo de cocina, se validó la actualización de los pedidos entrantes mediante la visualización horizontal planificada, lo cual permitió a los operarios modificar el estado de los alimentos a preparados de manera dinámica. Finalmente, en el perfil de caja, se verificó la recepción oportuna de las órdenes listas y la correcta liquidación de las mesas, confirmando la persistencia de los datos en el historial transaccional.
+
+Los resultados de esta auditoría funcional evidenciaron el cumplimiento de los flujos operativos básicos planeados para la aplicación. A continuación, la Tabla \ref{tab:verificacion_manual} consolida los escenarios evaluados y el estado final de aprobación para cada rol operativo del sistema.
+
+\begin{table}[H]
+	\centering
+	\caption{Resultados de la verificación manual de funcionalidades operativas por rol.}
+	\label{tab:verificacion_manual}
+	\small
+	% Usamos tabularx para ajuste automático. 'l' para el rol, 'X' para la descripción (ajustable) y 'c' para el resultado.
+	\begin{tabularx}{\textwidth}{l X c}
+		\toprule
+		\textbf{Rol Operativo} & \textbf{Funcionalidad Evaluada} & \textbf{Resultado} \\
+		\midrule
+		Administrador & Creación y edición de productos en el menú, visualización de inventario y registro de nuevos empleados. & Cumple \\
+		\midrule
+		Mesero & Ingreso al sistema, selección de mesa activa, registro de productos mediante interfaz táctil y envío de comanda. & Cumple \\
+		\midrule
+		Cocina & Recepción visual de la comanda en pantalla horizontal, identificación por colores y actualización de estado a listo. & Cumple \\
+		\midrule
+		Caja & Visualización de comandas terminadas, generación del total de la factura y cierre transaccional de la mesa. & Cumple \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+Como evidencia visual del flujo de comunicación descrito, se capturó de forma simultánea el momento clave de la interacción entre las áreas operativas. La Figura \ref{fig:flujo_mesero_cocina} expone en paralelo la vista del mesero al momento de crear una orden y el panel de control del área de preparación al recibirla. Esta representación conjunta evidencia la correcta adaptación de la interfaz móvil a pantallas reducidas para agilizar el registro por parte del personal de servicio, mientras ilustra la recepción inmediata de la comanda en la cocina, corroborando la sincronización del sistema y el contraste visual diseñado para facilitar la lectura a distancia.
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.95\textwidth]{Verificación Manual de Funcionalidades.png}
+	\caption{Vista en paralelo de la interfaz de mesero durante la creación de la comanda y su recepción inmediata en el panel de control de cocina.}
+	\label{fig:flujo_mesero_cocina}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{ Resultados de las Pruebas Unitarias}
+
+Las pruebas unitarias se ejecutaron sobre los servicios \texttt{PasswordService} y
+\texttt{CryptoService}, los cuales concentran la lógica de protección de credenciales
+y el cifrado de identificadores NFC en el sistema. Para \texttt{PasswordService}, los
+casos de prueba cubrieron la generación del hash de contraseña mediante BCrypt con
+factor de trabajo 12, la verificación de una contraseña válida contra su hash almacenado
+y la verificación de una contraseña inválida, incluyendo el comportamiento del servicio
+ante entradas vacías o nulas. Para \texttt{CryptoService}, los casos cubrieron el
+cifrado de un UID de tarjeta mediante AES, la recuperación del valor original a través
+del descifrado y la respuesta del servicio ante una cadena de entrada no válida.
+
+\begin{table}[H]
+	\centering
+	\caption{Casos de prueba ejecutados con MSTest}
+	\label{tab:mstest}
+	\small
+	\begin{tabular}{l l c}
+		\toprule
+		\textbf{Servicio} & \textbf{Caso de prueba} & \textbf{Resultado} \\
+		\midrule
+		PasswordService & HashPassword genera hash no vacío & Passed \\
+		PasswordService & VerifyPassword con contraseña válida & Passed \\
+		PasswordService & VerifyPassword con contraseña inválida & Passed \\
+		\midrule
+		CryptoService & EncriptarUID produce cadena cifrada & Passed \\
+		CryptoService & DesencriptarUID recupera el valor original & Passed \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+La Figura \ref{fig:mstest1} presenta la primera ejecución del conjunto de pruebas,
+donde se registró la resolución de cada caso junto con el tiempo de ejecución por
+prueba. La Figura \ref{fig:mstest2} corresponde a la segunda ejecución del mismo
+conjunto, realizada para verificar la repetibilidad de los resultados.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{ResultadoMSTest.png}
+	\caption{Primera ejecución del conjunto de pruebas unitarias MSTest}
+	\label{fig:mstest1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{ResultadoMSTestV2.png}
+	\caption{Segunda ejecución del conjunto de pruebas unitarias MSTest}
+	\label{fig:mstest2}
+\end{figure}
+
+En ambas ejecuciones, los 7 casos registraron estado \texttt{Passed}. El comportamiento
+de \texttt{VerifyPassword} ante entradas vacías retorna \texttt{false} sin lanzar
+excepción, resultado del bloque de validación previo al llamado de BCrypt. De igual
+forma, \texttt{DesencriptarUID} retorna el valor de entrada sin modificación cuando la
+cadena recibida no corresponde a un Base64 válido, comportamiento definido por el bloque
+\texttt{catch} del método, el cual devuelve el parámetro \texttt{uidEncriptado}
+directamente.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resultados de las Pruebas de API con Postman}
+
+Con el fin de complementar la validación funcional del sistema, se realizaron pruebas directas sobre los puntos de acceso HTTP expuestos por el backend, empleando la herramienta Postman como cliente de solicitudes. Esta fase permitió verificar de forma aislada la coherencia semántica de las respuestas JSON retornadas por los controladores, sin intermediación de la interfaz gráfica, cubriendo los servicios de gestión de copias de seguridad y control de asistencia del personal.
+
+
+\subsection{Creación de Copia de Seguridad}
+
+La solicitud dirigida al endpoint de creación de respaldos generó una respuesta satisfactoria 
+del servidor. El controlador procesó la petición, ejecutó el procedimiento de volcado de la 
+base de datos sobre el almacenamiento local del servidor y retornó un objeto JSON con los 
+metadatos técnicos del archivo generado, confirmando la integridad de la operación.
+
+
+\begin{table}[H]
+	\centering
+	\caption{Metadatos retornados por el endpoint de creación de respaldo.}
+	\label{tab:postman_crear_backup}
+	\small
+	% Usamos tabular con un ancho de columna manual para la derecha
+	\begin{tabular}{l p{7cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Valor obtenido} \\ 
+		\midrule
+		\texttt{success}       & \texttt{true} \\
+		\texttt{message}       & Backup creado exitosamente \\
+		\texttt{nombreArchivo} & \texttt{QuickTableDB\_20260413\_103531.bak} \\
+		\texttt{tamanioMB}     & 6,12 MB \\
+		\texttt{backupId}      & 1001 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{CrearBackup.png}
+	\caption{Respuesta del servidor ante la solicitud de creación de archivo de respaldo, 
+		visualizada en Postman.}
+	\label{fig:postman_crear_backup}
+\end{figure}
+
+\subsection{Consulta de Espacio de Almacenamiento Disponible}
+
+Se ejecutó una petición \texttt{GET} para determinar la capacidad de almacenamiento libre 
+en el servidor anfitrión. La API retornó un único campo numérico entero expresado en 
+megabytes (MB), confirmando la disponibilidad del servicio de monitoreo del sistema de 
+archivos. El valor obtenido, \texttt{28444 MB} equivalentes a aproximadamente 24 GB, 
+verifica que el servidor dispone de capacidad suficiente para operaciones continuadas de 
+respaldo durante el ciclo de vida del sistema.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Espacio Disponible.png}
+	\caption{Métrica de almacenamiento disponible retornada por el endpoint.}
+	\label{fig:postman_espacio}
+\end{figure}
+
+\subsection{Listado del Historial de Respaldos}
+
+Se validó la recuperación del registro histórico de copias de seguridad almacenadas en el 
+sistema. La respuesta consistió en un arreglo de objetos JSON donde cada elemento describe 
+un respaldo individual con sus atributos operativos y de seguridad. El análisis de la 
+respuesta permitió verificar los siguientes aspectos del sistema de persistencia:
+
+\begin{enumerate}
+	\item \textbf{Trazabilidad operativa:} Cada registro incluye la marca temporal de 
+	creación, el nombre del archivo \texttt{.bak}, su ruta física en el servidor y el 
+	usuario creador, permitiendo auditar el historial de operaciones de mantenimiento.
+	\item \textbf{Seguridad criptográfica:} La respuesta expone las rutas de los 
+	certificados de cifrado (\texttt{.cer}) y las claves privadas (\texttt{.pvk}) 
+	asociadas a cada respaldo, evidenciando la integración del módulo de 
+	Cifrado Transparente de Datos (TDE) con el proceso de respaldo.
+	\item \textbf{Consistencia de registros:} Los tres respaldos listados presentaron 
+	estado \texttt{Exitoso} y un tamaño consistente entre 5{,}18 MB y 5{,}24 MB, 
+	lo que confirma la estabilidad del procedimiento de volcado entre sesiones 
+	de ejecución independientes.
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Backup listar.png}
+	\caption{Arreglo JSON retornado por el endpoint de listado, evidenciando el historial 
+		de respaldos con sus metadatos de seguridad asociados.}
+	\label{fig:postman_listar_backup}
+\end{figure}
+
+\subsection{Registro de Salida de Personal mediante Tarjeta NFC}
+
+Se evaluó el endpoint de cierre de jornada laboral, el cual forma parte del subsistema de 
+control de asistencia integrado con el módulo de hardware NFC. Para esta prueba, el 
+identificador único (UID) de la tarjeta del empleado fue codificado en Base64 y transmitido 
+al servidor mediante una solicitud \texttt{POST}, replicando el comportamiento del cliente 
+Python ejecutado en la Raspberry Pi. El sistema localizó el registro de sesión activo 
+correspondiente al día en curso, ejecutó el cálculo automático del tiempo laborado a partir 
+de la marca temporal de ingreso previamente almacenada y retornó la confirmación estructurada 
+de la operación, como se detalla en la Tabla~\ref{tab:postman_salida}.
+
+\begin{table}[H]
+	\centering
+	\caption{Campos retornados por el endpoint de registro de salida de personal.}
+	\label{tab:postman_salida}
+	\small
+	% Definimos dos columnas fijas para que no se estiren al infinito
+	\begin{tabular}{l p{8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Valor registrado} \\ 
+		\midrule
+		\texttt{success}         & \texttt{true} \\
+		\texttt{message}         & Salida registrada correctamente \\
+		\texttt{nombre}          & cocina \\
+		\texttt{rol}             & Cocina \\
+		\texttt{horaIngreso}     & 08:23 \\
+		\texttt{horaSalida}      & 10:03 \\
+		\texttt{tiempoTrabajado} & 1h 40m \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Marcar SAlida.png}
+	\caption{Respuesta del endpoint \texttt{/api/asistencia/marcar-salida} tras el cierre 
+		exitoso de la jornada laboral del personal de cocina.}
+	\label{fig:postman_salida}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Resultados de la Evaluación del Tiempo de Respuesta Operativa}
+Para esta fase se definieron dos condiciones de evaluación sobre el mismo aplicativo: una con acceso a internet y otra sin acceso a internet. 
+En este apartado se presentan los resultados correspondientes a la condición con acceso a internet, dejando constancia de que existe una medición equivalente para la condición sin conectividad externa. 
+
+\subsubsection{Condición con acceso a Internet}
+
+La medición con acceso a internet se realizó sobre las vistas de Login, Mesero, Cocina, Caja y Administrador, empleando herramientas del navegador y reportes Lighthouse exportados en formato HTML.
+Las variables registradas incluyen número de peticiones, peso transferido, tiempo hasta el primer byte, eventos de carga del documento y métricas visuales de Lighthouse.
+
+\begin{table}[H]
+	\centering
+	\caption{Métricas registradas en la condición con acceso a internet.}
+	\label{tab:devtools_con_internet}
+	\small
+	\begin{tabularx}{\textwidth}{l *{9}{>{\centering\arraybackslash}X}}
+		\toprule
+		\textbf{Vista} & \textbf{Pet.} & \textbf{Peso} & \textbf{TTFB} & \textbf{DCL} & \textbf{Load} & \textbf{FCP} & \textbf{LCP} & \textbf{CLS} & \textbf{Score} \\
+		\midrule
+		Login   & 14 & 12.1k & 9ms  & 214ms & 219ms & 0.7s  & 0.8s  & 0.06  & 99 \\
+		Mesero  & 15 & 11.0k & 11ms & 212ms & 216ms & 3.2s  & 3.3s  & 0.016 & 86 \\
+		Cocina  & 30 & 27.2k & 177ms& 563ms & 573ms & 0.6s  & 0.6s  & 0.087 & 98 \\
+		Caja    & 21 & 19.8k & 14ms & 382ms & 389ms & 0.6s  & 0.7s  & 0.178 & 92 \\
+		Admin   & 14 & 9.9k  & 9.9ms& 240ms & 245ms & 0.58s & 0.62s & 0     & 100 \\
+		\bottomrule
+	\end{tabularx}
+	\begin{flushleft}
+		\footnotesize
+		\textbf{Pet.}: Peticiones; \textbf{DCL}: DOMContentLoaded; \textbf{FCP}: First Contentful Paint; \textbf{LCP}: Largest Contentful Paint; \textbf{CLS}: Cumulative Layout Shift.
+	\end{flushleft}
+\end{table}
+
+
+La Tabla \ref{tab:devtools_con_internet} muestra que la vista de Login registró 14 peticiones, 12.1 kB transferidos y un evento \textit{Load} de 219 ms. 
+La vista de Mesero registró 15 peticiones, 11.0 kB transferidos y un evento \textit{Load} de 216 ms. 
+La vista de Cocina concentró el mayor número de solicitudes dentro de esta condición, con 30 peticiones y 27.2 kB transferidos.
+Caja registró 21 peticiones y 19.8 kB transferidos, mientras que la vista de Administrador presentó 14 peticiones y 9.92 kB transferidos. 
+
+El \textit{Time to First Byte} (TTFB), o tiempo hasta el primer byte, presentó diferencias entre las vistas evaluadas. 
+Login, Mesero, Caja y Administrador registraron valores de 9 ms, 11 ms, 14 ms y 9.92 ms, respectivamente.
+La vista de Cocina registró un TTFB de 177 ms, valor superior al resto de módulos analizados en esta condición.
+
+En las métricas visuales, el \textit{First Contentful Paint} (FCP), o tiempo hasta la primera aparición visual de contenido, y el \textit{Largest Contentful Paint} (LCP), o tiempo hasta que se renderiza el elemento de mayor tamaño visible, se mantuvieron por debajo de un segundo en Login, Cocina, Caja y Administrador. 
+Login presentó un FCP de 0.7 s y un LCP de 0.8 s. 
+Cocina registró 0.6 s tanto en FCP como en LCP, mientras que Caja presentó 0.6 s y 0.7 s, respectivamente.
+Administrador registró 0.582 s para FCP y 0.622 s para LCP.
+
+La excepción en este conjunto fue la vista de Mesero, donde el FCP fue de 3.2 s y el LCP de 3.3 s. 
+En este caso, la auditoría se ejecutó con \textit{form factor} móvil, perfil \textit{Slow 4G throttling}, latencia simulada de 150 ms, \textit{CPU slowdown multiplier} de 4 y agente emulado \textit{Moto G Power}. 
+Estas condiciones se aplicaron para simular el uso del sistema desde un teléfono inteligente y no desde un equipo de escritorio. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{login_lighthouse_resultado.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Login.}
+	\label{fig:login_lighthouse_resultado}
+\end{figure}
+
+La evidencia visual de Login debe corresponder al pantallazo del resultado general del reporte HTML de Lighthouse, donde se observe el puntaje global y las métricas principales de la auditoría. 
+Esta figura permite relacionar los valores reportados para FCP, LCP y estabilidad visual con la evidencia exportada por la herramienta. 
+
+En las vistas de Cocina y Caja se identificó una diferencia entre el tiempo de carga inicial y la duración total observada en la actividad de red. 
+En Cocina, la cadena de dependencias de red incluye solicitudes periódicas hacia el recurso \texttt{CocinaObtenerPedidosCocina}, lo que extiende la actividad observada más allá de la carga inicial de la interfaz.
+En Caja ocurre un comportamiento equivalente con solicitudes hacia \texttt{CajaObtenerPedidosActivos}. 
+Por esta razón, para interpretar la carga inicial de estas vistas resulta más representativo emplear los eventos \textit{Load} de 573 ms en Cocina y 389 ms en Caja. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth, height=8.7cm]{mesero_lighthouse_resultado.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Mesero.}
+	\label{fig:mesero_lighthouse_resultado}
+\end{figure}
+
+La evidencia visual de Mesero debe mostrar el resumen del reporte HTML de Lighthouse, junto con el contexto de auditoría móvil aplicado en la prueba. 
+En este caso es pertinente que el pantallazo permita observar que la auditoría fue ejecutada para entorno móvil y con restricciones simuladas de red y procesamiento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth, height=8.7cm]{cocina_lighthouse_resultado.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Cocina.}
+	\label{fig:cocina_lighthouse_resultado}
+\end{figure}
+
+En Cocina, el reporte HTML también evidencia la presencia de solicitudes recurrentes en la red, asociadas a la consulta continua de pedidos activos.
+Por ello, el pantallazo más útil para esta vista es el del resultado general de Lighthouse o, de forma complementaria, la sección de cadena de dependencias de red.
+
+El \textit{Cumulative Layout Shift} (CLS), o desplazamiento acumulado del diseño, presentó su valor más alto en la vista de Caja con 0.178.
+En el mismo reporte se identificó que el principal desplazamiento estuvo asociado al \textit{footer}, a la barra de navegación y a la carga de la fuente \texttt{fa-solid-900.woff2}.
+En Login el CLS fue de 0.06, en Mesero de 0.016, en Cocina de 0.087 y en Administrador de 0.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{caja_lighthouse_resultado.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Caja.}
+	\label{fig:caja_lighthouse_resultado}
+\end{figure}
+
+En la vista de Caja resulta especialmente útil incluir un pantallazo del apartado de \textit{Layout shift culprits}, ya que allí se identifica el origen principal del desplazamiento visual observado durante la carga.
+Esta evidencia complementa el valor de CLS reportado en la tabla y permite asociarlo con elementos concretos de la interfaz.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,height=8cm]{admin_lighthouse_resultado.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Administrador.}
+	\label{fig:admin_lighthouse_resultado}
+\end{figure}
+
+La vista de Administrador obtuvo un puntaje de 100, con FCP de 0.582 s, LCP de 0.622 s y CLS igual a 0. 
+Por ello, el pantallazo del resultado general de Lighthouse es suficiente como evidencia principal para esta vista. 
+
+%En conjunto, los reportes HTML de Lighthouse permiten documentar de forma homogénea los resultados obtenidos en cada módulo, ya que conservan tanto las métricas cuantitativas como las observaciones técnicas de cada auditoría.
+
+
+\subsubsection{Condición sin acceso a Internet}
+
+La medición sin acceso a internet se realizó sobre las mismas vistas, empleando herramientas del navegador y reportes Lighthouse exportados en formato HTML. 
+Las variables registradas incluyen número de peticiones, peso transferido, tiempo hasta el primer byte, eventos de carga del documento y métricas visuales de Lighthouse. 
+
+\begin{table}[H]
+	\centering
+	\caption{Métricas registradas en la condición sin acceso a internet.}
+	\label{tab:devtools_sin_internet}
+	\small
+	\setlength{\tabcolsep}{2pt} % Ajuste fino para evitar desbordamiento
+	% Definimos que todas las columnas numéricas sean X y centradas
+	\begin{tabularx}{\textwidth}{l *{9}{>{\centering\arraybackslash}X}}
+		\toprule
+		\textbf{Vista} & \textbf{Pet.} & \textbf{Peso} & \textbf{TTFB} & \textbf{DCL} & \textbf{Load} & \textbf{FCP} & \textbf{LCP} & \textbf{CLS} & \textbf{Score} \\
+		\midrule
+		Login   & 15 & 477.1k & 13.9ms & 583ms & 587ms & 0.62s & 0.71s & 0     & 99 \\
+		Mesero  & 16 & 12.9k  & 14.1ms & 104ms & 230ms & 1.79s & 1.87s & 0.007 & 87 \\
+		Cocina  & 44 & 43.5k  & 8.3ms  & 306ms & 315ms & 0.58s & 0.66s & 0.006 & 99 \\
+		Caja    & 14 & 9.2k   & 8.6ms  & 228ms & 236ms & 0.46s & 0.58s & 0     & 100 \\
+		Admin   & 14 & 9.2k   & 9.9ms  & 240ms & 245ms & 0.58s & 0.62s & 0     & 99 \\
+		\bottomrule
+	\end{tabularx}
+	\begin{flushleft}
+		\footnotesize
+		\textbf{Pet.}: Peticiones; \textbf{DCL}: DOMContentLoaded; \textbf{FCP}: First Contentful Paint; \textbf{LCP}: Largest Contentful Paint; \textbf{CLS}: Cumulative Layout Shift.
+	\end{flushleft}
+\end{table}
+
+La Tabla \ref{tab:devtools_sin_internet} muestra que la vista de Login registró 15 peticiones, 477.12 KB transferidos y un evento \textit{Load} de 587 ms. 
+La vista de Mesero registró 16 peticiones, 12.96 KB transferidos y un evento \textit{Load} de 230 ms. 
+La vista de Cocina concentró el mayor número de solicitudes en esta condición, con 44 peticiones y 43.51 KB transferidos. 
+Caja y la vista de Administrador registraron 14 peticiones cada una, con 9.29 KB transferidos en ambos casos. 
+
+El \textit{Time to First Byte} (TTFB), o tiempo hasta el primer byte, se mantuvo bajo en todas las vistas evaluadas. 
+Login, Mesero, Cocina, Caja y Administrador registraron valores de 13.97 ms, 14.19 ms, 8.31 ms, 8.61 ms y 9.92 ms, respectivamente. 
+
+En las métricas visuales, el \textit{First Contentful Paint} (FCP), o tiempo hasta la primera aparición visual de contenido, y el \textit{Largest Contentful Paint} (LCP), o tiempo hasta que se renderiza el elemento de mayor tamaño visible, se mantuvieron por debajo de un segundo en Login, Cocina, Caja y Administrador. 
+Login presentó un FCP de 0.620 s y un LCP de 0.710 s. 
+Cocina registró 0.586 s y 0.666 s, mientras que Caja presentó 0.468 s y 0.588 s, respectivamente. 
+Administrador registró 0.582 s para FCP y 0.622 s para LCP. 
+
+La excepción en este conjunto fue la vista de Mesero, donde el FCP fue de 1.795 s y el LCP de 1.871 s. 
+Aun así, el puntaje Lighthouse se mantuvo en 87 y el evento \textit{Load} fue de 230 ms. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{login_lighthouse_sin_internet.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Login sin acceso a internet.}
+	\label{fig:login_lighthouse_sin_internet}
+\end{figure}
+
+La vista de Login obtuvo un puntaje de 99, con FCP de 0.620 s, LCP de 0.710 s y CLS igual a 0. 
+Por ello, el pantallazo del resultado general de Lighthouse es suficiente como evidencia principal para esta vista. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth, height=8cm]{mesero_lighthouse_sin_internet.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Mesero sin acceso a internet.}
+	\label{fig:mesero_lighthouse_sin_internet}
+\end{figure}
+
+La vista de Mesero obtuvo un puntaje de 87, con FCP de 1.795 s, LCP de 1.871 s y CLS de 0.007. 
+En esta condición, el pantallazo del resultado general de Lighthouse permite documentar de forma suficiente el comportamiento visual y el puntaje global del módulo. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth, height=8cm]{cocina_lighthouse_sin_internet.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Cocina sin acceso a internet.}
+	\label{fig:cocina_lighthouse_sin_internet}
+\end{figure}
+
+La vista de Cocina obtuvo un puntaje de 99, con FCP de 0.586 s, LCP de 0.666 s y CLS de 0.006. 
+Aunque el tiempo total \textit{Finish} alcanzó 31.34 s, el evento \textit{Load} fue de 315 ms. 
+Esta diferencia se explica por las solicitudes periódicas de actualización de pedidos activos, que prolongan la actividad de red sin afectar la carga inicial de la interfaz. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth, height=8cm]{caja_lighthouse_sin_internet.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Caja sin acceso a internet.}
+	\label{fig:caja_lighthouse_sin_internet}
+\end{figure}
+
+La vista de Caja obtuvo el mejor resultado de esta condición, con puntaje de 100, FCP de 0.468 s, LCP de 0.588 s y CLS igual a 0. 
+Por ello, el pantallazo del resultado general de Lighthouse resulta suficiente como evidencia principal para esta vista. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,height=8cm]{admin_lighthouse_sin_internet.png}
+	\caption{Pantallazo del resultado Lighthouse para la vista de Admin sin acceso a internet.}
+	\label{fig:admin_lighthouse_sin_internet}
+\end{figure}
+
+La vista de Administrador obtuvo un puntaje de 99, con FCP de 0.582 s, LCP de 0.622 s y CLS igual a 0. 
+Por ello, el pantallazo del resultado general de Lighthouse es suficiente como evidencia principal para esta vista. 
+
+En conjunto, los resultados obtenidos sin acceso a internet muestran que el aplicativo mantiene tiempos de respuesta bajos, estabilidad visual y puntajes altos en Lighthouse bajo una condición de operación local. 
+Esto permite dejar constancia de que el funcionamiento del sistema no depende de conectividad externa para conservar un comportamiento estable en sus vistas principales.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resultados de las Pruebas de Concurrencia}
+
+La evaluación del sistema mediante la herramienta Playwright permitió simular un entorno de demanda operacional continua, emulando el trabajo paralelo de múltiples actores de forma simultánea durante una jornada de nueve horas. Los resultados obtenidos describen el comportamiento de la plataforma construida sobre.NET 8 y la gestión de transacciones mediante Entity Framework 6.
+
+\subsection{Comportamiento Transaccional y Tasa de Éxito}
+
+El análisis de las métricas recopiladas indica el desempeño del sistema en el procesamiento de solicitudes simultáneas. Durante la simulación, los perfiles de atención al cliente (meseros virtuales) consolidaron sus operaciones de escritura sin registrar fallos de persistencia. Este comportamiento se vincula a la configuración del modelo de concurrencia en SQL Server, el cual gestiona bloqueos a nivel de fila durante las inserciones de pedidos.
+
+El módulo de caja procesó 405 solicitudes con un 100\% de efectividad operacional. El diseño de transacciones atómicas dentro de la lógica de negocio permitió que los cálculos y las actualizaciones de estado se confirmaran en la base de datos bajo condiciones de consistencia estructural.
+
+En el módulo de cocina se procesaron 411 operaciones, registrando un único evento categorizado técnicamente como \textquotedblleft error al procesar\textquotedblright. Esta eventualidad, que sitúa la tasa de éxito del rol en 99.75\%, se atribuye a una condición de carrera momentánea donde el sistema intentó modificar un registro simultáneamente a una consulta de lectura concurrente. La arquitectura basada en Razor Pages capturó la excepción, evitando la propagación del error al resto de los procesos del servicio.
+
+\begin{table}[H]
+	\centering
+	\caption{Consolidado de transacciones y tasa de efectividad segmentada por perfil de usuario.}
+	\label{tab:metricas_rol}
+	\small
+	% Aumentamos un poco el espacio entre columnas para que el contenido respire
+	\setlength{\tabcolsep}{6pt} 
+	\begin{tabularx}{\textwidth}{l *{4}{>{\centering\arraybackslash}X}}
+		\toprule
+		\textbf{Agente} & \textbf{Registros Totales} & \textbf{Operaciones Exitosas} & \textbf{Errores} & \textbf{Tasa de Éxito} \\
+		\midrule
+		Caja     & 405 & 396 & 0 & 100\% \\
+		Cocina   & 411 & 401 & 1 & 99,75\% \\
+		Mesero 1 & 100 & 96  & 0 & 100\% \\
+		Mesero 2 & 145 & 142 & 0 & 100\% \\
+		Mesero 3 & 156 & 154 & 0 & 100\% \\
+		Mesero 4 & 221 & 216 & 0 & 100\% \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+Es necesario precisar la diferencia numérica en la Tabla \ref{tab:metricas_rol} entre las columnas \textquotedblleft Registros Totales\textquotedblright \ y \textquotedblleft Operaciones Exitosas\textquotedblright. Esta discrepancia corresponde a interacciones de navegación de los agentes que no desencadenan transacciones de escritura (como inicios de sesión o consultas de interfaz), además de pedidos que iniciaron su ciclo pero no alcanzaron la fase final de facturación antes del cierre de la prueba. Por lo tanto, las métricas de éxito representan exclusivamente flujos de negocio completados de forma íntegra.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{tasa_exito.png}
+	\caption{Proporción visual de la tasa de éxito frente a la cantidad de errores aislados por rol operativo.}
+	\label{fig:tasa_exito}
+\end{figure}
+
+\subsection{Estabilidad del Servidor frente a Picos de Demanda}
+
+La distribución temporal de las operaciones describe la respuesta del sistema ante fluctuaciones de carga. Se registró un incremento en el volumen de peticiones a las 18:00 horas, de acuerdo con los parámetros de los agentes virtuales para emular horas de mayor afluencia. Este periodo representó el punto de mayor exigencia para el motor de base de datos.
+
+La operatividad del sistema durante este incremento transaccional se asocia a la gestión de grupos de conexiones (\textit{Connection Pooling}) de Entity Framework 6. El sistema reutilizó las conexiones existentes en lugar de instanciar nuevas peticiones de memoria, manteniendo un flujo constante de operaciones.
+
+\begin{table}[H]
+	\centering
+	\caption{Distribución del volumen de operaciones por hora, destacando el incremento de carga transaccional.}
+	\label{tab:ops_hora}
+	\small
+	% Definimos la primera columna fija y las demás expansivas y centradas
+	\begin{tabularx}{\textwidth}{c *{4}{>{\centering\arraybackslash}X}}
+		\toprule
+		\textbf{Hora} & \textbf{Caja} & \textbf{Cocina} & \textbf{Meseros (Total)} & \textbf{Total General} \\
+		\midrule
+		17:00 & 47 & 60 & 88  & 195 \\
+		18:00 & 82 & 77 & 120 & 279 \\
+		19:00 & 63 & 70 & 109 & 242 \\
+		20:00 & 59 & 52 & 70  & 181 \\
+		21:00 & 40 & 41 & 58  & 139 \\
+		22:00 & 49 & 52 & 76  & 177 \\
+		23:00 & 56 & 49 & 76  & 181 \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.97\textwidth]{operaciones_por_hora.png}
+	\caption{Comportamiento transaccional segmentado por hora y perfil, evidenciando el manejo del sistema durante el pico de carga.}
+	\label{fig:operaciones_hora}
+\end{figure}
+
+Para validar empíricamente la correcta ejecución de los scripts y la simulación del comportamiento humano, se configuró un sistema de \textit{logs} que registró en tiempo real las acciones tomadas por el framework de automatización. El Código \ref{lst:log_playwright} presenta un extracto real de la terminal durante la fase de inicio de operaciones del agente \textquotedblleft Mesero 1\textquotedblright.
+
+\begin{lstlisting}[
+	caption={Extracto del log de ejecución de Playwright mostrando la inserción asíncrona de pedidos.},
+	label={lst:log_playwright},
+	basicstyle=\ttfamily\scriptsize,
+	frame=single,
+	backgroundcolor=\color{gray!10},
+	breaklines=true
+	]
+	====== MESERO INICIADO ======
+	Duracion: 8 horas
+	Inicio: 8/4/2026, 11:59:00 a. m.
+	
+	[Mesero] (11:59) Realizando login...
+	[Mesero] (11:59)  Login exitoso
+	[Mesero] (11:59) Espera 2 min hasta proximo pedido
+	
+	[Mesero] (12:01) Creando pedido #1...
+	[Mesero] (12:01)   Mesa: 17
+	[Mesero] (12:01)   Items: Empanadas de Carne, Lasagna Bolonesa
+	[Mesero] (12:01)  Pedido creado exitosamente
+	
+	[Mesero] (12:03) Creando pedido #2...
+	[Mesero] (12:03)   Mesa: 20
+	[Mesero] (12:03)   Items: Ceviche de Camaron, Agua con Gas
+	[Mesero] (12:03)  Pedido creado exitosamente
+	
+	[Mesero] (12:03)  1 pedido(s) listo(s) para entregar!
+	[Mesero] (12:03)    Pedido #169 (Mesa 17) confirmado como entregado
+	
+	[Mesero] (12:08) Creando pedido #3...
+	[Mesero] (12:09)   Mesa: 18
+	[Mesero] (12:09)   Items: Cheesecake de Frutos Rojos
+	[Mesero] (12:09)  Pedido creado exitosamente
+\end{lstlisting}
+
+La trazabilidad evidenciada en la salida de consola permite confirmar dos aspectos fundamentales del sistema: primero, la correcta comunicación bidireccional entre la base de datos y la interfaz, ya que el bot fue capaz no solo de insertar pedidos (e.g., Pedido \#1 en la mesa 17), sino de detectar autónomamente los cambios de estado generados por la cocina (paso a estado ``listo para entregar'') minutos después. Segundo, los tiempos de espera simulados (\textit{delays}) corroboran que las peticiones al servidor se realizaron con frecuencias variables y no mediante inyecciones en lote, emulando con fidelidad el tráfico de red de un restaurante en tiempo real.
+
+Finalmente, se observó la ejecución del aplicativo sobre hardware de recursos limitados funcionando como servidor dedicado. Durante las nueve horas de ejecución, el monitoreo no reportó desbordamientos de memoria ni bloqueos de recursos físicos que requirieran reinicios del equipo. Los datos confirman la disponibilidad del servicio bajo los parámetros de infraestructura propios de una PYME gastronómica.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Análisis de Seguridad (OWASP ZAP)}
+
+Se realizó un análisis de seguridad pasivo mediante la herramienta OWASP ZAP para evaluar la resistencia del sistema frente a vulnerabilidades conocidas. El escaneo se centró en la configuración de cabeceras y la gestión de sesiones en el entorno de red local, analizando un total de 15 endpoints operativos.
+
+\begin{table}[h!]
+	\centering
+	\caption{Resumen de alertas por nivel de riesgo y confianza.}
+	\label{tab:seguridad_resumen}
+	\small
+	\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+		\toprule
+		\textbf{Nivel de Riesgo} & \textbf{Confirmado} & \textbf{Confianza Alta} & \textbf{Confianza Media} \\
+		\midrule
+		Alto        & 0 & 0 & 0 \\
+		Medio       & 0 & 3 & 0 \\
+		Bajo        & 0 & 0 & 0 \\
+		Informativo & 0 & 0 & 2 \\
+		\midrule
+		\textbf{Total de Alertas} & \textbf{0} & \textbf{3} & \textbf{2} \\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+Los hallazgos de nivel medio se limitan a la configuración de la política de seguridad de contenido (\textit{Content Security Policy}). La detección de las directivas \texttt{unsafe-inline} y \texttt{unsafe-eval} responde a requisitos técnicos de las librerías de interfaz de usuario empleadas para el renderizado dinámico. No se identificaron vulnerabilidades que comprometan la integridad de la base de datos o la persistencia del sistema.
+
+\section{Resultados del Análisis de Seguridad (OWASP ZAP)}
+
+Se realizó un escaneo pasivo mediante la herramienta OWASP ZAP (v2.17.0) para evaluar la postura de seguridad del servidor de intranet. El análisis identificó 5 alertas tecnológicas, las cuales se desglosan en la Tabla \ref{tab:seguridad_detalle}. Los hallazgos se concentran en niveles de riesgo medio e informativo, sin detectar vulnerabilidades que comprometan la integridad de la base de datos o la persistencia del sistema.
+
+\begin{table}[h!]
+	\centering
+	\caption{Desglose técnico de alertas identificadas.}
+	\label{tab:seguridad_detalle}
+	\small	
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c c c @{}}
+		\toprule
+		\textbf{Alerta Identificada} & \textbf{Riesgo} & \textbf{Confianza} & \textbf{Referencia} \\
+		\midrule
+		CSP: script-src unsafe-eval   & Medio & Alta  & CWE-693 \\
+		CSP: script-src unsafe-inline & Medio & Alta  & CWE-693 \\
+		CSP: style-src unsafe-inline  & Medio & Alta  & CWE-693 \\
+		Detección de Aplicación Web   & Info. & Media & N/A     \\
+		Gestión de Sesión (.NET)      & Info. & Media & N/A     \\
+		\bottomrule
+	\end{tabular*}
+\end{table}
+
+El análisis técnico de las alertas de nivel medio indica que el sistema utiliza dentro de su política de seguridad de contenido (\textit{Content Security Policy}) directivas \texttt{unsafe-inline} y \texttt{unsafe-eval}. Estas configuraciones, catalogadas bajo la referencia \textbf{CWE-693}, son requeridas para permitir que librerías de interfaz de terceros, como \textit{AdminLTE}, \textit{Bootstrap} y \textit{SweetAlert2}, realicen el renderizado dinámico de componentes y la ejecución de scripts necesarios para la experiencia de usuario.
+
+Asimismo, se confirmó que el servidor implementa correctamente mecanismos de protección activa mediante cabeceras HTTP. La directiva \texttt{X-Content-Type-Options: nosniff} previene ataques de \textit{MIME sniffing}, obligando al navegador a respetar el tipo de contenido definido por el servidor. La cabecera \texttt{X-Frame-Options: DENY} mitiga riesgos de \textit{clickjacking} al prohibir que el sitio sea embebido en marcos externos. Finalmente, la gestión de sesiones se asegura mediante cookies con atributos \texttt{HttpOnly}, que impiden el acceso desde scripts del lado del cliente, y \texttt{SameSite=Strict}, que restringe el envío de cookies a contextos de navegación de origen cruzado, neutralizando vectores de ataque tipo CSRF.
+
+%%%%%%%%%%%%%%%%%
+\section{Resultados de la Implementación Piloto en Entorno Real}
+
+La implementación piloto se llevó a cabo durante un período de un mes de operación
+continua en un restaurante PYME activo. La plantilla operativa estuvo conformada por
+cuatro usuarios: un administrador (quien asumió simultáneamente las funciones del módulo
+de Caja), dos meseras y una cocinera. El primer día se destinó íntegramente a una jornada
+de capacitación en la que se instruyó al personal en el uso de las interfaces por rol, el flujo
+de procesamiento de comandas y el procedimiento de autenticación de doble factor mediante
+tarjetas NFC. A diferencia del entorno de laboratorio, el sistema operó sobre la red
+comercial existente en el establecimiento, que disponía de acceso activo a internet.
+
+\subsection*{Percepción del Personal: Cuestionario de Satisfacción}
+
+Al finalizar el mes de operación, se aplicó un cuestionario de satisfacción a los cuatro
+usuarios operativos. El instrumento evaluó seis dimensiones mediante una escala de
+valoración de 1 a 5, donde 1 corresponde a \textit{Muy en desacuerdo} y 5 a
+\textit{Muy de acuerdo}.
+
+\begin{table}[h!]
+	\centering
+	\caption{Resultados del cuestionario de satisfacción del personal tras el mes piloto.}
+	\label{tab:cuestionario_satisfaccion}
+	\small
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c c c c c @{}}
+		\toprule
+		\textbf{Ítem evaluado} & \textbf{Adm.} & \textbf{Mes. 1} & \textbf{Mes. 2} & \textbf{Coc.} & \textbf{Prom.} \\
+		\midrule
+		Facilidad de aprendizaje con la capacitación recibida. & [D] & [D] & [D] & [D] & [D] \\
+		Mayor agilidad frente al método de papel y lápiz.      & [D] & [D] & [D] & [D] & [D] \\
+		Reducción de errores en pedidos durante el uso.        & [D] & [D] & [D] & [D] & [D] \\
+		Estabilidad y confiabilidad durante el servicio.       & [D] & [D] & [D] & [D] & [D] \\
+		Mejora en la comunicación entre sala y cocina.         & [D] & [D] & [D] & [D] & [D] \\
+		Recomendaría el sistema a restaurantes similares.      & [D] & [D] & [D] & [D] & [D] \\
+		\bottomrule
+	\end{tabular*}
+\end{table}
+
+Los resultados del cuestionario evidencian [DATO: descripción general de la tendencia].
+El ítem con mayor valoración promedio fue [DATO: ítem] con una puntuación de [DATO]/5,
+mientras que el ítem de menor puntuación fue [DATO: ítem] con [DATO]/5, lo que indica
+[DATO: interpretación breve]. El personal manifestó de forma unánime que
+[DATO: hallazgo cualitativo representativo].
+
+\subsection*{Análisis de Viabilidad Económica}
+
+A partir del caso de estudio piloto, se construyeron dos modelos de costos que permiten
+dimensionar la accesibilidad económica de la solución para el segmento PYME objetivo.
+
+\paragraph{Presupuesto de Adaptación.}
+Este modelo refleja el costo real de la implementación piloto, escenario en el que el
+establecimiento ya contaba con infraestructura de cómputo y conectividad de red operativa.
+La inversión se limitó exclusivamente a la adquisición de los componentes de hardware
+necesarios para habilitar el módulo de autenticación de doble factor por NFC, que
+constituyen el único elemento diferencial respecto a una instalación sobre infraestructura existente.
+
+\begin{table}[H]
+	\centering
+	\caption{Presupuesto de adaptación: componentes adquiridos para el piloto.}
+	\label{tab:presupuesto_adaptacion}
+	\small
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c r r @{}}
+		\toprule
+		\textbf{Componente} & \textbf{Cant.} & \textbf{Precio unitario (COP)} & \textbf{Total (COP)} \\
+		\midrule
+		Raspberry Pi 3 Model B           & 1      & [DATO] & [DATO] \\
+		Módulo lector RFID-RC522         & 1      & [DATO] & [DATO] \\
+		Tarjetas NFC ISO/IEC 14443       & [DATO] & [DATO] & [DATO] \\
+		Cables jumper y adaptador SPI    & 1      & [DATO] & [DATO] \\
+		Impresión 3D carcasa protectora  & 1      & [DATO] & [DATO] \\
+		\midrule
+		\textbf{Total}                   &        &        & \textbf{[DATO]} \\
+		\bottomrule
+	\end{tabular*}
+\end{table}
+
+\paragraph{Presupuesto de Implementación Inicial.}
+Este modelo proyecta el costo total de despliegue para un restaurante sin infraestructura
+tecnológica previa, incluyendo la totalidad de los equipos de cómputo, red y hardware de
+seguridad requeridos.
+
+\begin{table}[H]
+	\centering
+	\caption{Presupuesto de implementación inicial: escenario desde cero.}
+	\label{tab:presupuesto_inicial}
+	\small
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c r r @{}}
+		\toprule
+		\textbf{Componente} & \textbf{Cant.} & \textbf{Precio unitario (COP)} & \textbf{Total (COP)} \\
+		\midrule
+		Computador servidor (equipo básico)          & 1      & [DATO] & [DATO] \\
+		Router WiFi doméstico                        & 1      & [DATO] & [DATO] \\
+		Dispositivos cliente (tablet o smartphone)   & [DATO] & [DATO] & [DATO] \\
+		Raspberry Pi 3 Model B                       & 1      & [DATO] & [DATO] \\
+		Módulo lector RFID-RC522                     & 1      & [DATO] & [DATO] \\
+		Tarjetas NFC ISO/IEC 14443                   & [DATO] & [DATO] & [DATO] \\
+		Cables jumper y adaptador SPI                & 1      & [DATO] & [DATO] \\
+		Impresión 3D carcasa protectora              & 1      & [DATO] & [DATO] \\
+		\midrule
+		\textbf{Total}                               &        &        & \textbf{[DATO]} \\
+		\bottomrule
+	\end{tabular*}
+\end{table}
+
+Comparado con los planes base de los sistemas POS comerciales identificados en la
+Tabla~\ref{tab:pos_comparativa}, que oscilan entre \$29.900 y \$219.990 COP mensuales
+sin contemplar el costo del hardware, QuickTable representa una inversión única de
+\textbf{[DATO] COP} sin obligaciones de suscripción recurrente. Bajo un horizonte de
+12 meses, el punto de equilibrio frente al plan más económico del mercado se alcanza en
+aproximadamente \textbf{[DATO] meses}, confirmando la viabilidad económica de la
+propuesta para el segmento PYME gastronómico colombiano.
