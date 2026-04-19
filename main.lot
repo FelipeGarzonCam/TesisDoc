@@ -7,18 +7,22 @@
 \contentsline {table}{\numberline {4.1}{\ignorespaces Especificación de Requerimientos Funcionales (Módulos Operativos)}}{27}{table.4.1}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces Especificación de Requerimientos Funcionales de Seguridad}}{30}{table.4.2}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Resultados de la verificación manual de funcionalidades operativas por rol.}}{58}{table.caption.26}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Casos de prueba ejecutados con MSTest}}{60}{table.caption.28}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Metadatos retornados por el endpoint de creación de respaldo.}}{61}{table.caption.31}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Campos retornados por el endpoint de registro de salida de personal.}}{64}{table.caption.35}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Métricas registradas en la condición con acceso a internet.}}{65}{table.caption.38}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces Métricas registradas en la condición sin acceso a internet.}}{69}{table.caption.45}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces Consolidado de transacciones y tasa de efectividad segmentada por perfil de usuario.}}{74}{table.caption.51}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces Distribución del volumen de operaciones por hora, destacando el incremento de carga transaccional.}}{75}{table.caption.53}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces Resumen de alertas por nivel de riesgo y confianza.}}{77}{table.caption.55}%
-\contentsline {table}{\numberline {5.10}{\ignorespaces Desglose técnico de alertas identificadas.}}{77}{table.caption.56}%
-\contentsline {table}{\numberline {5.11}{\ignorespaces Resultados del cuestionario de satisfacción del personal tras el mes piloto.}}{79}{table.caption.57}%
-\contentsline {table}{\numberline {5.12}{\ignorespaces Presupuesto de adaptación: componentes adquiridos para el piloto.}}{79}{table.caption.59}%
-\contentsline {table}{\numberline {5.13}{\ignorespaces Presupuesto de implementación inicial: escenario desde cero.}}{80}{table.caption.61}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Resultados de la verificación manual de funcionalidades operativas por rol.}}{59}{table.caption.27}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Casos de prueba ejecutados con MSTest}}{61}{table.caption.29}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Metadatos retornados por el endpoint de creación de respaldo.}}{62}{table.caption.32}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Campos retornados por el endpoint de registro de salida de personal.}}{65}{table.caption.36}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Métricas registradas en la condición con acceso a internet.}}{66}{table.caption.39}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Métricas registradas en la condición sin acceso a internet.}}{70}{table.caption.46}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Consolidado de transacciones y tasa de efectividad segmentada por perfil de usuario.}}{75}{table.caption.52}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Distribución del volumen de operaciones por hora, destacando el incremento de carga transaccional.}}{76}{table.caption.54}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Resumen de alertas por nivel de riesgo y confianza.}}{78}{table.caption.56}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces Desglose técnico de alertas identificadas.}}{78}{table.caption.57}%
+\contentsline {table}{\numberline {5.11}{\ignorespaces Resultados del cuestionario de satisfacción del personal tras el mes piloto.}}{80}{table.caption.58}%
+\contentsline {table}{\numberline {5.12}{\ignorespaces Presupuesto de adaptación: componentes del módulo de seguridad por hardware.}}{81}{table.caption.60}%
+\contentsline {table}{\numberline {5.13}{\ignorespaces Presupuesto de implementación inicial: escenario desde cero.}}{82}{table.caption.62}%
+\contentsline {table}{\numberline {5.14}{\ignorespaces Estructura de costos de QuickTable para el restaurante adoptante.}}{83}{table.caption.63}%
+\contentsline {table}{\numberline {5.15}{\ignorespaces Análisis comparativo de costo total acumulado: QuickTable vs. soluciones POS comerciales (perspectiva del restaurante adoptante).}}{83}{table.caption.64}%
+\contentsline {table}{\numberline {5.16}{\ignorespaces Comparativa funcional: QuickTable frente a planes base de competidores.}}{84}{table.caption.65}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Proyección de ingresos del desarrollador según volumen de clientes activos.}}{92}{table.caption.66}%

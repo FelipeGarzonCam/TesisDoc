@@ -618,50 +618,91 @@ El análisis técnico de las alertas de nivel medio indica que el sistema utiliz
 Asimismo, se confirmó que el servidor implementa correctamente mecanismos de protección activa mediante cabeceras HTTP. La directiva \texttt{X-Content-Type-Options: nosniff} previene ataques de \textit{MIME sniffing}, obligando al navegador a respetar el tipo de contenido definido por el servidor. La cabecera \texttt{X-Frame-Options: DENY} mitiga riesgos de \textit{clickjacking} al prohibir que el sitio sea embebido en marcos externos. Finalmente, la gestión de sesiones se asegura mediante cookies con atributos \texttt{HttpOnly}, que impiden el acceso desde scripts del lado del cliente, y \texttt{SameSite=Strict}, que restringe el envío de cookies a contextos de navegación de origen cruzado, neutralizando vectores de ataque tipo CSRF.
 
 %%%%%%%%%%%%%%%%%
-\section{Resultados de la Implementación Piloto en Entorno Real}
+\subsection{Resultados de la Implementación Piloto en Entorno Real}
+\label{subsec:resultados_piloto}
 
-La implementación piloto se llevó a cabo durante un período de un mes de operación
-continua en un restaurante PYME activo. La plantilla operativa estuvo conformada por
-cuatro usuarios: un administrador (quien asumió simultáneamente las funciones del módulo
-de Caja), dos meseras y una cocinera. El primer día se destinó íntegramente a una jornada
-de capacitación en la que se instruyó al personal en el uso de las interfaces por rol, el flujo
-de procesamiento de comandas y el procedimiento de autenticación de doble factor mediante
-tarjetas NFC. A diferencia del entorno de laboratorio, el sistema operó sobre la red
-comercial existente en el establecimiento, que disponía de acceso activo a internet.
+Al finalizar el mes de operación continua en Gastro Uno 58 Bar, se aplicó el cuestionario
+de satisfacción al total de la plantilla participante. Se obtuvieron cinco respuestas
+válidas, con un tiempo promedio de diligenciamiento de seis minutos con cuarenta y cuatro
+segundos, lo cual indica un nivel de atención adecuado por parte de los encuestados.
+El 100\,\% del personal manifestó acuerdo con las condiciones de participación antes de
+responder el instrumento.
 
-\subsection*{Percepción del Personal: Cuestionario de Satisfacción}
+\subsubsection*{Resultados por dimensión operativa}
 
-Al finalizar el mes de operación, se aplicó un cuestionario de satisfacción a los cuatro
-usuarios operativos. El instrumento evaluó seis dimensiones mediante una escala de
-valoración de 1 a 5, donde 1 corresponde a \textit{Muy en desacuerdo} y 5 a
-\textit{Muy de acuerdo}.
+Para las dimensiones evaluadas por el personal operativo general, los resultados evidenciaron
+una aceptación unánime del sistema. La totalidad de los participantes (100\,\%) indicó
+estar de acuerdo o totalmente de acuerdo en cada uno de los ítems medidos: la plataforma
+mejora la productividad en el trabajo, se mantuvo estable y rápida sin bloqueos durante
+el periodo de operación, resultó intuitiva y fácil de manejar para las tareas diarias,
+redujo los errores de lectura, confusiones u olvidos en los platos, y permitió que la
+información fluyera en tiempo real sin necesidad de desplazamientos físicos entre áreas.
+Este resultado uniforme indica que el sistema superó el umbral de aceptación en todas
+las dimensiones operativas trazadas para la validación.
 
-\begin{table}[h!]
+\subsubsection*{Resultados del perfil administrador}
+
+El perfil de administrador evaluó de forma exclusiva las dimensiones vinculadas al control
+del negocio y la seguridad de acceso. En las tres dimensiones correspondientes: control de
+asistencia, doble factor de autenticación y gestión del negocio, el administrador reportó
+plena conformidad, expresando que el registro digital de entradas y salidas facilita el
+control exacto de las horas trabajadas, que el uso de la tarjeta física para ingresar al
+panel de administración es un método rápido que garantiza que nadie más acceda a los datos
+financieros, y que el panel de control permite supervisar el cierre de caja y las ventas
+diarias de forma clara y centralizada.
+
+\subsubsection*{Satisfacción general}
+
+La satisfacción global con QuickTable fue medida mediante una escala de cinco estrellas.
+La calificación promedio obtenida fue de \textbf{4{,}80 sobre 5{,}00}: cuatro de los cinco
+participantes otorgaron la puntuación máxima de cinco estrellas, mientras que el participante
+restante asignó cuatro estrellas. Ningún encuestado calificó el sistema por debajo de cuatro.
+La Tabla~\ref{tab:satisfaccion_piloto} consolida los resultados cuantitativos del
+cuestionario por dimensión evaluada.
+
+\begin{table}[H]
 	\centering
 	\caption{Resultados del cuestionario de satisfacción del personal tras el mes piloto.}
-	\label{tab:cuestionario_satisfaccion}
-	\small
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c c c c c @{}}
-		\toprule
-		\textbf{Ítem evaluado} & \textbf{Adm.} & \textbf{Mes. 1} & \textbf{Mes. 2} & \textbf{Coc.} & \textbf{Prom.} \\
-		\midrule
-		Facilidad de aprendizaje con la capacitación recibida. & [D] & [D] & [D] & [D] & [D] \\
-		Mayor agilidad frente al método de papel y lápiz.      & [D] & [D] & [D] & [D] & [D] \\
-		Reducción de errores en pedidos durante el uso.        & [D] & [D] & [D] & [D] & [D] \\
-		Estabilidad y confiabilidad durante el servicio.       & [D] & [D] & [D] & [D] & [D] \\
-		Mejora en la comunicación entre sala y cocina.         & [D] & [D] & [D] & [D] & [D] \\
-		Recomendaría el sistema a restaurantes similares.      & [D] & [D] & [D] & [D] & [D] \\
-		\bottomrule
-	\end{tabular*}
+	\label{tab:satisfaccion_piloto}
+	\begin{tabularx}{\textwidth}{l X c}
+		\hline
+		\textbf{Dimensión} & \textbf{Ítem evaluado} & \textbf{Acuerdo} \\
+		\hline
+		Eficiencia operativa & 
+		La plataforma mejora mi productividad en el trabajo  & 100\,\%  \\
+		Estabilidad técnica & 
+		La plataforma se mantuvo estable, rápida y sin bloqueos  & 100\,\% \\
+		Usabilidad & 
+		El sistema resulta intuitivo y fácil de manejar  & 100\,\% \\
+		Reducción de errores & 
+		La plataforma disminuyó errores de lectura o confusiones en los platos  & 100\,\%  \\
+		Comunicación interna & 
+		La información fluye en tiempo real sin desplazamientos físicos & 100\,\% \\
+		Control de asistencia & 
+		El registro digital facilita el control exacto de horas trabajadas  & 100\,\% \\
+		Doble Factor de Autenticación (2FA) & 
+		La tarjeta física es un método rápido y seguro para acceder al panel  & 100\,\% \\
+		Gestión del negocio & 
+		El panel permite supervisar cierres de caja y ventas de forma clara  & 100\,\% \\
+		\hline
+		\multicolumn{2}{l}{\textbf{Satisfacción general promedio (escala 1 a 5)}} & 
+		\textbf{4{,}80 / 5{,}00 } \\
+		\hline
+	\end{tabularx}
 \end{table}
 
-Los resultados del cuestionario evidencian [DATO: descripción general de la tendencia].
-El ítem con mayor valoración promedio fue [DATO: ítem] con una puntuación de [DATO]/5,
-mientras que el ítem de menor puntuación fue [DATO: ítem] con [DATO]/5, lo que indica
-[DATO: interpretación breve]. El personal manifestó de forma unánime que
-[DATO: hallazgo cualitativo representativo].
+\subsubsection*{Retroalimentación cualitativa}
 
-\subsection*{Análisis de Viabilidad Económica}
+La pregunta abierta del cuestionario recibi\'{o} cinco respuestas. Dos de ellas no reportaron 
+ninguna observaci\'{o}n adicional. Las tres respuestas restantes se\~{n}alaron aspectos 
+diferenciados: el personal de cocina indic\'{o} querer \textit{``poder marcar salida con el 
+	n\'{u}mero de la c\'{e}dula sin el carnet''}; un mesero sugiri\'{o} \textit{``tener men\'{u}s 
+	por d\'{i}a''}; y el cajero se\~{n}al\'{o} que \textit{``la forma de la factura no encaja bien 
+	en la impresora''}. Estas observaciones no constituyen fallos funcionales del sistema sino 
+oportunidades de mejora incremental, y han sido recogidas en la secci\'{o}n de Trabajo Futuro 
+del presente documento.
+
+\subsubsection*{Análisis de Viabilidad Económica}
 
 A partir del caso de estudio piloto, se construyeron dos modelos de costos que permiten
 dimensionar la accesibilidad económica de la solución para el segmento PYME objetivo.
@@ -671,60 +712,211 @@ Este modelo refleja el costo real de la implementación piloto, escenario en el 
 establecimiento ya contaba con infraestructura de cómputo y conectividad de red operativa.
 La inversión se limitó exclusivamente a la adquisición de los componentes de hardware
 necesarios para habilitar el módulo de autenticación de doble factor por NFC, que
-constituyen el único elemento diferencial respecto a una instalación sobre infraestructura existente.
+constituyen el único elemento diferencial respecto a una instalación sobre infraestructura
+existente.
 
 \begin{table}[H]
 	\centering
-	\caption{Presupuesto de adaptación: componentes adquiridos para el piloto.}
+	\caption{Presupuesto de adaptación: componentes del módulo de seguridad por hardware.}
 	\label{tab:presupuesto_adaptacion}
-	\small
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c r r @{}}
-		\toprule
-		\textbf{Componente} & \textbf{Cant.} & \textbf{Precio unitario (COP)} & \textbf{Total (COP)} \\
-		\midrule
-		Raspberry Pi 3 Model B           & 1      & [DATO] & [DATO] \\
-		Módulo lector RFID-RC522         & 1      & [DATO] & [DATO] \\
-		Tarjetas NFC ISO/IEC 14443       & [DATO] & [DATO] & [DATO] \\
-		Cables jumper y adaptador SPI    & 1      & [DATO] & [DATO] \\
-		Impresión 3D carcasa protectora  & 1      & [DATO] & [DATO] \\
-		\midrule
-		\textbf{Total}                   &        &        & \textbf{[DATO]} \\
-		\bottomrule
-	\end{tabular*}
+	\begin{tabular}{p{6.5cm} r r r}
+		\hline
+		\textbf{Componente} & \textbf{Cant.} & \textbf{Valor unit. (COP)} & \textbf{Total (COP)} \\
+		\hline
+		Raspberry Pi 3 Model B          & 1 & \$269.000 & \$269.000 \\
+		Módulo lector RFID-RC522        & 1 & \$8.500   & \$8.500   \\
+		Tarjetas NFC MIFARE Classic 1K  & 3 & \$1.900   & \$5.700   \\
+		\hline
+		\multicolumn{3}{r}{\textbf{Total escenario de adaptación}} & \textbf{\$283.200} \\
+		\hline
+	\end{tabular}
 \end{table}
 
 \paragraph{Presupuesto de Implementación Inicial.}
 Este modelo proyecta el costo total de despliegue para un restaurante sin infraestructura
-tecnológica previa, incluyendo la totalidad de los equipos de cómputo, red y hardware de
-seguridad requeridos.
+tecnológica previa. Para su construcción se seleccionaron los equipos de menor costo
+disponibles en el mercado colombiano que cumplen los requisitos mínimos de operación del
+sistema: procesador de arquitectura x86, mínimo 4~GB de RAM, almacenamiento de al menos
+500~GB y conectividad de red. Los computadores de escritorio corresponden a equipos usados
+corporativos disponibles en plataformas de mercado secundario colombiano como Unilago y
+Mercado Libre. El terminal de cocina se resuelve con un televisor Smart TV de 32 pulgadas
+con navegador web integrado, lo que elimina la necesidad de adquirir un computador
+adicional para esa estación; para facilitar la interacción con la interfaz se incluye un
+teclado y ratón inalámbrico USB de bajo costo. Los terminales de los meseros corresponden
+al Motorola Moto G04s, dispositivo Android de gama de entrada disponible en cadenas de
+distribución formal al momento de la elaboración de este documento.
 
 \begin{table}[H]
 	\centering
 	\caption{Presupuesto de implementación inicial: escenario desde cero.}
-	\label{tab:presupuesto_inicial}
-	\small
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c r r @{}}
-		\toprule
-		\textbf{Componente} & \textbf{Cant.} & \textbf{Precio unitario (COP)} & \textbf{Total (COP)} \\
-		\midrule
-		Computador servidor (equipo básico)          & 1      & [DATO] & [DATO] \\
-		Router WiFi doméstico                        & 1      & [DATO] & [DATO] \\
-		Dispositivos cliente (tablet o smartphone)   & [DATO] & [DATO] & [DATO] \\
-		Raspberry Pi 3 Model B                       & 1      & [DATO] & [DATO] \\
-		Módulo lector RFID-RC522                     & 1      & [DATO] & [DATO] \\
-		Tarjetas NFC ISO/IEC 14443                   & [DATO] & [DATO] & [DATO] \\
-		Cables jumper y adaptador SPI                & 1      & [DATO] & [DATO] \\
-		Impresión 3D carcasa protectora              & 1      & [DATO] & [DATO] \\
-		\midrule
-		\textbf{Total}                               &        &        & \textbf{[DATO]} \\
-		\bottomrule
-	\end{tabular*}
+	\label{tab:presupuesto_nuevo}
+	\begin{tabular}{p{6.5cm} r r r}
+		\hline
+		\textbf{Componente} & \textbf{Cant.} & \textbf{Valor unit. (COP)} & \textbf{Total (COP)} \\
+		\hline
+		Computador escritorio usado Core i3 (servidor y caja)
+		& 2 & \$532.955   & \$1.065.910 \\
+		Celular Motorola Moto G04s 64GB (terminales mesero)
+		& 2 & \$434.900   & \$869.800   \\
+		Smart TV Challenger 32'' HD (área de cocina)
+		& 1 & \$549.900   & \$549.900   \\
+		Teclado y ratón inalámbrico USB (área de cocina)
+		& 1 & \$45.000    & \$45.000    \\
+		Router TP-LINK TL-WR840N N300 Mbps
+		& 1 & \$120.000   & \$120.000   \\
+		Módulo 2FA (Raspberry Pi 3, RFID-RC522, tarjetas NFC)
+		& 1 & \$283.200   & \$283.200   \\
+		\hline
+		\multicolumn{3}{r}{\textbf{Total escenario desde cero}} & \textbf{\$2.933.810} \\
+		\hline
+	\end{tabular}
 \end{table}
 
-Comparado con los planes base de los sistemas POS comerciales identificados en la
-Tabla~\ref{tab:pos_comparativa}, que oscilan entre \$29.900 y \$219.990 COP mensuales
-sin contemplar el costo del hardware, QuickTable representa una inversión única de
-\textbf{[DATO] COP} sin obligaciones de suscripción recurrente. Bajo un horizonte de
-12 meses, el punto de equilibrio frente al plan más económico del mercado se alcanza en
-aproximadamente \textbf{[DATO] meses}, confirmando la viabilidad económica de la
-propuesta para el segmento PYME gastronómico colombiano.
+\subsubsection*{Análisis Comparativo de Costos frente a la Competencia}
+
+Para dimensionar la competitividad económica de QuickTable es necesario incorporar un factor
+que los análisis de costo de software frecuentemente omiten: los sistemas POS comerciales
+identificados en la Tabla~\ref{tab:pos_colombia} operan bajo arquitecturas SaaS en la
+nube, lo que obliga al establecimiento a mantener una conexión a internet activa como
+requisito de operación. Este gasto recurrente, invisible en las listas de precios de los
+proveedores, representa un costo real para el restaurante que debe sumarse a la tarifa de
+suscripción mensual para hacer una comparación honesta. QuickTable, al operar
+íntegramente sobre intranet local, elimina esta dependencia: el router de red interna
+es el único componente de conectividad requerido, y su costo es único y no recurrente.
+Con base en los planes de internet disponibles para establecimientos comerciales en Bogotá
+a abril de 2026, se tomó como referencia un plan de 200~Mbps con un costo mensual de
+\$75.900~COP, correspondiente a la oferta de operadores como Claro y ETB para el
+segmento hogar y pequeño negocio, que es el tipo de contrato habitual en restaurantes
+PYME de la ciudad.
+
+La Tabla~\ref{tab:estructura_costos_qt} detalla la composición del costo inicial y
+recurrente de QuickTable para el restaurante adoptante bajo el modelo de comercialización
+propuesto.
+
+\begin{table}[H]
+	\centering
+	\caption{Estructura de costos de QuickTable para el restaurante adoptante.}
+	\label{tab:estructura_costos_qt}
+	\begin{tabular}{l l r r}
+		\hline
+		\textbf{Concepto} & \textbf{Tipo} & \textbf{Valor (COP)} & \textbf{Frecuencia} \\
+		\hline
+		Módulo 2FA (Raspberry Pi 3, RFID-RC522, tarjetas NFC) & Hardware & \$283.200 & Único \\
+		Router TP-LINK TL-WR840N N300 Mbps                    & Hardware & \$120.000 & Único \\
+		Implementación, configuración y capacitación           & Servicio & \$300.000 & Único \\
+		\hline
+		\multicolumn{2}{l}{\textbf{Total costo inicial}}       &          & \textbf{\$703.200} \\
+		\hline
+		Póliza de soporte y mantenimiento                      & Servicio & \$30.000  & Mensual \\
+		Internet                                               & Servicio & \$0       & Mensual \\
+		\hline
+		\multicolumn{2}{l}{\textbf{Total costo mensual recurrente}} &     & \textbf{\$30.000} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+	\centering
+	\caption{Análisis comparativo de costo total acumulado: QuickTable vs. soluciones POS
+		comerciales (perspectiva del restaurante adoptante).}
+	\label{tab:comparativa_costos}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{l r r r r r r}
+			\hline
+			\textbf{Solución} &
+			\textbf{SW/mes} &
+			\textbf{Internet/mes} &
+			\textbf{Total mensual} &
+			\textbf{Punto eq. (mes)} &
+			\textbf{Ahorro a 12m} &
+			\textbf{Ahorro a 24m} \\
+			\hline
+			QuickTable (póliza mensual) & \$30.000 & \$0 & \$30.000 & -- & -- & -- \\
+			\hline
+			GastroPOS Restobar          & \$29.900  & \$75.900 & \$105.800 & 10 & \$206.400   & \$1.116.000 \\
+			GastroPOS Plan Básico DIAN  & \$41.900  & \$75.900 & \$117.800 & 9  & \$350.400   & \$1.404.000 \\
+			Vendty Emprendedor          & \$100.000 & \$75.900 & \$175.900 & 5  & \$1.047.600 & \$2.798.400 \\
+			Loggro Básico               & \$120.990 & \$75.900 & \$196.890 & 5  & \$1.299.480 & \$3.302.160 \\
+			Loggro Estándar             & \$175.990 & \$75.900 & \$251.890 & 4  & \$1.959.480 & \$4.622.160 \\
+			\hline
+	\end{tabular}}
+	\footnotesize{\textit{Nota:} El costo inicial de QuickTable (\$703.200) incluye módulo 2FA,
+		router y costos de implementación. El punto de equilibrio indica el mes a partir del cual
+		el costo acumulado de la solución competidora supera el costo acumulado de QuickTable.
+		El ahorro se calcula como: costo acumulado del competidor menos costo acumulado de
+		QuickTable en el horizonte indicado. Precio de internet de referencia: plan 200~Mbps
+		Claro/ETB, \$75.900~COP/mes, abril de 2026.}
+\end{table}
+
+Los resultados del análisis confirman que frente a la totalidad de los competidores
+evaluados, QuickTable alcanza el punto de equilibrio antes de cumplir el primer año de
+operación. El caso más conservador corresponde a GastroPOS Restobar, cuya tarifa de
+software de \$29.900~COP/mes es la más baja del mercado analizado; sin embargo, al
+sumar el costo de internet obligatorio, su costo mensual real asciende a \$105.800~COP,
+lo que sitúa el punto de equilibrio en el mes 10. A partir de ese punto, el restaurante
+acumula un ahorro de \$206.400~COP al cierre del primer año y de \$1.116.000~COP
+al segundo año. Frente a Loggro Básico, el plan más popular del segmento de gestión
+completa, el ahorro acumulado a dos años supera los \$3.300.000~COP.
+
+\subsubsection*{Ventajas Funcionales frente a las Limitaciones de los Planes Comerciales}
+
+Más allá de la dimensión económica, QuickTable ofrece ventajas funcionales estructurales
+que los planes de suscripción comercial no contemplan o limitan de forma explícita. La
+Tabla~\ref{tab:ventajas_funcionales} presenta una comparación directa de las dimensiones
+más relevantes para un restaurante PYME colombiano.
+
+\begin{table}[H]
+	\centering
+	\caption{Comparativa funcional: QuickTable frente a planes base de competidores.}
+	\label{tab:ventajas_funcionales}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{p{4.5cm} p{3.5cm} p{3.5cm} p{3.5cm} p{3.5cm}}
+			\hline
+			\textbf{Dimensión} &
+			\textbf{QuickTable} &
+			\textbf{GastroPOS Restobar} &
+			\textbf{Vendty Emprendedor} &
+			\textbf{Loggro Básico} \\
+			\hline
+			Mesas habilitadas       & Ilimitadas       & No especificado  & 20               & 15 \\
+			Usuarios simultáneos    & Ilimitados       & No especificado  & 2                & 3  \\
+			Cajas registradoras     & Ilimitadas       & No especificado  & 1                & 1  \\
+			Facturación electrónica DIAN & No incluida & No incluida      & Incluida (1.000 doc/mes) & Parcial (30 doc/mes) \\
+			Encriptación de base de datos & AES incluida & No especificado & No especificado  & No especificado \\
+			Autenticación 2FA por hardware & Incluida   & No disponible    & No disponible    & No disponible \\
+			Custodia de datos       & Local (restaurante) & Nube (proveedor) & Nube (proveedor) & Nube (proveedor) \\
+			Dependencia de internet & No requerido     & Requerido        & Requerido        & Requerido \\
+			Costo de escalado       & Sin costo adicional & No especificado & Plan superior    & Complementos pagos \\
+			\hline
+	\end{tabular}}
+\end{table}
+
+En cuanto a la ausencia de facturación electrónica DIAN, es necesario ser transparentes:
+QuickTable en su versión actual es un sistema POS de gestión interna de comandas y no
+incluye integración con la plataforma de facturación electrónica de la DIAN. Para
+restaurantes que operan con régimen simplificado o que emiten tiquetes de caja menor sin
+obligación de factura electrónica, esta limitación no representa una barrera operativa.
+Sin embargo, para establecimientos obligados a emitir factura electrónica, esta
+funcionalidad deberá ser adquirida de forma complementaria o desarrollada como extensión
+del sistema, lo que constituye una línea de trabajo futuro identificada en el
+Capítulo~\ref{cap:trabajo_futuro}. En ese escenario específico, GastroPOS Plan Básico
+DIAN (\$41.900~COP/mes) y Vendty Emprendedor (\$100.000~COP/mes) representan
+alternativas más completas para el establecimiento, aunque con las limitaciones de
+mesas, usuarios y custodia de datos ya documentadas.
+
+\subsubsection*{Síntesis de la Viabilidad Económica}
+
+Los dos escenarios de presupuesto construidos, sumados al análisis comparativo frente
+a la competencia, permiten establecer con claridad las condiciones bajo las cuales
+QuickTable representa una alternativa económicamente viable para el segmento PYME
+gastronómico colombiano. En el escenario de adaptación, el costo total de \$283.200~COP
+se recupera antes de cumplir el décimo mes frente al competidor más barato del mercado.
+En el escenario de implementación desde cero, la inversión total de \$2.933.810~COP
+se justifica plenamente para establecimientos que proyectan operar más de 24 meses,
+período en el cual el ahorro frente a cualquier alternativa de suscripción supera
+ampliamente el costo inicial. La ausencia de pagos recurrentes, la custodia local de
+datos y las capacidades de seguridad incluidas sin costo adicional consolidan la
+propuesta como la alternativa de menor costo total de propiedad disponible en el
+mercado colombiano para el segmento objetivo.

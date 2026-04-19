@@ -1,97 +1,113 @@
-\newpage
-\thispagestyle{empty}
-
-\begin{center}   
-    
-    % Título 
-    {\fontsize{11}{13}\selectfont\bfseries \proyectoTitulo\par} 
-   
-    
-    \vspace{1.5cm}
-    
-    % Nombres estudiantes 
-   {\fontsize{11}{13}\selectfont\bfseries \estudianteUno\par}
-   %{\fontsize{11}{13}\selectfont\bfseries \estudianteDos\par}
-    
-    \vspace{1.5cm}
-    
-   % Modalidad - Arial 11.5
-    {\fontsize{11.5}{14}\selectfont\bfseries \proyectoModalidad\par}
-    
-    % Logo USTA 
-    \vspace*{1cm}
-    \includegraphics[width=0.6\textwidth]{logo_usta.png}
-    
-    \vspace{2.5cm}        
-    
-    % Grupo e investigación 
-    {\fontsize{11.5}{14}\selectfont\bfseries \grupoInvestigacion\par}    
-    {\fontsize{11.5}{14}\selectfont\bfseries \lineaInvestigacion\par}
-    
-    \vspace{1.5cm}    
-    
-    {\fontsize{11}{13}\selectfont\bfseries UNIVERSIDAD SANTO TOMÁS\par}
-    {\fontsize{11}{13}\selectfont\bfseries FACULTAD DE INGENIERÍA ELECTRÓNICA\par}
-    {\fontsize{11}{13}\selectfont\bfseries PROGRAMA DE INGENIERÍA ELECTRÓNICA\par}
-    \vspace{1cm}
-    {\fontsize{11}{13}\selectfont\bfseries Bogotá D.C.\par}
-    {\fontsize{11}{13}\selectfont\bfseries \proyectoAnio\par}
-     \vspace{1cm}
-\end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\begin{center}    
-    
-   % Título 
-    {\fontsize{11}{13}\selectfont\bfseries \proyectoTitulo\par}    
-    \vspace{2cm}
-    
-   % Nombres estudiantes 
-   {\fontsize{11}{13}\selectfont\bfseries \estudianteUno\par}
-   \vspace{0.5cm}
-   % {\fontsize{11}{13}\selectfont\bfseries \estudianteDos\par}
-    
-    \vspace{2cm}
-    
-    % Requisito - 
-    {\fontsize{11.5}{14}\selectfont\bfseries Proyecto de grado presentado como requisito para optar al título de:\par}
-    \vspace{0.3cm}
-    {\fontsize{11.5}{14}\selectfont\bfseries Ingeniero Electrónico\par}
-    
-    \vspace{4.5cm}
-    
-    % Director 
-    {\fontsize{11}{13}\selectfont\bfseries DIRECTOR DEL PROYECTO\par}
-    \vspace{0.2cm}
-    {\fontsize{11}{13}\selectfont \director{} (\directorTitulo)\par}
-    
-    \vspace{1.5cm}
-    
-    % Codirector 
-    {\fontsize{11}{13}\selectfont\bfseries CODIRECTOR DEL PROYECTO\par}
-    \vspace{0.2cm}
-    {\fontsize{11}{13}\selectfont \codirector{} (\codirectorTitulo)\par}
-    
-    \vspace{1.5cm}
-    
-    % Asesor 
-    %{\fontsize{11}{13}\selectfont\bfseries ASESOR DEL PROYECTO\par}
-   %\vspace{0.2cm}
-    %{\fontsize{11}{13}\selectfont \asesor{} (\asesorTitulo)\par}
-    
-    \vfill
-    
-    % Universidad 
-    {\fontsize{11}{13}\selectfont\bfseries UNIVERSIDAD SANTO TOMÁS\par}
-    {\fontsize{11}{13}\selectfont\bfseries FACULTAD DE INGENIERÍA ELECTRÓNICA\par}
-    {\fontsize{11}{13}\selectfont\bfseries PROGRAMA DE INGENIERÍA ELECTRÓNICA\par}
-    \vspace{0.2cm}
-    {\fontsize{11}{13}\selectfont\bfseries Bogotá D.C.\par}
-    {\fontsize{11}{13}\selectfont\bfseries \proyectoAnio\par}
-
-    \vspace{1cm}  
-\end{center}
-
+{
+	\fontfamily{ppl}\selectfont % Tipografía Palatino
+	\begin{titlepage}
+		% Forzamos tamaño de fuente base a 10pt para que no se vea grande
+		\fontsize{10}{12}\selectfont 
+		\vspace*{-2cm}
+		
+		\begin{center}
+			\setstretch{1.0}
+			
+			% 1. Universidad (Formato exacto de la macro de Navarrete)
+			{\textbf{\Huge{U}\LARGE{NIVERSIDAD} \Huge{S}\LARGE{ANTO} \Huge{T}\LARGE{OMÁS}}\par}
+			
+			\vfill
+			
+			% 2. Título entre líneas delgadas
+			\bhrule
+			\vspace{0.3cm}
+			{\Large \bfseries Desarrollo de una aplicación web para la gestión de comandas en restaurantes PYME con encriptación y autenticación de bajo costo \par}
+			\vspace{0.3cm}
+			\bhrule
+			
+			\vfill
+			\vspace{0.5cm}
+			
+			{\large Realizado por \par}
+			\smallskip
+			{\Large Luis Felipe Garzón Camacho \par}
+			
+			\vspace{1cm}
+			\vfill
+			
+			% 3. Texto de cumplimiento
+			{\large Proyecto de Grado presentado en cumplimiento del requisito \par para optar por el título de Ingeniero Electrónico \par}
+			
+			\vfill
+			
+			% 4. Imagen (Ruta exacta solicitada)
+			\includegraphics[width=0.7\textwidth]{Escudos.pdf}
+			
+			\vfill
+			
+			% 5. Bloque institucional MEM
+			{Grupo de Investigación MEM (Modelado-Electrónica-Monitoreo)} \\
+			{Facultad de Ingeniería Electrónica} \\
+			{División de Ingenierías} \\
+			
+			\bigskip
+			\bigskip
+			
+			{\large Bogotá D.C. \par}
+			{\large \proyectoFechaCompleta \par}
+			\bigskip
+			
+		\end{center}
+	\end{titlepage}
+	
+	% --- CONTRAPORTADA ---
+	\newpage
+	\thispagestyle{empty}
+	\fontsize{10}{12}\selectfont
+	\vspace*{-2cm}
+	\begin{center}
+		\setstretch{1.0}
+		
+		\bhrule
+		\vspace{0.3cm}
+		{\Large \bfseries Desarrollo de una aplicación web para la gestión de comandas en restaurantes PYME con encriptación y autenticación de bajo costo \par}
+		\bhrule
+		
+		\vfill
+		\vspace{0.5cm}
+		
+		{\large Realizado por \par}
+		\smallskip
+		{\Large Luis Felipe Garzón Camacho \par}
+		
+		\vfill
+		
+		{\large Proyecto de Grado presentado en cumplimiento del requisito \par para optar por el grado de Ingeniero Electrónico \par}
+		
+		\vfill
+		\vspace{1cm}
+		
+		{\large Dirigido por\par}
+		{\Large Ing. Jaime Vitola Oyaga, Ph.D. \par} 
+		
+		\vfill
+		\vspace{0.5cm}
+		
+		{\large Co-Dirigido por\par}
+		{\Large Ing. John Monzaide Alvarez Cely, MSc. \par}
+		
+		\vfill
+		\vspace{1cm}
+		
+		{Grupo de Investigación MEM (Modelado-Electrónica-Monitoreo)} \\
+		{Facultad de Ingeniería Electrónica} \\
+		{División de Ingenierías} \\
+		
+		\bigskip
+		\bigskip
+		
+		{\large Bogotá D.C. \par}
+		
+		{\large \proyectoFechaCompleta \par}
+		\bigskip
+		
+	\end{center}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage

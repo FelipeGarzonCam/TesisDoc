@@ -3,6 +3,8 @@
 
 
 \documentclass[12pt, letterpaper]{report}
+% Definición de la línea gruesa idéntica a Thesis.cls
+
 
 % --- PAQUETES ---
 \usepackage[utf8]{inputenc}
@@ -16,7 +18,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tikz} 
  \usetikzlibrary{positioning, shapes.geometric, arrows.meta, shadows}
-
+\usepackage{xcolor}
 \usepackage{graphicx}
 \graphicspath{{imagenes/}}
 \usepackage{setspace}
@@ -91,7 +93,7 @@
 }
 
 % ============ CONFIGURACIÓN DE TÍTULOS ============
-
+\newcommand{\bhrule}{{\color{black!50}\rule{\textwidth}{0.05pt}}}
 % Formato de capítulos
 \titleformat{\chapter}[hang]
   {\normalfont\Large\bfseries\centering}
@@ -142,81 +144,16 @@
 \tableofcontents
 \newpage
 
-% ==================== LISTA DE FIGURAS ====================
-% Se agrega automáticamente. Cada figura insertada con \caption{...} aparecerá aquí.
-% Para insertar una figura:
-%   \begin{figure}[H]
-%       \centering
-%       \includegraphics[width=0.7\textwidth]{imagen.png}
-%       \caption{Descripción de la figura}
-%       \label{fig:etiqueta}
-%   \end{figure}
-% Nota: Mientras que la ilustración busca transmitir ideas y emociones, 
-% la figura representa objetos o conceptos específicos de manera clara y precisa.
 \listoffigures
 \addcontentsline{toc}{chapter}{Lista de Figuras}
 \newpage
 
-% ==================== LISTA DE TABLAS ====================
-% Se agrega automáticamente. Cada tabla insertada con \caption{...} aparecerá aquí.
-% Para insertar una tabla:
-%   \begin{table}[H]
-%       \centering
-%       \caption{Descripción de la tabla}
-%       \label{tab:etiqueta}
-%       \begin{tabular}{|c|c|c|}
-%           \hline
-%           Columna 1 & Columna 2 & Columna 3 \\
-%           \hline
-%           Dato 1 & Dato 2 & Dato 3 \\
-%           \hline
-%       \end{tabular}
-%   \end{table}
+
 \listoftables
 \addcontentsline{toc}{chapter}{Lista de Tablas}
 \newpage
 
-% ==================== LISTA DE GRÁFICAS (OPCIONAL) ====================
-% Una gráfica contiene ejes coordenados para expresar comportamiento de datos
-% de forma continua o discreta.
-% Las gráficas se insertan igual que figuras, pero especificando en el caption:
-%   \caption{Gráfica de temperatura vs tiempo}
-% Por defecto aparecen en la Lista de Figuras. Si quieres separarlas,
-% debes crear manualmente esta lista o usar el paquete 'newfloat'.
-% Descomenta las siguientes líneas si necesitas una lista separada:
-%
-% \chapter*{LISTA DE GRÁFICAS}
-% \addcontentsline{toc}{chapter}{Lista de Gráficas}
-% (Agregar manualmente cada gráfica aquí)
-% \newpage
 
-% ==================== LISTA DE ILUSTRACIONES (OPCIONAL) ====================
-% Una ilustración es una representación gráfica creada por un artista o diseñador.
-% A diferencia de una imagen, una ilustración no se basa necesariamente en la 
-% realidad y puede incluir elementos imaginativos o abstractos.
-% Las ilustraciones se insertan igual que figuras:
-%   \caption{Ilustración del concepto del sistema}
-% Por defecto aparecen en la Lista de Figuras.
-% Descomenta si necesitas una lista separada:
-%
-% \chapter*{LISTA DE ILUSTRACIONES}
-% \addcontentsline{toc}{chapter}{Lista de Ilustraciones}
-% (Agregar manualmente cada ilustración aquí)
-% \newpage
-
-% ==================== LISTA DE IMÁGENES (OPCIONAL) ====================
-% Una imagen se refiere a una representación visual que captura o reproduce
-% la apariencia de un objeto, persona o escena. Generalmente, se trata de 
-% una fotografía o un renderizado digital.
-% Las imágenes se insertan igual que figuras:
-%   \caption{Imagen del prototipo final}
-% Por defecto aparecen en la Lista de Figuras.
-% Descomenta si necesitas una lista separada:
-%
-% \chapter*{LISTA DE IMÁGENES}
-% \addcontentsline{toc}{chapter}{Lista de Imágenes}
-% (Agregar manualmente cada imagen aquí)
-% \newpage
 
 % ==================== LISTA DE CÓDIGOS (OPCIONAL) ====================
 % Se agrega automáticamente. Cada código con caption=... aparecerá aquí.

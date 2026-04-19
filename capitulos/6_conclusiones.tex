@@ -1,3 +1,123 @@
 \chapter{CONCLUSIONES}
 
-Considerar dos formas de presentación: un párrafo que exprese lo obtenido en cumplimiento de cada objetivo específico elaborado en proyecto de grado I, o mediante un párrafo más denso que evidencie el cumplimiento de los objetivos específicos y con ello lo general.
+El desarrollo de QuickTable demostró que es posible construir una solución tecnológica
+accesible, segura y funcional para el sector gastronómico colombiano sin recurrir a
+servicios en la nube ni a hardware especializado de alto costo, validando la hipótesis
+central planteada en el anteproyecto. Los resultados obtenidos a lo largo de las fases
+de laboratorio y de la implementación piloto en entorno real confirman el cumplimiento
+de los tres objetivos específicos del proyecto.
+
+\section*{Cumplimiento del objetivo de diseño y arquitectura}
+
+El diseño de la arquitectura del sistema integró de forma coherente los requerimientos
+funcionales, de seguridad y de escalabilidad definidos en la fase inicial. La decisión
+de adoptar el patrón Razor Pages sobre .NET 8 con Entity Framework 6 y SQL Server
+permitió estructurar un sistema robusto que opera íntegramente sobre intranet local,
+eliminando la dependencia de conectividad externa y garantizando al establecimiento la
+custodia absoluta de su información operativa y financiera. El modelo entidad-relación
+diseñado separó con claridad la operación en tiempo real de la persistencia histórica,
+lo que contribuyó directamente a los tiempos de respuesta inferiores a dos segundos
+registrados en las pruebas de carga. La arquitectura de seguridad multicapa, compuesta
+por encriptación TDE sobre los archivos físicos de la base de datos, hashing BCrypt
+con factor de trabajo 12 para credenciales de usuario y cifrado AES-256-CBC para los
+identificadores NFC, estableció un estándar de protección que ninguna de las soluciones
+POS comerciales analizadas en el mercado colombiano contempla de forma integrada.
+
+\section*{Cumplimiento del objetivo de implementación}
+
+El sistema fue implementado en su totalidad, abarcando los cinco módulos operativos
+(Mesero, Cocina, Caja, Administrador y TI), el módulo de seguridad por hardware 2FA
+y la API REST de comunicación con el cliente Python ejecutado en la Raspberry Pi. La
+interfaz de usuario, construida sobre AdminLTE con personalización CSS profunda,
+demostró adaptabilidad a dispositivos heterogéneos, desde smartphones Android para
+la toma de pedidos hasta televisores Smart TV para el módulo de cocina, sin dependencia
+de sistemas operativos específicos. El módulo de autenticación de doble factor por
+hardware, basado en la Raspberry Pi 3 con lector RFID-RC522 operando a 13,56~MHz
+conforme al estándar ISO/IEC 14443, opera de forma completamente offline dentro de la
+intranet, resolviendo la incompatibilidad estructural de los sistemas 2FA en la nube
+con el modelo de despliegue local del sistema. La implementación del modelo de
+concurrencia threading en el cliente Python eliminó el bloqueo de la interfaz gráfica
+Tkinter durante las lecturas NFC, garantizando retroalimentación visual continua al
+administrador durante el proceso de autenticación.
+
+\section*{Cumplimiento del objetivo de evaluación}
+
+Las pruebas de validación ejecutadas confirmaron la viabilidad técnica del sistema
+en todas las dimensiones evaluadas. Las siete pruebas unitarias MSTest sobre los
+servicios PasswordService y CryptoService registraron estado \textit{Passed} en dos
+ejecuciones independientes, verificando la correcta implementación de los algoritmos
+criptográficos y su comportamiento ante entradas inválidas o vacías. Las pruebas de
+API con Postman validaron la coherencia semántica de los cuatro endpoints evaluados,
+confirmando la operatividad del sistema de copias de seguridad con TDE integrado y el
+correcto registro de asistencia del personal mediante tarjeta NFC. La evaluación de
+rendimiento con Lighthouse evidenció tiempos de respuesta operativa inferiores a dos
+segundos en las condiciones de intranet aislada, con puntajes de 99 a 100 en las vistas
+de Login, Cocina, Caja y Administrador, y un puntaje de 87 en la vista de Mesero
+atribuible al contexto de emulación de red móvil con limitaciones de procesamiento
+simuladas. El análisis de vulnerabilidades con OWASP ZAP 2.17.0 sobre 15 endpoints
+identificó únicamente alertas de nivel medio e informativo, concentradas en
+configuraciones de política de seguridad de contenido requeridas por las librerías de
+interfaz de terceros, sin detectar vulnerabilidades que comprometieran la integridad
+de la base de datos ni la persistencia del sistema.
+
+La prueba de concurrencia automatizada con Playwright, ejecutada durante siete horas
+continuas con seis agentes paralelos que simularon los roles de Mesero, Cocina y Caja,
+registró tasas de éxito transaccional del 100\,\% en los roles de Caja y Mesero, y del
+99,75\,\% en el rol de Cocina. El único evento categorizado como error en el módulo de
+cocina correspondió a una condición de carrera momentánea durante una modificación
+concurrente, resuelta automáticamente por la arquitectura de Razor Pages sin propagación
+al resto de los procesos del servicio. El sistema operó durante las siete horas de
+ejecución sin desbordamientos de memoria ni bloqueos de recursos físicos, confirmando
+la disponibilidad sostenida del servicio bajo los parámetros de infraestructura propios
+de una PYME gastronómica.
+
+La documentación técnica y de usuario generada como parte del cuarto objetivo específico,
+que comprende el manual técnico de instalación y configuración del sistema y los manuales
+de usuario diferenciados por rol operativo, se encuentra disponible en el Anexo~A de este
+documento.
+
+\section*{Validación en entorno real}
+
+La implementación piloto en Gastro Uno 58 Bar durante un mes de operación continua
+constituyó la validación más exigente del sistema, al exponer el software a condiciones
+reales de uso por parte de personal sin formación técnica previa. Los resultados del
+cuestionario de satisfacción aplicado al finalizar el período mostraron acuerdo unánime
+del 100\,\% en las ocho dimensiones evaluadas: eficiencia operativa, estabilidad técnica,
+usabilidad, reducción de errores, comunicación interna, control de asistencia,
+autenticación de doble factor y gestión del negocio. La calificación promedio de
+satisfacción general fue de 4,80 sobre 5,00, con cuatro de los cinco participantes
+otorgando la puntuación máxima. Ningún participante calificó el sistema por debajo de
+cuatro estrellas. La retroalimentación cualitativa recopilada, que incluyó solicitudes
+de mejora sobre el módulo de asistencia, la programación de menús por día y el formato
+de impresión de facturas, no señaló fallos funcionales sino oportunidades de mejora
+incremental, todas documentadas en el capítulo de Trabajo Futuro.
+
+\section*{Viabilidad económica y posicionamiento competitivo}
+
+El análisis de viabilidad económica confirmó que QuickTable representa la alternativa
+de menor costo total de propiedad disponible en el mercado colombiano para el segmento
+PYME gastronómico. Frente a los sistemas POS comerciales con suscripción mensual
+identificados en el mercado, cuyo costo real para el restaurante oscila entre \$105.800
+y \$251.890~COP mensuales al incluir el internet requerido para su operación, QuickTable
+alcanza el punto de equilibrio económico antes del décimo mes en el escenario más
+conservador (frente a GastroPOS Restobar) y antes del quinto mes frente a los
+competidores del segmento de gestión completa. A dos años de operación, el ahorro
+acumulado del restaurante frente a Loggro Básico supera los \$3.300.000~COP. La única
+dimensión en la que QuickTable no compite en igualdad de condiciones es la facturación
+electrónica DIAN, ausente en la versión actual del sistema, lo que restringe su adopción
+en establecimientos con obligación de emitir facturas electrónicas bajo régimen común.
+Esta limitación ha sido identificada como la línea de desarrollo de mayor impacto para
+versiones posteriores del sistema.
+
+\section*{Aporte interdisciplinario}
+
+Más allá del resultado funcional, este proyecto demostró la aplicabilidad de los
+principios de la Ingeniería Electrónica, incluyendo comunicaciones inalámbricas de corto
+alcance, sistemas embebidos y arquitecturas de seguridad por hardware, a la solución de
+problemas reales del sector productivo nacional. La integración del módulo NFC conforme
+al estándar ISO/IEC 14443 con el backend .NET 8, la gestión de concurrencia de hilos en
+el cliente Python y el diseño del protocolo de intercambio de tokens de sesión de corta
+duración constituyen contribuciones técnicas que trascienden el ámbito del desarrollo
+puramente informático y posicionan al proyecto como un caso de convergencia efectiva
+entre hardware embebido y software de nivel empresarial orientado al segmento PYME
+colombiano.

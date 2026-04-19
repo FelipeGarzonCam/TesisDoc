@@ -8,31 +8,32 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Casos de uso de administración del sistema y gestión TI (Realizado con PlantUML)}}{26}{figure.caption.13}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Diagrama de bloques de la arquitectura del sistema}}{34}{figure.caption.14}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Modelo Entidad-Relación de la base de datos (Creado en SMSS 20)}}{36}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces CAMBIAR.}}{40}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces CAMBIAR}}{40}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Diagrama de Secuencia UML detallando el proceso de autenticación de doble factor y comunicación con la API (Creado en Mermaid.live).}}{44}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Modelado 3D de la carcasa protectora (Creado en Cinema 4D Trial Version)}}{45}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Interfaz de usuario del módulo de mesero (diseño responsivo)}}{40}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces CAMBIAR.}}{40}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces CAMBIAR}}{41}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Diagrama de Secuencia UML detallando el proceso de autenticación de doble factor y comunicación con la API (Creado en Mermaid.live).}}{44}{figure.caption.19}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Modelado 3D de la carcasa protectora (Creado en Cinema 4D Trial Version)}}{45}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Topología de red simplificada con Router WiFi central para el entorno de laboratorio.}}{47}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Modelado 3D de la carcasa protectora (Creado en Cinema 4D Trial Version)}}{46}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Topología de red simplificada con Router WiFi central para el entorno de laboratorio.}}{47}{figure.caption.22}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Vista en paralelo de la interfaz de mesero durante la creación de la comanda y su recepción inmediata en el panel de control de cocina.}}{59}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Primera ejecución del conjunto de pruebas unitarias MSTest}}{60}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Segunda ejecución del conjunto de pruebas unitarias MSTest}}{60}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Respuesta del servidor ante la solicitud de creación de archivo de respaldo, visualizada en Postman.}}{62}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Métrica de almacenamiento disponible retornada por el endpoint.}}{62}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Arreglo JSON retornado por el endpoint de listado, evidenciando el historial de respaldos con sus metadatos de seguridad asociados.}}{63}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Respuesta del endpoint \texttt {/api/asistencia/marcar-salida} tras el cierre exitoso de la jornada laboral del personal de cocina.}}{64}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Login.}}{66}{figure.caption.39}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Mesero.}}{67}{figure.caption.40}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Cocina.}}{67}{figure.caption.41}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Caja.}}{68}{figure.caption.42}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Administrador.}}{69}{figure.caption.43}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Login sin acceso a internet.}}{70}{figure.caption.46}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Mesero sin acceso a internet.}}{71}{figure.caption.47}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Cocina sin acceso a internet.}}{71}{figure.caption.48}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Caja sin acceso a internet.}}{72}{figure.caption.49}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Admin sin acceso a internet.}}{72}{figure.caption.50}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Proporción visual de la tasa de éxito frente a la cantidad de errores aislados por rol operativo.}}{74}{figure.caption.52}%
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Comportamiento transaccional segmentado por hora y perfil, evidenciando el manejo del sistema durante el pico de carga.}}{75}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Vista en paralelo de la interfaz de mesero durante la creación de la comanda y su recepción inmediata en el panel de control de cocina.}}{60}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Primera ejecución del conjunto de pruebas unitarias MSTest}}{61}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Segunda ejecución del conjunto de pruebas unitarias MSTest}}{61}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Respuesta del servidor ante la solicitud de creación de archivo de respaldo, visualizada en Postman.}}{63}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Métrica de almacenamiento disponible retornada por el endpoint.}}{63}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Arreglo JSON retornado por el endpoint de listado, evidenciando el historial de respaldos con sus metadatos de seguridad asociados.}}{64}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Respuesta del endpoint \texttt {/api/asistencia/marcar-salida} tras el cierre exitoso de la jornada laboral del personal de cocina.}}{65}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Login.}}{67}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Mesero.}}{68}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Cocina.}}{68}{figure.caption.42}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Caja.}}{69}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Administrador.}}{70}{figure.caption.44}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Login sin acceso a internet.}}{71}{figure.caption.47}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Mesero sin acceso a internet.}}{72}{figure.caption.48}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Cocina sin acceso a internet.}}{72}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Caja sin acceso a internet.}}{73}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Pantallazo del resultado Lighthouse para la vista de Admin sin acceso a internet.}}{73}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Proporción visual de la tasa de éxito frente a la cantidad de errores aislados por rol operativo.}}{75}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Comportamiento transaccional segmentado por hora y perfil, evidenciando el manejo del sistema durante el pico de carga.}}{76}{figure.caption.55}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

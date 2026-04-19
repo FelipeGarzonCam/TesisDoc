@@ -356,7 +356,13 @@ La arquitectura general se compone de los siguientes elementos:
 
 \section{Diseño e Implementación de la Base de Datos}
 
-El diseño de la base de datos se estructuró para soportar las operaciones críticas del restaurante de manera transaccional, garantizando la integridad referencial y minimizando la redundancia de datos. Se optó por el motor Microsoft SQL Server debido a su robustez, soporte nativo de encriptación y excelente integración con el ecosistema de desarrollo de Microsoft.
+El diseño de la base de datos se estructuró para soportar las operaciones críticas del restaurante de manera transaccional, garantizando la integridad referencial y minimizando la redundancia de datos. Se optó por el motor Microsoft SQL Server debido a su robustez, soporte nativo de encriptación y excelente integración con el ecosistema de desarrollo de Microsoft.Para proteger los archivos físicos de la base de datos en reposo, se habilitó el mecanismo de \textit{Transparent Data Encryption} (TDE) nativo de SQL Server. 
+Este mecanismo cifra los archivos \texttt{.mdf} y \texttt{.ldf} directamente en el 
+disco, de forma transparente para la aplicación, utilizando una clave de cifrado de 
+base de datos protegida por un certificado de servidor. Los archivos de certificado 
+(\texttt{.cer}) y de clave privada (\texttt{.pvk}) generados son almacenados de forma 
+segura por el rol TI, garantizando que cualquier copia de seguridad del sistema sea 
+ilegible sin la posesión de dichas credenciales criptográficas.
 
 \subsection{Modelo Entidad-Relación}
 
@@ -420,17 +426,26 @@ El sistema fue segmentado en cinco módulos principales, protegidos por un siste
 	\item \textbf{Módulo de Meseros:} Implementa el modelo \texttt{PageModel} para recibir peticiones HTTP POST con objetos JSON que contienen los arreglos de productos. El controlador procesa la lógica matemática de impuestos y subtotales en el servidor y ejecuta la persistencia inicial del registro en la tabla \texttt{PedidosActivos}.
 	\item \textbf{Módulo de Cocina:} Funciona mediante consultas asíncronas periódicas (AJAX) que interrogan a la base de datos para extraer dinámicamente los registros con estado pendiente. A través de Endpoints específicos, permite la actualización de estados y marcas temporales sin necesidad de recargar el DOM completo.
 	\item \textbf{Módulo de Caja:} Su controlador gestiona el ciclo de vida final del objeto pedido. Tras la confirmación del pago mediante peticiones asíncronas, el sistema ejecuta la lógica transaccional de migración de datos, trasladando la información desde las tablas operativas (\texttt{PedidosActivos}) hacia las entidades inmutables del esquema (\texttt{HistorialPedidos}).
-	\item \textbf{Módulos de Administración y TI:} Exponen las interfaces de configuración del CRUD de inventarios y empleados, y gestionan los algoritmos criptográficos (hashing de credenciales). Además, orquestan la comunicación externa exponiendo los Endpoints REST de la API que interactúan con la Raspberry Pi para la verificación de tarjetas NFC.
+	\item \textbf{Módulos de Administración y TI:} Exponen las interfaces de configuración del CRUD de inventarios y empleados, y gestionan los algoritmos criptográficos (hashing de credenciales). Además, orquestan la comunicación externa exponiendo los Endpoints REST de la API que interactúan con la Raspberry Pi para la verificación de tarjetas NFC.La gestión criptográfica del sistema se estructura en dos servicios independientes. 
+	El \texttt{PasswordService} implementa el algoritmo de hashing \textit{BCrypt} con 
+	factor de trabajo 12, lo que garantiza que las contraseñas nunca se almacenen en 
+	texto plano y que el costo computacional de verificación sea suficiente para resistir 
+	ataques de fuerza bruta por diccionario. El \texttt{CryptoService} implementa el 
+	estándar de cifrado simétrico \textit{AES} (Advanced Encryption Standard) en modo 
+	CBC (\textit{Cipher Block Chaining}) con clave de 256 bits, utilizado específicamente 
+	para cifrar los identificadores UID de las tarjetas NFC antes de su almacenamiento 
+	en la tabla \texttt{TarjetasRC}, asegurando que un acceso no autorizado a la base de 
+	datos no exponga los identificadores físicos de las llaves de acceso administrativo.
 \end{itemize}
 
 
 % Descomentar y ajustar cuando tengas pantallazos del sistema
-% \begin{figure}[H]
-	%     \centering
-	%     \includegraphics[width=0.85\textwidth]{imagenes/interfaz_mesero.png}
-	%     \caption{Interfaz de usuario del módulo de mesero (diseño responsivo)}
-	%     \label{fig:interfaz_mesero}
-	% \end{figure}
+\begin{figure}[H]
+	    \centering
+	    % \includegraphics[width=0.85\textwidth]{imagenes/interfaz_mesero.png}
+	    \caption{Interfaz de usuario del módulo de mesero (diseño responsivo)}
+	     \label{fig:interfaz_mesero}
+\end{figure}
 
 \subsection{Análisis Visual de la Interfaz Implementada}
 
@@ -500,6 +515,16 @@ Cuando el UID de la tarjeta es recibido por el servidor a través del \textit{En
 
 De manera simultánea, la vista del navegador en la estación de trabajo realiza consultas asíncronas periódicas mediante JavaScript (método de \textit{polling}) para verificar su estado. Al detectar la autorización emitida por la Raspberry Pi, el sistema redirige automáticamente al administrador a su panel de control privado, completando el ciclo de validación sin necesidad de exponer credenciales o tokens a redes externas.
 
+La sincronización entre el cliente Python y el backend \texttt{.NET~8} se basa en 
+el intercambio de tokens de sesión de corta duración gestionados por la tabla 
+\texttt{Codigos2FA}. El UID físico leído por el lector RFID-RC522 nunca se transmite 
+en texto plano a través de la red local; en su lugar, el backend valida la sesión 
+mediante el token y confronta internamente el identificador cifrado almacenado en 
+la tabla \texttt{TarjetasRC} utilizando el \texttt{CryptoService} basado en 
+AES-256-CBC con clave de 256~bits. Este diseño garantiza que, incluso ante una 
+intercepción del tráfico en la intranet, un atacante no pueda obtener el 
+identificador real de la tarjeta NFC ni suplantar el segundo factor de autenticación.
+
 
 \subsection{Diagrama de Secuencia UML: Flujo de Autenticación 2FA}
 
@@ -507,14 +532,16 @@ Para ilustrar de manera formal la interacción entre los diferentes componentes 
 
 Como se detalló en los apartados anteriores, la validación no recae en un solo componente, sino que es el resultado de un flujo de comunicación asíncrona y orquestada entre el navegador del usuario (Frontend web), el servidor central (.NET 8), la base de datos (SQL Server) y el dispositivo físico (Raspberry Pi). 
 
-En la Figura \ref{fig:uml_secuencia_2fa} se expone la cronología de los mensajes y peticiones que se ejecutan desde el momento en que el administrador ingresa sus credenciales primarias, la posterior generación del código de sesión dinámico, el proceso de espera mediante la técnica de \textit{polling} en JavaScript, la interrupción del hilo secundario en Python tras la lectura NFC, y finalmente, la resolución criptográfica de los datos (comparación de \textit{Hashes}) que autoriza la concesión del acceso.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.98\textwidth]{imagenes/diagrama_secuencia_2fa.png} 
 	\caption{Diagrama de Secuencia UML detallando el proceso de autenticación de doble factor y comunicación con la API (Creado en Mermaid.live).}
 	\label{fig:uml_secuencia_2fa}
 \end{figure}
+
+En la Figura \ref{fig:uml_secuencia_2fa} se expone la cronología de los mensajes y peticiones que se ejecutan desde el momento en que el administrador ingresa sus credenciales primarias, la posterior generación del código de sesión dinámico, el proceso de espera mediante la técnica de \textit{polling} en JavaScript, la interrupción del hilo secundario en Python tras la lectura NFC, y finalmente, la resolución criptográfica de los datos (comparación de \textit{Hashes}) que autoriza la concesión del acceso.
+
+
 
 
 \subsection{Diseño e Integración Física del Módulo (Impresión 3D)}
@@ -614,6 +641,15 @@ A diferencia de las pruebas de interfaz, estas evaluaciones se enfocaron en vali
 	\item \textbf{Manejo de Entradas Inválidas:} Verificación del comportamiento del servicio criptográfico frente a valores nulos, vacíos o estructuralmente inválidos, garantizando que el sistema responda de forma segura sin comprometer la estabilidad del \textit{backend}.
 	\item \textbf{Hashing y Verificación de Contraseñas:} Validación del servicio responsable de generar y comprobar contraseñas cifradas, asegurando que las credenciales no se almacenen en texto plano y que la verificación funcione correctamente tanto para credenciales válidas como incorrectas.
 \end{itemize}
+Las pruebas unitarias cubren específicamente los dos servicios criptográficos 
+del sistema. Para el \texttt{CryptoService}, los casos de prueba verifican que 
+el ciclo de cifrado y descifrado con AES-256-CBC preserve la integridad del dato 
+original, y que entradas inválidas sean rechazadas sin propagar excepciones al 
+resto del sistema. Para el \texttt{PasswordService}, se valida que el hashing 
+con BCrypt (factor de trabajo~12) produzca resultados no reversibles y que el 
+mecanismo de verificación opere correctamente tanto para credenciales válidas 
+como inválidas, cubriendo los requerimientos RS-01 y RS-02 de la 
+Tabla~\ref{tab:req_funcionales_seguridad}.
 
 \subsection{Pruebas de API con Postman}
 
@@ -740,15 +776,43 @@ Dado el diseño del sistema, donde el acceso a los módulos operativos requiere 
 \end{itemize}
 
 \subsection{Implementación Piloto en Entorno Real}
+\label{subsec:piloto}
 
-Aunque no se contempló dentro de los objetivos iniciales del proyecto, se llevó a cabo un despliegue operativo en un escenario comercial real: el establecimiento Gastro Uno 58 Bar. El propósito de esta fase adicional fue validar el comportamiento del software fuera del entorno de laboratorio y recolectar datos cualitativos sobre su nivel de adopción por parte de usuarios sin formación técnica previa.
+Aunque no se contempló dentro de los objetivos iniciales del proyecto, se llevó a cabo
+un despliegue operativo en un escenario comercial real: el establecimiento Gastro Uno 58 Bar.
+El propósito de esta fase adicional fue validar el comportamiento del software fuera del
+entorno de laboratorio y recolectar datos cualitativos sobre su nivel de adopción por parte
+de usuarios sin formación técnica previa.
 
-La prueba piloto abarcó un periodo de un mes de operación continua. El despliegue comenzó con una jornada exclusiva de capacitación (día uno), durante la cual se instruyó al personal en el uso de las interfaces, el flujo de procesamiento de comandas y la autenticación de doble factor mediante tarjetas NFC. La plantilla del restaurante estuvo conformada por cuatro usuarios operativos: un administrador (quien asumió simultáneamente las funciones del módulo de Caja), dos meseras y una cocinera. Debido a que el establecimiento contaba con un servicio activo de internet, el sistema operó bajo las condiciones habituales de tráfico de una red comercial abierta, permitiendo contrastar su estabilidad frente a las pruebas de intranet aislada.
+La prueba piloto abarcó un periodo de un mes de operación continua. El despliegue comenzó
+con una jornada exclusiva de capacitación durante el día uno, en la cual se instruyó al
+personal en el uso de las interfaces, el flujo de procesamiento de comandas y la autenticación
+de doble factor mediante tarjetas NFC. La plantilla del restaurante estuvo conformada por cuatro usuarios operativos un administrador (quien asumió simultáneamente las funciones del módulo de Caja), dos meseras y una cocinera.
 
-Para evaluar el impacto de la herramienta, la metodología definió la recolección de resultados a través de cuestionarios de satisfacción aplicados al personal al finalizar el mes de uso. Estos instrumentos buscan documentar la percepción cualitativa sobre la facilidad de uso, la agilidad en el servicio y la reducción de errores respecto al modelo de papel y lápiz previo.
+Debido a que el establecimiento contaba con un servicio activo de internet, el sistema operó
+bajo las condiciones habituales de tráfico de una red comercial abierta, permitiendo contrastar
+su estabilidad frente a las pruebas de intranet aislada previamente ejecutadas en el laboratorio.
 
-Adicionalmente, esta implementación en producción se utilizó como modelo base para estructurar un análisis de viabilidad económica fundamentado en datos empíricos. A partir de este caso de estudio, se proyectó la generación de dos modelos de costos:
-\begin{itemize}
-	\item \textbf{Presupuesto de adaptación:} el cálculo de los equipos y componentes de hardware (lector RFID y microordenador) que fue estrictamente necesario proveer para poner en marcha el sistema en este restaurante en particular, aprovechando la infraestructura tecnológica que el local ya poseía.
-	\item \textbf{Presupuesto de implementación inicial:} una proyección financiera integral calculada desde cero, simulando el escenario de un restaurante nuevo que requiere la adquisición total de los equipos informáticos y de red necesarios para cumplir con los requerimientos técnicos de la plataforma.
-\end{itemize}
+Para evaluar el impacto de la herramienta, la metodología definió la recolección de resultados
+a través de un cuestionario de satisfacción aplicado al personal al finalizar el mes de uso.
+Este instrumento se estructuró en torno a seis dimensiones de evaluación: eficiencia operativa,
+estabilidad técnica, usabilidad, reducción de errores, comunicación interna y control
+administrativo y de seguridad. Las dimensiones de eficiencia operativa, estabilidad técnica,
+usabilidad, reducción de errores y comunicación interna fueron evaluadas por la totalidad del
+personal operativo, mientras que las dimensiones de control administrativo, doble factor de
+autenticación y gestión del negocio fueron respondidas exclusivamente por el perfil con rol
+de administrador, dado que corresponden a funcionalidades de acceso restringido.
+
+Adicionalmente, el cuestionario incluyó una pregunta abierta orientada a identificar
+funcionalidades que el personal desearía modificar o agregar, con el fin de documentar
+retroalimentación cualitativa directa desde el contexto operativo real. 
+
+Esta implementación en producción se utilizó también como modelo base para estructurar un
+análisis de viabilidad económica. Dado que los componentes del módulo de seguridad por
+hardware fueron aportados directamente por el autor del proyecto, el establecimiento no
+incurrió en costo alguno durante el piloto. No obstante, se construyeron dos modelos de
+referencia para representar el costo real que asumiría un tercero al adoptar la solución:
+un escenario de adaptación, orientado a establecimientos que ya disponen de equipos de
+cómputo y únicamente requieren adquirir el módulo de autenticación por hardware; y un
+escenario de implementación desde cero, que contempla la adquisición de toda la
+infraestructura necesaria para cada puesto operativo.

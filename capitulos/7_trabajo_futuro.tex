@@ -1,7 +1,162 @@
 \chapter{TRABAJO FUTURO}
-Recomendaciones y líneas de investigación que se derivan del proyecto, pero que no fueron desarrolladas en el mismo. Su propósito es guiar investigaciones posteriores, ampliando o mejorando los resultados obtenidos.
+\label{cap:trabajo_futuro}
 
-Identifique limitaciones del proyecto actual que requieran mayor estudio.
-Proponga mejoras concretas (probar otros algoritmos o componentes).
-Sugiera aplicaciones no exploradas (implementar en otro sector industrial).
-Mantenga viabilidad técnica y relación con los hallazgos del proyecto.
+Durante el desarrollo del sistema se explor\'{o} la posibilidad de implementar notificaciones 
+nativas del sistema operativo en dispositivos Android mediante la \textit{Web Notifications API} 
+y la \textit{Push API} del navegador, con el objetivo de alertar al personal sobre nuevos pedidos 
+o cambios de estado sin depender del mecanismo de \textit{polling} peri\'{o}dico actualmente 
+implementado. Sin embargo, ambas APIs est\'{a}n restringidas por los navegadores modernos 
+a contextos seguros, es decir, requieren que el servidor opere bajo el protocolo HTTPS. Durante 
+el desarrollo se intent\'{o} habilitar este protocolo mediante la emisi\'{o}n de un certificado 
+SSL autofirmado; no obstante, los navegadores de dispositivos Android rechazan por dise\~{n}o 
+los certificados cuya Autoridad Certificadora no est\'{e} reconocida globalmente, bloqueando 
+igualmente el acceso a dichas APIs. Dado que obtener un certificado emitido por una CA p\'{u}blica 
+reconocida exige la exposici\'{o}n del servidor a internet mediante un dominio registrado, esta 
+alternativa resulta incompatible con el modelo de despliegue local en intranet que define la 
+arquitectura del sistema. Como l\'{i}nea de trabajo futuro, se recomienda evaluar la instalaci\'{o}n 
+manual del certificado autofirmado directamente en el almac\'{e}n de confianza de cada dispositivo 
+Android del establecimiento, procedimiento que, aunque requiere una configuraci\'{o}n inicial por 
+dispositivo, permitir\'{i}a habilitar HTTPS dentro de la intranet sin dependencia de conectividad 
+externa y desbloquear el uso de la \textit{Notifications API} y los \textit{Service Workers} para 
+la implementaci\'{o}n de notificaciones \textit{push} locales, eliminando la necesidad del 
+\textit{polling} y reduciendo la carga de peticiones sobre el servidor.
+
+Derivadas de la retroalimentaci\'{o}n recopilada durante la implementaci\'{o}n piloto, se 
+identificaron tres oportunidades de mejora incremental. En primer lugar, el personal de cocina 
+expres\'{o} la necesidad de \textit{``poder marcar salida con el n\'{u}mero de la c\'{e}dula 
+	sin el carnet''}. Actualmente, el cierre de jornada requiere la presencia f\'{i}sica de la 
+tarjeta NFC; incorporar la c\'{e}dula como mecanismo alternativo de marcado de salida 
+implicar\'{i}a extender el m\'{o}dulo de asistencia con un segundo factor de identificaci\'{o}n 
+de menor privilegio, adecuado para operaciones de cierre de turno que no requieren el nivel 
+de seguridad del acceso administrativo. En segundo lugar, un mesero sugiri\'{o} 
+\textit{``tener men\'{u}s por d\'{i}a''}, lo que se traduce en la implementaci\'{o}n de un 
+sistema de programaci\'{o}n de disponibilidad por item del men\'{u}, permitiendo al 
+administrador configurar qu\'{e} platos estar\'{a}n activos seg\'{u}n el d\'{i}a de la semana 
+o el turno, sin necesidad de editar manualmente el cat\'{a}logo antes de cada servicio. 
+Finalmente, el cajero observ\'{o} que \textit{``la forma de la factura no encaja bien en la 
+	impresora''}, lo que apunta a la necesidad de parametrizar el formato de impresi\'{o}n de la 
+factura, habilitando la configuraci\'{o}n del ancho del papel, m\'{a}rgenes y tama\~{n}o de 
+fuente desde el panel de administraci\'{o}n para adaptarse a las dimensiones espec\'{i}ficas 
+de las impresoras t\'{e}rmicas disponibles en cada establecimiento.
+
+
+\section{Modelo de Comercialización y Escalabilidad}
+
+Una de las características diferenciales de QuickTable frente a las soluciones POS
+comerciales analizadas es su arquitectura de despliegue local, que elimina la dependencia
+de servidores externos y el pago de suscripciones recurrentes para el establecimiento
+adoptante. Sin embargo, esta misma característica plantea un desafío inherente al modelo
+de negocio del desarrollador: la intranet impide implementar mecanismos automáticos de
+licenciamiento en línea o de facturación recurrente basados en conectividad.
+
+Para resolver esta tensión y garantizar la viabilidad económica del proyecto a escala,
+se propone un modelo de comercialización estructurado en dos componentes complementarios.
+
+\subsection*{Componente 1: Implementación y puesta en marcha}
+
+El primer componente corresponde a un cobro único por implementación, que incluye la
+instalación y configuración del sistema en la infraestructura del establecimiento, la
+provisión del módulo de hardware 2FA (Raspberry Pi 3, lector RFID-RC522 y tarjetas NFC),
+y una jornada de capacitación al personal por rol con una duración estimada de cuatro
+horas. Con base en los escenarios de presupuesto documentados, se propone una tarifa de
+implementación de \$300.000~COP por instalación, que incluye tanto los servicios de
+despliegue como el margen correspondiente al tiempo de trabajo del desarrollador. Esta
+tarifa sitúa el costo de entrada total del restaurante en \$703.200~COP (módulo 2FA más
+router más implementación), cifra que, como se demostró en el análisis comparativo,
+se recupera antes del décimo mes de operación frente a cualquier alternativa de
+suscripción del mercado.
+
+\subsection*{Componente 2: Póliza mensual de soporte y mantenimiento}
+
+El segundo componente, y el de mayor relevancia para la sostenibilidad económica a largo
+plazo del desarrollador, es una póliza mensual de soporte y mantenimiento con una tarifa
+de \$30.000~COP mensuales. Esta cifra representa aproximadamente el 25\,\% del plan de
+suscripción más económico del mercado (GastroPOS Restobar, \$29.900~COP/mes más
+\$75.900~COP de internet), lo que la hace percibiblemente más accesible para el
+restaurante. A diferencia de las suscripciones SaaS, donde el pago mensual financia la
+infraestructura de servidores del proveedor, esta póliza cubre tres tipos de intervención
+directa sobre el sistema instalado:
+
+\begin{itemize}
+	\item Mantenimiento preventivo del hardware: revisión periódica del equipo servidor,
+	limpieza de archivos temporales y logs, verificación del estado del módulo Raspberry Pi
+	y del lector RFID-RC522, y actualización de dependencias del sistema operativo.
+	\item Mantenimiento correctivo de la aplicación: atención a fallos funcionales
+	reportados por el establecimiento, aplicación de parches de seguridad y corrección
+	de errores de interfaz identificados en operación.
+	\item Mejora continua basada en retroalimentación: incorporación de funcionalidades
+	solicitadas por el establecimiento (nuevos módulos de reporte, ajustes de interfaz,
+	integraciones específicas), que mantienen el sistema en evolución constante y
+	fortalecen la relación comercial con el cliente.
+\end{itemize}
+
+\subsection*{Viabilidad del modelo por volumen de clientes}
+
+La ventaja estructural de este esquema reside en su comportamiento con el volumen de
+clientes activos. El costo marginal de atender un cliente adicional es bajo, dado que la
+base de código es compartida y los tiempos de soporte se optimizan con la experiencia
+acumulada. La Tabla~\ref{tab:escalabilidad} ilustra la proyección de ingresos mensuales
+y anuales bajo distintos escenarios de adopción, asumiendo una incorporación de un
+cliente nuevo por mes durante el período proyectado.
+
+\begin{table}[H]
+	\centering
+	\caption{Proyección de ingresos del desarrollador según volumen de clientes activos.}
+	\label{tab:escalabilidad}
+	\begin{tabular}{r r r r}
+		\hline
+		\textbf{Clientes activos} &
+		\textbf{Ingreso pólizas/mes} &
+		\textbf{Ingreso pólizas/año} &
+		\textbf{Ingreso total año (+ 1 impl./mes)} \\
+		\hline
+		1   & \$30.000     & \$360.000     & \$3.960.000  \\
+		5   & \$150.000    & \$1.800.000   & \$5.400.000  \\
+		10  & \$300.000    & \$3.600.000   & \$7.200.000  \\
+		20  & \$600.000    & \$7.200.000   & \$10.800.000 \\
+		50  & \$1.500.000  & \$18.000.000  & \$21.600.000 \\
+		\hline
+	\end{tabular}
+	\footnotesize{\textit{Nota:} La columna ``Ingreso total año'' asume la adición de un cliente
+		nuevo por mes durante el año (\$300.000 de implementación por cliente nuevo,
+		12 clientes nuevos = \$3.600.000 adicionales). Valores en COP.}
+\end{table}
+
+Los datos de la Tabla~\ref{tab:escalabilidad} evidencian que el modelo es financieramente
+marginal con un volumen reducido de clientes, pero escala de forma sostenida conforme
+crece la base de instalaciones activas. Con 20 clientes activos, los ingresos por pólizas
+mensuales (\$600.000~COP/mes) superan el costo del plan premium de Loggro para un único
+establecimiento (\$219.990~COP/mes), lo que ilustra el principio central del modelo: la
+rentabilidad no proviene de cobrarle mucho a pocos clientes, sino de cobrarles poco a
+muchos.
+
+\subsection*{Limitación actual: ausencia de facturación electrónica DIAN}
+
+Como se documentó en la Tabla~\ref{tab:ventajas_funcionales}, QuickTable no incluye
+actualmente integración con la plataforma de facturación electrónica de la DIAN. Esta
+limitación restringe su adopción en establecimientos con obligación de emitir facturas
+electrónicas, segmento que incluye restaurantes con régimen común o con volúmenes de
+facturación que superan los topes del régimen simplificado.
+
+La implementación de este módulo se propone como extensión opcional de mayor impacto
+para versiones posteriores del sistema, con una estructura diferenciada: al tratarse de
+un servicio que requiere comunicación con los servidores de la DIAN mediante servicios
+web (UBL 2.1 con firma digital), su habilitación implicaría necesariamente la
+contratación de un plan de internet por parte del establecimiento, lo que modificaría
+la estructura de costos documentada en la Tabla~\ref{tab:estructura_costos_qt}. En
+consecuencia, este módulo se comercializaría como un complemento con tarifa adicional
+independiente de la póliza base, y su adopción requeriría un análisis de viabilidad
+económica propio que contemple el costo del internet, el costo del complemento y el
+volumen de facturas electrónicas mensuales del establecimiento, dado que la DIAN
+establece tarifas escalonadas según el número de documentos emitidos. Este escenario
+ampliado constituye una línea de investigación económica complementaria para versiones
+futuras del sistema.
+
+\subsection*{Panel de administración remota}
+
+Como línea de trabajo futuro complementaria al modelo de comercialización, se recomienda
+diseñar e implementar un panel de administración remota que permita al desarrollador
+gestionar actualizaciones, diagnósticos y respaldos de múltiples instalaciones de forma
+centralizada, sin comprometer la arquitectura de intranet local de cada establecimiento.
+Esta funcionalidad reduciría los tiempos de intervención correctiva y haría operativamente
+más eficiente la gestión de la póliza de soporte conforme crece la base de clientes activos.

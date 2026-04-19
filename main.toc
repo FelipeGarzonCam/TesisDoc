@@ -47,45 +47,46 @@
 \contentsline {section}{\numberline {4.3}Implementación de la Solución Web}{38}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Interfaz de Usuario (Frontend y Personalización visual)}{38}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Lógica de Negocio y Módulos .NET 8 (Razor Pages)}{39}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Análisis Visual de la Interfaz Implementada}{39}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Implementación del Módulo de Seguridad por Hardware (2FA Local)}{40}{section.4.4}%
+\contentsline {subsection}{\numberline {4.3.3}Análisis Visual de la Interfaz Implementada}{40}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Implementación del Módulo de Seguridad por Hardware (2FA Local)}{41}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Arquitectura y Configuración del Hardware}{41}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Desarrollo del Cliente Python e Interfaz Gráfica (Tkinter)}{41}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Sincronización y Criptografía con el Backend (.NET 8)}{42}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.2}Desarrollo del Cliente Python e Interfaz Gráfica (Tkinter)}{42}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Sincronización y Criptografía con el Backend (.NET 8)}{43}{subsection.4.4.3}%
 \contentsline {subsection}{\numberline {4.4.4}Diagrama de Secuencia UML: Flujo de Autenticación 2FA}{43}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Diseño e Integración Física del Módulo (Impresión 3D)}{44}{subsection.4.4.5}%
+\contentsline {subsection}{\numberline {4.4.5}Diseño e Integración Física del Módulo (Impresión 3D)}{45}{subsection.4.4.5}%
 \contentsline {section}{\numberline {4.5}Pruebas de Validación y Verificación}{46}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Infraestructura y Entorno de Laboratorio}{46}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Verificación Manual de Funcionalidades}{47}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}Pruebas Unitarias y de Seguridad Lógica}{48}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Pruebas de API con Postman}{48}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.4}Pruebas de API con Postman}{49}{subsection.4.5.4}%
 \contentsline {subsection}{\numberline {4.5.5}Evaluación del Tiempo de Respuesta Operativa}{49}{subsection.4.5.5}%
 \contentsline {subsection}{\numberline {4.5.6}Pruebas Automatizadas de Concurrencia}{50}{subsection.4.5.6}%
-\contentsline {paragraph}{Etapa 1 — Carga y normalización.}{54}{paragraph*.22}%
-\contentsline {paragraph}{Etapa 2 — Cálculo de métricas.}{55}{paragraph*.23}%
-\contentsline {paragraph}{Etapa 3 — Generación de visualizaciones.}{55}{paragraph*.24}%
-\contentsline {paragraph}{Etapa 4 — Exportación de datos y reporte de consola.}{56}{paragraph*.25}%
+\contentsline {paragraph}{Etapa 1 — Carga y normalización.}{55}{paragraph*.23}%
+\contentsline {paragraph}{Etapa 2 — Cálculo de métricas.}{55}{paragraph*.24}%
+\contentsline {paragraph}{Etapa 3 — Generación de visualizaciones.}{55}{paragraph*.25}%
+\contentsline {paragraph}{Etapa 4 — Exportación de datos y reporte de consola.}{56}{paragraph*.26}%
 \contentsline {subsection}{\numberline {4.5.7}Análisis de Vulnerabilidades de Superficie con OWASP ZAP}{56}{subsection.4.5.7}%
-\contentsline {subsection}{\numberline {4.5.8}Implementación Piloto en Entorno Real}{56}{subsection.4.5.8}%
-\contentsline {chapter}{\numberline {5}RESULTADOS}{58}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Resultados de la Verificación Manual de Funcionalidades}{58}{section.5.1}%
-\contentsline {section}{\numberline {5.2} Resultados de las Pruebas Unitarias}{59}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Resultados de las Pruebas de API con Postman}{61}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Creación de Copia de Seguridad}{61}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Consulta de Espacio de Almacenamiento Disponible}{62}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Listado del Historial de Respaldos}{62}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Registro de Salida de Personal mediante Tarjeta NFC}{64}{subsection.5.3.4}%
-\contentsline {section}{\numberline {5.4}Resultados de la Evaluación del Tiempo de Respuesta Operativa}{64}{section.5.4}%
-\contentsline {subsubsection}{Condición con acceso a Internet}{65}{subsubsection*.37}%
-\contentsline {subsubsection}{Condición sin acceso a Internet}{69}{subsubsection*.44}%
-\contentsline {section}{\numberline {5.5}Resultados de las Pruebas de Concurrencia}{73}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Comportamiento Transaccional y Tasa de Éxito}{73}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Estabilidad del Servidor frente a Picos de Demanda}{75}{subsection.5.5.2}%
-\contentsline {section}{\numberline {5.6}Análisis de Seguridad (OWASP ZAP)}{77}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Resultados del Análisis de Seguridad (OWASP ZAP)}{77}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Resultados de la Implementación Piloto en Entorno Real}{78}{section.5.8}%
-\contentsline {paragraph}{Presupuesto de Adaptación.}{79}{paragraph*.58}%
-\contentsline {paragraph}{Presupuesto de Implementación Inicial.}{79}{paragraph*.60}%
-\contentsline {chapter}{\numberline {6}CONCLUSIONES}{81}{chapter.6}%
-\contentsline {chapter}{\numberline {7}TRABAJO FUTURO}{82}{chapter.7}%
-\contentsline {chapter}{Referencias Bibliográficas}{87}{chapter*.62}%
+\contentsline {subsection}{\numberline {4.5.8}Implementación Piloto en Entorno Real}{57}{subsection.4.5.8}%
+\contentsline {chapter}{\numberline {5}RESULTADOS}{59}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Resultados de la Verificación Manual de Funcionalidades}{59}{section.5.1}%
+\contentsline {section}{\numberline {5.2} Resultados de las Pruebas Unitarias}{60}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Resultados de las Pruebas de API con Postman}{62}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Creación de Copia de Seguridad}{62}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Consulta de Espacio de Almacenamiento Disponible}{63}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Listado del Historial de Respaldos}{63}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Registro de Salida de Personal mediante Tarjeta NFC}{65}{subsection.5.3.4}%
+\contentsline {section}{\numberline {5.4}Resultados de la Evaluación del Tiempo de Respuesta Operativa}{65}{section.5.4}%
+\contentsline {subsubsection}{Condición con acceso a Internet}{66}{subsubsection*.38}%
+\contentsline {subsubsection}{Condición sin acceso a Internet}{70}{subsubsection*.45}%
+\contentsline {section}{\numberline {5.5}Resultados de las Pruebas de Concurrencia}{74}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Comportamiento Transaccional y Tasa de Éxito}{74}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Estabilidad del Servidor frente a Picos de Demanda}{76}{subsection.5.5.2}%
+\contentsline {section}{\numberline {5.6}Análisis de Seguridad (OWASP ZAP)}{78}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Resultados del Análisis de Seguridad (OWASP ZAP)}{78}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Resultados de la Implementación Piloto en Entorno Real}{79}{subsection.5.7.1}%
+\contentsline {paragraph}{Presupuesto de Adaptación.}{81}{paragraph*.59}%
+\contentsline {paragraph}{Presupuesto de Implementación Inicial.}{81}{paragraph*.61}%
+\contentsline {chapter}{\numberline {6}CONCLUSIONES}{86}{chapter.6}%
+\contentsline {chapter}{\numberline {7}TRABAJO FUTURO}{90}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Modelo de Comercialización y Escalabilidad}{91}{section.7.1}%
+\contentsline {chapter}{Referencias Bibliográficas}{98}{chapter*.67}%
